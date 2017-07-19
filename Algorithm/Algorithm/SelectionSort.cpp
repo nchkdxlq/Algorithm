@@ -6,14 +6,18 @@
 //  Copyright © 2017年 nchkdxlq. All rights reserved.
 //
 
-#include "SelectionSort.hpp"
 #include <iostream>
 #include <string>
+#include "SelectionSort.hpp"
 #include "Student.hpp"
+#include "SortTestHelper.hpp"
 
 using std::cout;
 using std::endl;
 using std::string;
+
+
+using namespace SortTestHelper;
 
 
 /*
@@ -38,33 +42,27 @@ void selectionSort(T arr[], int length)
     }
 }
 
-template<typename T>
-void selectionSort_printArr(T arr[], int length)
-{
-    for (int i = 0; i < length; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
 
 void selectionSort_run()
 {
-    int arr[10] = {1, 8, 7, 19, 14, 65, 60, 38, 35, 10};
-    selectionSort(arr, 10);
-    selectionSort_printArr(arr, 10);
+    int length = 10000;
+    int *arr = generateRandomArr(length, 10, length * 2);
+    testSort("SelectionSort", selectionSort, arr, length);
+    
+    delete [] arr;
     
     
     float floatArr[5] = {5.5, 4.4, 3.3, 2.2, 1.1};
     selectionSort(floatArr, 5);
-    selectionSort_printArr(floatArr, 5);
+    printArr(floatArr, 5);
     
     string strArr[5] = {"E", "D", "C", "B", "A"};
     selectionSort(strArr, 5);
-    selectionSort_printArr(strArr, 5);
+    printArr(strArr, 5);
     
     
     Student stuArr[5] = {{"tom", 98}, {"cookie", 76}, {"tim", 94}, {"ken", 67}, {"eric", 87}};
     selectionSort(stuArr, 5);
-    selectionSort_printArr(stuArr, 5);
+    printArr(stuArr, 5);
 }
 

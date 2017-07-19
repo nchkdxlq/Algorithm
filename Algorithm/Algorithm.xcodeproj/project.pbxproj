@@ -31,6 +31,7 @@
 		083DE1981F1D080E005916BB /* SelectionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectionSort.hpp; sourceTree = "<group>"; };
 		083DE19A1F1E5CE0005916BB /* Student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Student.cpp; sourceTree = "<group>"; };
 		083DE19B1F1E5CE0005916BB /* Student.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Student.hpp; sourceTree = "<group>"; };
+		083DE1A51F1FA620005916BB /* SortTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SortTestHelper.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				083DE1981F1D080E005916BB /* SelectionSort.hpp */,
 				083DE19A1F1E5CE0005916BB /* Student.cpp */,
 				083DE19B1F1E5CE0005916BB /* Student.hpp */,
+				083DE1A51F1FA620005916BB /* SortTestHelper.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -263,6 +265,7 @@
 				083DE1961F1D0677005916BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
