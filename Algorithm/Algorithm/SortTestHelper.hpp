@@ -38,7 +38,7 @@ namespace SortTestHelper {
     
     
     
-    // implemation
+    // implemention
     int *generateRandomArr(int length, int rangL, int rangR) {
         assert(rangL <= rangR);
     
