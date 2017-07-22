@@ -10,22 +10,25 @@
 #include "SortTestHelper.hpp"
 #include "SelectionSort.hpp"
 #include "InsertionSort.hpp"
-
+#include "BubbleSort.hpp"
 
 using namespace SortTestHelper;
 using namespace SelectionSort;
 using namespace InsertionSort;
-
+using namespace BubbleSort;
 
 void selectionSort_run();
 void insertionSort_run();
 void compare_insertionSort_selectionSort();
+void bubbleSort_run();
+
 
 int main(int argc, const char * argv[]) {
     
 //    selectionSort_run();
 //    insertionSort_run();
     compare_insertionSort_selectionSort();
+    bubbleSort_run();
     
     return 0;
 }
@@ -66,9 +69,18 @@ void insertionSort_run()
 void compare_insertionSort_selectionSort()
 {
     int length = 10000;
-    int *arr = generateNearlyOrderRandomArr(length, 0, length*2, 10);
+    int *arr = generateNearlyOrderedRandomArr(length, 10);
     testSort("SelectionSort", selectionSort, arr, length);
     testSort("InsertionSort", insertionSort, arr, length);
+    
+    delete [] arr;
+}
+
+void bubbleSort_run()
+{
+    int length = 10000;
+    int *arr = generateNearlyOrderedRandomArr(length, 10);
+    testSort("BubbleSort", bubbleSort, arr, length);
     
     delete [] arr;
 }

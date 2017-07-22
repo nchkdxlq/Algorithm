@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 		083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE19A1F1E5CE0005916BB /* Student.cpp */; };
+		087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121D61F235B7E00449465 /* BubbleSort.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		083DE19B1F1E5CE0005916BB /* Student.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Student.hpp; sourceTree = "<group>"; };
 		083DE1A51F1FA620005916BB /* SortTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SortTestHelper.hpp; sourceTree = "<group>"; };
 		087121D01F2338AD00449465 /* InsertionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InsertionSort.hpp; sourceTree = "<group>"; };
+		087121D61F235B7E00449465 /* BubbleSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BubbleSort.cpp; sourceTree = "<group>"; };
+		087121D71F235B7E00449465 /* BubbleSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BubbleSort.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				087121D01F2338AD00449465 /* InsertionSort.hpp */,
 				083DE19A1F1E5CE0005916BB /* Student.cpp */,
 				083DE19B1F1E5CE0005916BB /* Student.hpp */,
+				087121D61F235B7E00449465 /* BubbleSort.cpp */,
+				087121D71F235B7E00449465 /* BubbleSort.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */,
+				087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

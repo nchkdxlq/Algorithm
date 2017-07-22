@@ -47,8 +47,13 @@ namespace SortTestHelper {
         return arr;
     }
     
-    int *generateNearlyOrderRandomArr(int length, int rangL, int rangR, int swapTimes) {
-        int *arr = generateRandomArr(length, rangL, rangR);
+    int *generateNearlyOrderedRandomArr(int length, int swapTimes) {
+        
+        int *arr = new int[length];
+        
+        for (int i = 0; i < length; i++) {
+            arr[i] = i;
+        }
         
         srand((unsigned)time(NULL));
         for (int i = 0; i < swapTimes; i++) {
