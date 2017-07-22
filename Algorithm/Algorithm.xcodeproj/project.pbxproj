@@ -34,6 +34,8 @@
 		087121D01F2338AD00449465 /* InsertionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InsertionSort.hpp; sourceTree = "<group>"; };
 		087121D61F235B7E00449465 /* BubbleSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BubbleSort.cpp; sourceTree = "<group>"; };
 		087121D71F235B7E00449465 /* BubbleSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BubbleSort.hpp; sourceTree = "<group>"; };
+		087121DA1F238BD800449465 /* ShellSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShellSort.hpp; sourceTree = "<group>"; };
+		087121DD1F23911E00449465 /* MergeSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MergeSort.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,8 @@
 				083DE19B1F1E5CE0005916BB /* Student.hpp */,
 				087121D61F235B7E00449465 /* BubbleSort.cpp */,
 				087121D71F235B7E00449465 /* BubbleSort.hpp */,
+				087121DA1F238BD800449465 /* ShellSort.hpp */,
+				087121DD1F23911E00449465 /* MergeSort.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";

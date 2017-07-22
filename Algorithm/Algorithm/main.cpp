@@ -11,24 +11,24 @@
 #include "SelectionSort.hpp"
 #include "InsertionSort.hpp"
 #include "BubbleSort.hpp"
+#include "MergeSort.hpp"
 
 using namespace SortTestHelper;
-using namespace SelectionSort;
-using namespace InsertionSort;
-using namespace BubbleSort;
 
 void selectionSort_run();
 void insertionSort_run();
 void compare_insertionSort_selectionSort();
 void bubbleSort_run();
+void mergeSort_run();
 
 
 int main(int argc, const char * argv[]) {
     
 //    selectionSort_run();
 //    insertionSort_run();
-    compare_insertionSort_selectionSort();
-    bubbleSort_run();
+//    compare_insertionSort_selectionSort();
+//    bubbleSort_run();
+    mergeSort_run();
     
     return 0;
 }
@@ -37,7 +37,7 @@ int main(int argc, const char * argv[]) {
 void selectionSort_run()
 {
     int length = 10000;
-    int *arr = generateRandomArr(length, 10, length * 2);
+    int *arr = generateRandomArray(length, 10, length * 2);
     testSort("SelectionSort", selectionSort, arr, length);
     
     delete [] arr;
@@ -60,7 +60,7 @@ void selectionSort_run()
 void insertionSort_run()
 {
     int length = 10000;
-    int *arr = generateRandomArr(length, 10, length * 2);
+    int *arr = generateRandomArray(length, 10, length * 2);
     testSort("InsertionSort", insertionSort, arr, length);
 
     delete [] arr;
@@ -69,7 +69,7 @@ void insertionSort_run()
 void compare_insertionSort_selectionSort()
 {
     int length = 10000;
-    int *arr = generateNearlyOrderedRandomArr(length, 10);
+    int *arr = generateNearlyOrderedRandomArray(length, 10);
     testSort("SelectionSort", selectionSort, arr, length);
     testSort("InsertionSort", insertionSort, arr, length);
     
@@ -79,8 +79,16 @@ void compare_insertionSort_selectionSort()
 void bubbleSort_run()
 {
     int length = 10000;
-    int *arr = generateNearlyOrderedRandomArr(length, 10);
+    int *arr = generateNearlyOrderedRandomArray(length, 10);
     testSort("BubbleSort", bubbleSort, arr, length);
     
     delete [] arr;
 }
+
+void mergeSort_run()
+{
+    int length = 50000;
+    int *arr = generateRandomArray(length, 0, length);
+    testSort("MergeSort", mergeSort, arr, length);
+}
+

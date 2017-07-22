@@ -17,10 +17,8 @@
 #include <string>
 #include <algorithm>
 
-using std::cout;
-using std::endl;
-using std::string;
 
+using namespace std;
 
 namespace SortTestHelper {
     
@@ -35,7 +33,8 @@ namespace SortTestHelper {
         return true;
     }
     
-    int *generateRandomArr(int length, int rangL, int rangR) {
+    
+    int *generateRandomArray(int length, int rangL, int rangR) {
         assert(rangL <= rangR);
         
         srand((unsigned)time(NULL));
@@ -47,7 +46,8 @@ namespace SortTestHelper {
         return arr;
     }
     
-    int *generateNearlyOrderedRandomArr(int length, int swapTimes) {
+    
+    int *generateNearlyOrderedRandomArray(int length, int swapTimes) {
         
         int *arr = new int[length];
         
@@ -65,6 +65,7 @@ namespace SortTestHelper {
         return arr;
     }
     
+    
     template<typename T>
     void printArr(T arr[], int length)
     {
@@ -73,6 +74,7 @@ namespace SortTestHelper {
         }
         cout << endl;
     }
+    
     
     template<typename T>
     void testSort(string name, void(*sort)(T[], int), T arr[], int length) {
@@ -85,6 +87,13 @@ namespace SortTestHelper {
         
         double time = (double)(end - start) / CLOCKS_PER_SEC * 1000;
         cout << name << ": " << time << " ms" << endl;
+    }
+    
+    
+    int* copyIntArray(int arr[], int length) {
+        int *copyArr = new int[length];
+        copy(arr, arr+length, copyArr);
+        return copyArr;
     }
 }
 
