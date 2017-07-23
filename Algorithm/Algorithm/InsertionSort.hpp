@@ -40,6 +40,27 @@ void insertionSort_v1(T arr[], int length) {
 }
 
 
+template<typename T>
+void __insertionSort(T arr[], int l, int r)
+{
+    for (int i = l+1; i <= r; i++) {
+        
+        T item = arr[i];
+        int j = i;
+        /*
+         要考察的元素item与下标为j-1的元素比较，比item大的元素都往后移动一个下标,
+         直到遇到小与item的元素或者j==i时，则位置j就是元素item插入的位置
+         */
+        for (; j > l && arr[j-1] > item; j--) {
+            arr[j] = arr[j-1];
+        }
+        if (j != i) {
+            arr[j] = item;
+        }
+    }
+}
+
+
 template <typename T>
 void insertionSort(T arr[], int length) {
     
@@ -59,6 +80,7 @@ void insertionSort(T arr[], int length) {
         }
     }
 }
+
 
 
 #endif /* InsertionSort_hpp */

@@ -92,7 +92,9 @@ namespace SortTestHelper {
     
     int* copyIntArray(int arr[], int length) {
         int *copyArr = new int[length];
-        copy(arr, arr+length, copyArr);
+        for (int i = 0; i < length; i++) {
+            copyArr[i] = arr[i];
+        }
         return copyArr;
     }
 }

@@ -88,7 +88,25 @@ void bubbleSort_run()
 void mergeSort_run()
 {
     int length = 50000;
+    
     int *arr = generateRandomArray(length, 0, length);
+    int *arr1 = copyIntArray(arr, length);
+    int *arr2 = copyIntArray(arr, length);
+    int *arr3 = copyIntArray(arr, length);
+    
     testSort("MergeSort", mergeSort, arr, length);
+    testSort("MergeSort_v1", mergeSort_v1, arr1, length);
+    testSort("MergeSortBU", mergeSortBU, arr2, length);
+    testSort("MergeSortBU_v1", mergeSort_v1, arr3, length);
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    delete [] arr3;
 }
+
+
+
+
+
 
