@@ -12,6 +12,8 @@
 #include "InsertionSort.hpp"
 #include "BubbleSort.hpp"
 #include "MergeSort.hpp"
+#include "QuickSort.hpp"
+
 
 using namespace SortTestHelper;
 
@@ -20,7 +22,7 @@ void insertionSort_run();
 void compare_insertionSort_selectionSort();
 void bubbleSort_run();
 void mergeSort_run();
-
+void quickSort_run();
 
 int main(int argc, const char * argv[]) {
     
@@ -28,7 +30,8 @@ int main(int argc, const char * argv[]) {
 //    insertionSort_run();
 //    compare_insertionSort_selectionSort();
 //    bubbleSort_run();
-    mergeSort_run();
+//    mergeSort_run();
+    quickSort_run();
     
     return 0;
 }
@@ -105,6 +108,65 @@ void mergeSort_run()
     delete [] arr3;
 }
 
+
+void quickSort_run()
+{
+    int length = 1000000;
+    
+    cout << ">>>>>>> randomArray <<<<<<<" << endl;
+    
+    int *arr = generateRandomArray(length, 0, length);
+    int *arr1 = copyIntArray(arr, length);
+    int *arr2 = copyIntArray(arr, length);
+    int *arr3 = copyIntArray(arr, length);
+    
+    testSort("mergeSort_v1", mergeSort_v1, arr, length);
+    testSort("quickSort_v2", quickSort_v2, arr1, length);
+    testSort("quickSort2Ways", quickSort2Ways, arr2, length);
+    testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    delete [] arr3;
+    
+    cout << endl;
+    cout << ">>>>>>> nearlyOrderArray <<<<<<<" << endl;
+    
+    arr = generateNearlyOrderedRandomArray(length, 100);
+    arr1 = copyIntArray(arr, length);
+    arr2 = copyIntArray(arr, length);
+    arr3 = copyIntArray(arr, length);
+    
+    testSort("mergeSort_v1", mergeSort_v1, arr, length);
+    testSort("quickSort_v2", quickSort_v2, arr1, length);
+    testSort("quickSort2Ways", quickSort2Ways, arr2, length);
+    testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    delete [] arr3;
+    
+    cout << endl;
+    cout << ">>>>>>> randomArray, range [0, 10] <<<<<<<" << endl;
+    
+    arr = generateRandomArray(length, 0, 10);
+    arr1 = copyIntArray(arr, length);
+    arr2 = copyIntArray(arr, length);
+    arr3 = copyIntArray(arr, length);
+    
+    testSort("mergeSort_v1", mergeSort_v1, arr, length);
+//    testSort("quickSort_v2", quickSort_v2, arr1, length);
+    testSort("quickSort2Ways", quickSort2Ways, arr2, length);
+    testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    delete [] arr3;
+}
 
 
 

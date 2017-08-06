@@ -10,6 +10,7 @@
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 		083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE19A1F1E5CE0005916BB /* Student.cpp */; };
 		087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121D61F235B7E00449465 /* BubbleSort.cpp */; };
+		087121E11F25777900449465 /* QuickSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121DF1F25777900449465 /* QuickSort.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,8 @@
 		087121D71F235B7E00449465 /* BubbleSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BubbleSort.hpp; sourceTree = "<group>"; };
 		087121DA1F238BD800449465 /* ShellSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShellSort.hpp; sourceTree = "<group>"; };
 		087121DD1F23911E00449465 /* MergeSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MergeSort.hpp; sourceTree = "<group>"; };
+		087121DF1F25777900449465 /* QuickSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuickSort.cpp; sourceTree = "<group>"; };
+		087121E01F25777900449465 /* QuickSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QuickSort.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				087121D71F235B7E00449465 /* BubbleSort.hpp */,
 				087121DA1F238BD800449465 /* ShellSort.hpp */,
 				087121DD1F23911E00449465 /* MergeSort.hpp */,
+				087121DF1F25777900449465 /* QuickSort.cpp */,
+				087121E01F25777900449465 /* QuickSort.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */,
 				087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
+				087121E11F25777900449465 /* QuickSort.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
