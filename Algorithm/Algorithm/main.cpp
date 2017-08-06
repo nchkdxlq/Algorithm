@@ -13,6 +13,10 @@
 #include "BubbleSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
+#include "MaxHeap.hpp"
+
+
+// https://www.toptal.com/developers/sorting-algorithms
 
 
 using namespace SortTestHelper;
@@ -23,6 +27,7 @@ void compare_insertionSort_selectionSort();
 void bubbleSort_run();
 void mergeSort_run();
 void quickSort_run();
+void maxheap_run();
 
 int main(int argc, const char * argv[]) {
     
@@ -31,7 +36,8 @@ int main(int argc, const char * argv[]) {
 //    compare_insertionSort_selectionSort();
 //    bubbleSort_run();
 //    mergeSort_run();
-    quickSort_run();
+//    quickSort_run();
+    maxheap_run();
     
     return 0;
 }
@@ -168,7 +174,24 @@ void quickSort_run()
     delete [] arr3;
 }
 
-
+void maxheap_run()
+{
+    MaxHeap<int> maxheap = MaxHeap<int>(50);
+    
+    cout << "maxheap size : " << maxheap.size() << endl;
+    srand((unsigned int)time(NULL));
+    for (int i = 0; i < 50; i++) {
+        maxheap.insert(rand() % 100);
+    }
+    maxheap.testPrint();
+    
+    
+    for (int i = 0; i < 50; i++) {
+        cout << maxheap.extractMax() << " ";
+    }
+    cout << endl;
+    
+}
 
 
 

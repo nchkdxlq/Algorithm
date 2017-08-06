@@ -32,5 +32,6 @@
 *.app
 
 #xcode
-xcuserdata/
-
+*/xcuserdata/
+*/xcschemes/
+*/xcdebugger/
