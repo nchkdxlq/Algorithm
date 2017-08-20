@@ -14,6 +14,7 @@
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
 #include "MaxHeap.hpp"
+#include "HeapSort.hpp"
 
 
 // https://www.toptal.com/developers/sorting-algorithms
@@ -28,6 +29,7 @@ void bubbleSort_run();
 void mergeSort_run();
 void quickSort_run();
 void maxheap_run();
+void sortCompare();
 
 int main(int argc, const char * argv[]) {
     
@@ -37,7 +39,8 @@ int main(int argc, const char * argv[]) {
 //    bubbleSort_run();
 //    mergeSort_run();
 //    quickSort_run();
-    maxheap_run();
+//    maxheap_run();
+    sortCompare();
     
     return 0;
 }
@@ -125,35 +128,40 @@ void quickSort_run()
     int *arr1 = copyIntArray(arr, length);
     int *arr2 = copyIntArray(arr, length);
     int *arr3 = copyIntArray(arr, length);
+    int *arr4 = copyIntArray(arr, length);
     
     testSort("mergeSort_v1", mergeSort_v1, arr, length);
     testSort("quickSort_v2", quickSort_v2, arr1, length);
     testSort("quickSort2Ways", quickSort2Ways, arr2, length);
     testSort("quickSort3Ways", quickSort3Ways, arr3, length);
-    
+    testSort("heapSort_v1", heapSort_v1, arr4, length);
     
     delete [] arr;
     delete [] arr1;
     delete [] arr2;
     delete [] arr3;
+    delete [] arr4;
     
     cout << endl;
-    cout << ">>>>>>> nearlyOrderArray <<<<<<<" << endl;
+    cout << ">>>>>>> nearlyOrderlyArray <<<<<<<" << endl;
     
     arr = generateNearlyOrderedRandomArray(length, 100);
     arr1 = copyIntArray(arr, length);
     arr2 = copyIntArray(arr, length);
     arr3 = copyIntArray(arr, length);
+    arr4 = copyIntArray(arr, length);
     
     testSort("mergeSort_v1", mergeSort_v1, arr, length);
     testSort("quickSort_v2", quickSort_v2, arr1, length);
     testSort("quickSort2Ways", quickSort2Ways, arr2, length);
     testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    testSort("heapSort_v1", heapSort_v1, arr4, length);
     
     delete [] arr;
     delete [] arr1;
     delete [] arr2;
     delete [] arr3;
+    delete [] arr4;
     
     cout << endl;
     cout << ">>>>>>> randomArray, range [0, 10] <<<<<<<" << endl;
@@ -162,16 +170,19 @@ void quickSort_run()
     arr1 = copyIntArray(arr, length);
     arr2 = copyIntArray(arr, length);
     arr3 = copyIntArray(arr, length);
+    arr4 = copyIntArray(arr, length);
     
     testSort("mergeSort_v1", mergeSort_v1, arr, length);
 //    testSort("quickSort_v2", quickSort_v2, arr1, length);
     testSort("quickSort2Ways", quickSort2Ways, arr2, length);
     testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    testSort("heapSort_v1", heapSort_v1, arr4, length);
     
     delete [] arr;
     delete [] arr1;
     delete [] arr2;
     delete [] arr3;
+    delete [] arr4;
 }
 
 void maxheap_run()
@@ -191,6 +202,91 @@ void maxheap_run()
     }
     cout << endl;
     
+}
+
+
+
+void sortCompare() {
+    int length = 1000000;
+    
+    cout << ">>>>>>>>>>>>>>>>>>>>> randomArray <<<<<<<<<<<<<<<<<<<<<" << endl;
+    cout << endl;
+    
+    int *arr = generateRandomArray(length, 0, length);
+    int *arr1 = copyIntArray(arr, length);
+    int *arr2 = copyIntArray(arr, length);
+    int *arr3 = copyIntArray(arr, length);
+    int *arr4 = copyIntArray(arr, length);
+    int *arr5 = copyIntArray(arr, length);
+    
+    testSort("mergeSort_v1", mergeSort_v1, arr, length);
+    testSort("quickSort_v2", quickSort_v2, arr1, length);
+    testSort("quickSort2Ways", quickSort2Ways, arr2, length);
+    testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    testSort("heapSort_v1", heapSort_v1, arr4, length);
+    testSort("heapSort_v2", heapSort_v2, arr5, length);
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    delete [] arr3;
+    delete [] arr4;
+    delete [] arr5;
+    
+    cout << endl;
+    cout << endl;
+    cout << ">>>>>>>>>>>>>>>>>>>>> nearlyOrderArray <<<<<<<<<<<<<<<<<<<<<" << endl;
+    cout << endl;
+    
+    arr = generateNearlyOrderedRandomArray(length, 100);
+    arr1 = copyIntArray(arr, length);
+    arr2 = copyIntArray(arr, length);
+    arr3 = copyIntArray(arr, length);
+    arr4 = copyIntArray(arr, length);
+    arr5 = copyIntArray(arr, length);
+    
+    testSort("mergeSort_v1", mergeSort_v1, arr, length);
+    testSort("quickSort_v2", quickSort_v2, arr1, length);
+    testSort("quickSort2Ways", quickSort2Ways, arr2, length);
+    testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    testSort("heapSort_v1", heapSort_v1, arr4, length);
+    testSort("heapSort_v2", heapSort_v2, arr5, length);
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    delete [] arr3;
+    delete [] arr4;
+    delete [] arr5;
+    
+    cout << endl;
+    cout << endl;
+    cout << ">>>>>>>>>>>>>>>>>>>>> randomArray, range [0, 10] <<<<<<<<<<<<<<<<<<<<<" << endl;
+    cout << endl;
+    
+    arr = generateRandomArray(length, 0, 10);
+    arr1 = copyIntArray(arr, length);
+    arr2 = copyIntArray(arr, length);
+    arr3 = copyIntArray(arr, length);
+    arr4 = copyIntArray(arr, length);
+    arr5 = copyIntArray(arr, length);
+    
+    testSort("mergeSort_v1", mergeSort_v1, arr, length);
+    //    testSort("quickSort_v2", quickSort_v2, arr1, length);
+    testSort("quickSort2Ways", quickSort2Ways, arr2, length);
+    testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    testSort("heapSort_v1", heapSort_v1, arr4, length);
+    testSort("heapSort_v2", heapSort_v2, arr5, length);
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    delete [] arr3;
+    delete [] arr4;
+    delete [] arr5;
+    
+    cout << endl;
+    cout << endl;
 }
 
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		080A81631F374AAA00AF2AA6 /* MaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 080A81611F374AAA00AF2AA6 /* MaxHeap.cpp */; };
+		080A81661F376E2E00AF2AA6 /* HeapSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 080A81641F376E2E00AF2AA6 /* HeapSort.cpp */; };
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 		083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE19A1F1E5CE0005916BB /* Student.cpp */; };
 		087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121D61F235B7E00449465 /* BubbleSort.cpp */; };
@@ -29,6 +30,8 @@
 /* Begin PBXFileReference section */
 		080A81611F374AAA00AF2AA6 /* MaxHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaxHeap.cpp; sourceTree = "<group>"; };
 		080A81621F374AAA00AF2AA6 /* MaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaxHeap.hpp; sourceTree = "<group>"; };
+		080A81641F376E2E00AF2AA6 /* HeapSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeapSort.cpp; sourceTree = "<group>"; };
+		080A81651F376E2E00AF2AA6 /* HeapSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HeapSort.hpp; sourceTree = "<group>"; };
 		083DE18D1F1D0677005916BB /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		083DE1901F1D0677005916BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		083DE1981F1D080E005916BB /* SelectionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectionSort.hpp; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				087121E01F25777900449465 /* QuickSort.hpp */,
 				080A81611F374AAA00AF2AA6 /* MaxHeap.cpp */,
 				080A81621F374AAA00AF2AA6 /* MaxHeap.hpp */,
+				080A81641F376E2E00AF2AA6 /* HeapSort.cpp */,
+				080A81651F376E2E00AF2AA6 /* HeapSort.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */,
+				080A81661F376E2E00AF2AA6 /* HeapSort.cpp in Sources */,
 				080A81631F374AAA00AF2AA6 /* MaxHeap.cpp in Sources */,
 				087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,

@@ -35,7 +35,7 @@ private:
     }
     
     void shiftDown(int k) {
-        while (k <= m_count) {
+        while (2*k <= m_count) {
             int j = 2*k;
             
             if (j+1 <= m_count && m_data[j+1] > m_data[j])
@@ -87,6 +87,26 @@ public:
         m_capacity = capacity;
         m_count = 0;
     }
+    
+    
+    
+    /*
+     把没有子节点的节点看做一个最大堆，然后从序号最大的有子节点的节点开始heapify，
+     直到下标为1的节点，整个过程结束后，二叉树就满足最大堆的性质。
+     */
+    MaxHeap(Item arr[], int n) {
+        m_data = new Item[n+1];
+        m_capacity = n;
+        for (int i = 0; i < n; i++) {
+            m_data[i+1] = arr[i];
+        }
+        m_count = n;
+        
+        for (int i = m_count/2; i >= 1; i--) {
+            shiftDown(i);
+        }
+    }
+    
     
     int size() {
         return m_count;
