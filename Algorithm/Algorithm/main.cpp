@@ -218,6 +218,7 @@ void sortCompare() {
     int *arr3 = copyIntArray(arr, length);
     int *arr4 = copyIntArray(arr, length);
     int *arr5 = copyIntArray(arr, length);
+    int *arr6 = copyIntArray(arr, length);
     
     testSort("mergeSort_v1", mergeSort_v1, arr, length);
     testSort("quickSort_v2", quickSort_v2, arr1, length);
@@ -225,6 +226,7 @@ void sortCompare() {
     testSort("quickSort3Ways", quickSort3Ways, arr3, length);
     testSort("heapSort_v1", heapSort_v1, arr4, length);
     testSort("heapSort_v2", heapSort_v2, arr5, length);
+    testSort("heapSort", heapSort, arr6, length);
     
     delete [] arr;
     delete [] arr1;
@@ -232,6 +234,7 @@ void sortCompare() {
     delete [] arr3;
     delete [] arr4;
     delete [] arr5;
+    delete [] arr6;
     
     cout << endl;
     cout << endl;
@@ -244,6 +247,7 @@ void sortCompare() {
     arr3 = copyIntArray(arr, length);
     arr4 = copyIntArray(arr, length);
     arr5 = copyIntArray(arr, length);
+    arr6 = copyIntArray(arr, length);
     
     testSort("mergeSort_v1", mergeSort_v1, arr, length);
     testSort("quickSort_v2", quickSort_v2, arr1, length);
@@ -251,6 +255,7 @@ void sortCompare() {
     testSort("quickSort3Ways", quickSort3Ways, arr3, length);
     testSort("heapSort_v1", heapSort_v1, arr4, length);
     testSort("heapSort_v2", heapSort_v2, arr5, length);
+    testSort("heapSort", heapSort, arr6, length);
     
     delete [] arr;
     delete [] arr1;
@@ -258,6 +263,7 @@ void sortCompare() {
     delete [] arr3;
     delete [] arr4;
     delete [] arr5;
+    delete [] arr6;
     
     cout << endl;
     cout << endl;
@@ -270,6 +276,7 @@ void sortCompare() {
     arr3 = copyIntArray(arr, length);
     arr4 = copyIntArray(arr, length);
     arr5 = copyIntArray(arr, length);
+    arr6 = copyIntArray(arr, length);
     
     testSort("mergeSort_v1", mergeSort_v1, arr, length);
     //    testSort("quickSort_v2", quickSort_v2, arr1, length);
@@ -277,6 +284,7 @@ void sortCompare() {
     testSort("quickSort3Ways", quickSort3Ways, arr3, length);
     testSort("heapSort_v1", heapSort_v1, arr4, length);
     testSort("heapSort_v2", heapSort_v2, arr5, length);
+    testSort("heapSort", heapSort, arr6, length);
     
     delete [] arr;
     delete [] arr1;
@@ -284,6 +292,7 @@ void sortCompare() {
     delete [] arr3;
     delete [] arr4;
     delete [] arr5;
+    delete [] arr6;
     
     cout << endl;
     cout << endl;
