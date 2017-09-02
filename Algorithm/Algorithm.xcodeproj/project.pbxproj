@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		080A81631F374AAA00AF2AA6 /* MaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 080A81611F374AAA00AF2AA6 /* MaxHeap.cpp */; };
 		080A81661F376E2E00AF2AA6 /* HeapSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 080A81641F376E2E00AF2AA6 /* HeapSort.cpp */; };
+		0823CA591F4994B500CF56D1 /* IndexMaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA571F4994B500CF56D1 /* IndexMaxHeap.cpp */; };
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 		083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE19A1F1E5CE0005916BB /* Student.cpp */; };
 		087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121D61F235B7E00449465 /* BubbleSort.cpp */; };
@@ -32,6 +33,8 @@
 		080A81621F374AAA00AF2AA6 /* MaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaxHeap.hpp; sourceTree = "<group>"; };
 		080A81641F376E2E00AF2AA6 /* HeapSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeapSort.cpp; sourceTree = "<group>"; };
 		080A81651F376E2E00AF2AA6 /* HeapSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HeapSort.hpp; sourceTree = "<group>"; };
+		0823CA571F4994B500CF56D1 /* IndexMaxHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexMaxHeap.cpp; sourceTree = "<group>"; };
+		0823CA581F4994B500CF56D1 /* IndexMaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IndexMaxHeap.hpp; sourceTree = "<group>"; };
 		083DE18D1F1D0677005916BB /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		083DE1901F1D0677005916BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		083DE1981F1D080E005916BB /* SelectionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectionSort.hpp; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				080A81621F374AAA00AF2AA6 /* MaxHeap.hpp */,
 				080A81641F376E2E00AF2AA6 /* HeapSort.cpp */,
 				080A81651F376E2E00AF2AA6 /* HeapSort.hpp */,
+				0823CA571F4994B500CF56D1 /* IndexMaxHeap.cpp */,
+				0823CA581F4994B500CF56D1 /* IndexMaxHeap.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0823CA591F4994B500CF56D1 /* IndexMaxHeap.cpp in Sources */,
 				083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */,
 				080A81661F376E2E00AF2AA6 /* HeapSort.cpp in Sources */,
 				080A81631F374AAA00AF2AA6 /* MaxHeap.cpp in Sources */,
