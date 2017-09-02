@@ -17,6 +17,8 @@
 #include "HeapSort.hpp"
 
 
+#include "BinarySearch.hpp"
+
 // https://www.toptal.com/developers/sorting-algorithms
 
 
@@ -31,6 +33,8 @@ void quickSort_run();
 void maxheap_run();
 void sortCompare();
 
+void binarySearch_run();
+
 int main(int argc, const char * argv[]) {
     
 //    selectionSort_run();
@@ -40,7 +44,9 @@ int main(int argc, const char * argv[]) {
 //    mergeSort_run();
 //    quickSort_run();
 //    maxheap_run();
-    sortCompare();
+//    sortCompare();
+    
+    binarySearch_run();
     
     return 0;
 }
@@ -298,5 +304,51 @@ void sortCompare() {
     cout << endl;
 }
 
+
+
+void binarySearch_run()
+{
+    int n = 100000;
+    int *arr = new int[n];
+    
+    for (int i = 0; i < n; i++) {
+        arr[i] = i;
+    }
+    
+    
+    // 普通二分查找
+    clock_t start = clock();
+    int max = 2 * n;
+    for (int i = 0; i < max; i++) {
+        int index = binarySearch(arr, n, i);
+        if (i < n) {
+            assert(index == i);
+        } else {
+            assert(index == -1);
+        }
+    }
+    clock_t end = clock();
+    
+    double timeCost = double(end - start) / CLOCKS_PER_SEC;
+    cout << "Binary Search (Without Recursion) : " << timeCost << " s" << endl;
+    
+    
+    // 递归二分查找
+    start = clock();
+    for (int i = 0; i < max; i++) {
+        int index = binarySearch_v2(arr, n, i);
+        if (i < n) {
+            assert(index == i);
+        } else {
+            assert(index == -1);
+        }
+    }
+    end = clock();
+    
+    timeCost = double(end - start) / CLOCKS_PER_SEC;
+    cout << "Binary Search (Recursion) : " << timeCost << " s" << endl;
+    
+    delete [] arr;
+}
 
 
