@@ -11,6 +11,9 @@
 		080A81661F376E2E00AF2AA6 /* HeapSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 080A81641F376E2E00AF2AA6 /* HeapSort.cpp */; };
 		0823CA591F4994B500CF56D1 /* IndexMaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA571F4994B500CF56D1 /* IndexMaxHeap.cpp */; };
 		0823CA5C1F5AF30D00CF56D1 /* BinarySearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA5A1F5AF30D00CF56D1 /* BinarySearch.cpp */; };
+		0823CA5F1F5AFEE200CF56D1 /* BST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA5D1F5AFEE200CF56D1 /* BST.cpp */; };
+		0823CA621F5BA1C900CF56D1 /* FileOps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA601F5BA1C900CF56D1 /* FileOps.cpp */; };
+		0823CA651F5BA4C600CF56D1 /* SequenceST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA631F5BA4C600CF56D1 /* SequenceST.cpp */; };
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 		083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE19A1F1E5CE0005916BB /* Student.cpp */; };
 		087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121D61F235B7E00449465 /* BubbleSort.cpp */; };
@@ -38,6 +41,13 @@
 		0823CA581F4994B500CF56D1 /* IndexMaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IndexMaxHeap.hpp; sourceTree = "<group>"; };
 		0823CA5A1F5AF30D00CF56D1 /* BinarySearch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearch.cpp; sourceTree = "<group>"; };
 		0823CA5B1F5AF30D00CF56D1 /* BinarySearch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinarySearch.hpp; sourceTree = "<group>"; };
+		0823CA5D1F5AFEE200CF56D1 /* BST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BST.cpp; sourceTree = "<group>"; };
+		0823CA5E1F5AFEE200CF56D1 /* BST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
+		0823CA601F5BA1C900CF56D1 /* FileOps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileOps.cpp; sourceTree = "<group>"; };
+		0823CA611F5BA1C900CF56D1 /* FileOps.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FileOps.hpp; sourceTree = "<group>"; };
+		0823CA631F5BA4C600CF56D1 /* SequenceST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceST.cpp; sourceTree = "<group>"; };
+		0823CA641F5BA4C600CF56D1 /* SequenceST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SequenceST.hpp; sourceTree = "<group>"; };
+		0823CA671F5BA6F400CF56D1 /* bible.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = bible.rtf; sourceTree = "<group>"; };
 		083DE18D1F1D0677005916BB /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		083DE1901F1D0677005916BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		083DE1981F1D080E005916BB /* SelectionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectionSort.hpp; sourceTree = "<group>"; };
@@ -64,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0823CA661F5BA6F400CF56D1 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				0823CA671F5BA6F400CF56D1 /* bible.rtf */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		083DE1841F1D0677005916BB = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +101,7 @@
 		083DE18F1F1D0677005916BB /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				0823CA661F5BA6F400CF56D1 /* resources */,
 				083DE1901F1D0677005916BB /* main.cpp */,
 				083DE1A51F1FA620005916BB /* SortTestHelper.hpp */,
 				083DE1981F1D080E005916BB /* SelectionSort.hpp */,
@@ -103,6 +122,12 @@
 				0823CA581F4994B500CF56D1 /* IndexMaxHeap.hpp */,
 				0823CA5A1F5AF30D00CF56D1 /* BinarySearch.cpp */,
 				0823CA5B1F5AF30D00CF56D1 /* BinarySearch.hpp */,
+				0823CA5D1F5AFEE200CF56D1 /* BST.cpp */,
+				0823CA5E1F5AFEE200CF56D1 /* BST.hpp */,
+				0823CA601F5BA1C900CF56D1 /* FileOps.cpp */,
+				0823CA611F5BA1C900CF56D1 /* FileOps.hpp */,
+				0823CA631F5BA4C600CF56D1 /* SequenceST.cpp */,
+				0823CA641F5BA4C600CF56D1 /* SequenceST.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -165,7 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0823CA5F1F5AFEE200CF56D1 /* BST.cpp in Sources */,
 				0823CA591F4994B500CF56D1 /* IndexMaxHeap.cpp in Sources */,
+				0823CA621F5BA1C900CF56D1 /* FileOps.cpp in Sources */,
 				083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */,
 				080A81661F376E2E00AF2AA6 /* HeapSort.cpp in Sources */,
 				080A81631F374AAA00AF2AA6 /* MaxHeap.cpp in Sources */,
@@ -173,6 +200,7 @@
 				087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
 				087121E11F25777900449465 /* QuickSort.cpp in Sources */,
+				0823CA651F5BA4C600CF56D1 /* SequenceST.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

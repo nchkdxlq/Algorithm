@@ -7,6 +7,9 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <string>
+
 #include "SortTestHelper.hpp"
 #include "SelectionSort.hpp"
 #include "InsertionSort.hpp"
@@ -18,6 +21,10 @@
 
 
 #include "BinarySearch.hpp"
+#include "BST.hpp"
+#include "SequenceST.hpp"
+#include "FileOps.hpp"
+
 
 // https://www.toptal.com/developers/sorting-algorithms
 
@@ -34,6 +41,9 @@ void maxheap_run();
 void sortCompare();
 
 void binarySearch_run();
+void bst_run();
+
+
 
 int main(int argc, const char * argv[]) {
     
@@ -46,7 +56,8 @@ int main(int argc, const char * argv[]) {
 //    maxheap_run();
 //    sortCompare();
     
-    binarySearch_run();
+//    binarySearch_run();
+    bst_run();
     
     return 0;
 }
@@ -349,6 +360,63 @@ void binarySearch_run()
     cout << "Binary Search (Recursion) : " << timeCost << " s" << endl;
     
     delete [] arr;
+}
+
+
+/////////////////////////////
+
+
+
+/**
+ 二分查找树
+ */
+void bst_run() {
+    
+    string filename = "/Users/nchkdxlq/learn/iOS/summary/Algorithm/Algorithm/Algorithm/resources/bible.rtf";
+    
+    vector<string> words;
+    if( FileOps::readFile(filename, words) ) {
+        
+        cout << "There are totally " << words.size() << " words in " << filename << endl;
+        
+        cout << endl;
+        
+        
+        // test BST
+        time_t startTime = clock();
+        BST<string, int> bst = BST<string, int>();
+        for (vector<string>::iterator iter = words.begin(); iter != words.end(); iter++) {
+            int *res = bst.search(*iter);
+            if (res == NULL)
+                bst.insert(*iter, 1);
+            else
+                (*res)++;
+        }
+        
+        cout << "'god' : " << *bst.search("god") << endl;
+        time_t endTime = clock();
+        cout << "BST , time: " << double(endTime - startTime) / CLOCKS_PER_SEC << " s." << endl;
+        
+        cout << endl;
+        
+        
+        // test SST
+        startTime = clock();
+        SequenceST<string, int> sst = SequenceST<string, int>();
+        for (vector<string>::iterator iter = words.begin(); iter != words.end(); iter++) {
+            int *res = sst.search(*iter);
+            if (res == NULL)
+                sst.insert(*iter, 1);
+            else
+                (*res)++;
+        }
+        
+        cout << "'god' : " << *sst.search("god") << endl;
+        
+        endTime = clock();
+        cout << "SST , time: " << double(endTime - startTime) / CLOCKS_PER_SEC << " s." << endl;
+        
+    }
 }
 
 
