@@ -58,28 +58,27 @@ public:
     }
     
     void insert(Key key, Value value) {
-        m_root = __insert(m_root, key, value);
+//        m_root = __insert(m_root, key, value);
+        insert_v2(key, value);
     }
 
     void insert_v2(Key key, Value value) {
         
         Node **node = &m_root;
-        
         while (true) {
-            
             if (*node == nullptr) {
                 *node = new Node(key, value);
                 m_count++;
                 break;
             }
             
-            if (*node->key == key) {
-                *node->value = value;
+            if (key == (*node)->key) {
+                (*node)->value = value;
                 break;
-            } else if (key < *node->key) {
-                node = &(*node->left);
+            } else if (key < (*node)->key) {
+                node = &(*node)->left;
             } else { // key > node->key
-                node = &(*node->right);
+                node = &(*node)->right;
             }
         }
     }
