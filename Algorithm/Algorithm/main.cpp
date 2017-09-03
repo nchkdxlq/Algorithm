@@ -428,7 +428,11 @@ void bst_traverse() {
     srand((unsigned int)(time(NULL)));
     int n = 30;
     for (int i = 0; i < n; i++) {
-        bst.insert(rand()%n, i);
+        if (i == 10) {
+            bst.insert(i, i);
+        } else {
+            bst.insert(rand()%n, i);
+        }
     }
     
     cout << "preTraverse: ";
@@ -442,6 +446,10 @@ void bst_traverse() {
     
     cout << "levelTraverse: ";
     bst.levelTraverse();
+    
+    bst.remove(10);
+    cout << "midTraverse: ";
+    bst.midTraverse();
     
 }
 

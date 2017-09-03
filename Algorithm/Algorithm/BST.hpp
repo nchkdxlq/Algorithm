@@ -152,6 +152,52 @@ public:
     }
     
     
+    void remove(Key key) {
+        Node *node = m_root;
+        Node *parentNode = nullptr;
+        bool isLeft = true;
+        
+        while (node) {
+            if (key == node->key) {
+                Node *targetNode = node;
+                if (targetNode->left) {
+                    targetNode = targetNode->left;
+                    isLeft = true;
+                    while (targetNode->right) {
+                        parentNode = targetNode;
+                        targetNode = node->right;
+                        isLeft = false;
+                    }
+                }
+                
+                if (targetNode == node) {  // 删除的是叶子节点
+                    if (parentNode) { // 删除的不是根节点
+                        isLeft ? parentNode->left = nullptr : parentNode->right = nullptr;
+                    } else {
+                        m_root = nullptr;
+                    }
+                    delete targetNode;
+                } else {
+                    node->key = targetNode->key;
+                    node->value = targetNode->value;
+                    isLeft ? parentNode->left = nullptr : parentNode->right = nullptr;
+                    delete targetNode;
+                }
+                m_count--;
+                break;
+            }
+            
+            parentNode = node;
+            if (key < node->key) {
+                node = node->left;
+                isLeft = true;
+            } else {
+                node = node->right;
+                isLeft = false;
+            }
+        }
+    }
+    
 private:
     
     
