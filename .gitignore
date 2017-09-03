@@ -32,6 +32,10 @@
 *.app
 
 #xcode
-*/xcuserdata/
-*/xcschemes/
-*/xcdebugger/
+*/xcuserdata/*
+*/xcschemes/*
+*/xcdebugger/*
+
+#finder
+*/.DS_Store/*
+
