@@ -10,7 +10,11 @@
 #define BST_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include <queue>
 
+
+using namespace std;
 
 template<typename Key, typename Value>
 class BST {
@@ -107,6 +111,46 @@ public:
         return nullptr;
     }
     
+    // 深度优先遍历
+    
+    void preTraverse() {
+        __preTraverse(m_root);
+        cout << endl;
+    }
+    
+    void midTraverse() {
+        __midTraverse(m_root);
+        cout << endl;
+    }
+    
+    void postTraverse() {
+        __postTraverse(m_root);
+        cout << endl;
+    }
+    
+    
+    // 广度优先遍历
+    void levelTraverse() {
+        if (m_root == nullptr) {
+            return;
+        }
+        queue<Node *> q;
+        q.push(m_root);
+        
+        while (!q.empty()) {
+            Node *node = q.front();
+            q.pop();
+            cout << node->key << " ";
+            if (node->left) {
+                q.push(node->left);
+            }
+            if (node->right) {
+                q.push(node->right);
+            }
+        }
+        
+        cout << endl;
+    }
     
     
 private:
@@ -129,6 +173,7 @@ private:
         destruct(right);
         
         delete node;
+        m_count--;
     }
     
     Node* __insert(Node *node, Key key, Value value) {
@@ -205,6 +250,44 @@ private:
         }
     }
     
+    
+    /**
+     对以node为根节点的二叉树进行 先序遍历、中序遍历、后续遍历
+
+     @param node 二叉树的根节点
+     */
+    void __preTraverse(Node *node) {
+        
+        if (node == nullptr) {
+            return;
+        }
+        
+        cout << node->key << " ";
+        __preTraverse(node->left);
+        __preTraverse(node->right);
+    }
+    
+    void __midTraverse(Node *node) {
+        
+        if (node == nullptr) {
+            return;
+        }
+        
+        __midTraverse(node->left);
+        cout << node->key << " ";
+        __midTraverse(node->right);
+    }
+    
+    void __postTraverse(Node *node) {
+        
+        if (node == nullptr) {
+            return;
+        }
+        
+        __postTraverse(node->left);
+        __postTraverse(node->right);
+        cout << node->key << " ";
+    }
 };
 
 

@@ -42,7 +42,7 @@ void sortCompare();
 
 void binarySearch_run();
 void bst_run();
-
+void bst_traverse();
 
 
 int main(int argc, const char * argv[]) {
@@ -57,7 +57,8 @@ int main(int argc, const char * argv[]) {
 //    sortCompare();
     
 //    binarySearch_run();
-    bst_run();
+//    bst_run();
+    bst_traverse();
     
     return 0;
 }
@@ -417,6 +418,31 @@ void bst_run() {
         cout << "SST , time: " << double(endTime - startTime) / CLOCKS_PER_SEC << " s." << endl;
         
     }
+}
+
+
+void bst_traverse() {
+    
+    BST<int, int> bst = BST<int, int>();
+    
+    srand((unsigned int)(time(NULL)));
+    int n = 30;
+    for (int i = 0; i < n; i++) {
+        bst.insert(rand()%n, i);
+    }
+    
+    cout << "preTraverse: ";
+    bst.preTraverse();
+    
+    cout << "midTraverse: ";
+    bst.midTraverse();
+    
+    cout << "postTraverse: ";
+    bst.postTraverse();
+    
+    cout << "levelTraverse: ";
+    bst.levelTraverse();
+    
 }
 
 
