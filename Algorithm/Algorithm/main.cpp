@@ -447,10 +447,17 @@ void bst_traverse() {
     cout << "levelTraverse: ";
     bst.levelTraverse();
     
-    bst.remove(10);
-    cout << "midTraverse: ";
+    bst.remove_v2(10);
+    cout << "remove( 10 ): ";
     bst.midTraverse();
     
+    bst.removeMax_v2();
+    cout << "   removeMax: ";
+    bst.midTraverse();
+    
+    bst.removeMin_v2();
+    cout << "   removeMin: ";
+    bst.midTraverse();
 }
 
 

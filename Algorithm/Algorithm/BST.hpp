@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <queue>
-
+#include <cassert>
 
 using namespace std;
 
@@ -31,6 +31,14 @@ private:
              this->value = value;
              this->left = this->right = nullptr;
          }
+         
+         Node(Node *node) {
+             this->key = node->key;
+             this->value = node->value;
+             this->left = node->left;
+             this->right = node->right;
+         }
+         
     };
     
     Node *m_root;
@@ -130,7 +138,7 @@ public:
     
     // 广度优先遍历
     void levelTraverse() {
-        if (m_root == nullptr) {
+        if (isEmpty()) {
             return;
         }
         queue<Node *> q;
@@ -152,6 +160,23 @@ public:
     }
     
     
+    // 最值
+    Key minimum() {
+        assert(m_root != nullptr);
+        
+        Node *min = __min_v2(m_root);
+        return min->key;
+    }
+    
+    Key maximum() {
+        assert(m_root != nullptr);
+        
+        Node *max = __max_v2(m_root);
+        return max->key;
+    }
+    
+    // 删除
+    
     void remove(Key key) {
         Node *node = m_root;
         Node *parentNode = nullptr;
@@ -160,13 +185,33 @@ public:
         while (node) {
             if (key == node->key) {
                 Node *targetNode = node;
-                if (targetNode->left) {
-                    targetNode = targetNode->left;
+                
+                if (node->left) {
+                    targetNode = node->left;
+                    parentNode = node;
                     isLeft = true;
-                    while (targetNode->right) {
-                        parentNode = targetNode;
-                        targetNode = node->right;
-                        isLeft = false;
+                    // 找以targetNode根节点值最大的节点
+                    while (targetNode) {
+                        if (targetNode->right) {
+                            parentNode = targetNode;
+                            targetNode = targetNode->right;
+                            isLeft = false;
+                        } else {
+                            break;
+                        }
+                    }
+                } else if (node->right) {
+                    targetNode = node->right;
+                    parentNode = node;
+                    isLeft = false;
+                    while (targetNode) {
+                        if (targetNode->left) {
+                            parentNode = targetNode;
+                            targetNode = targetNode->left;
+                            isLeft = true;
+                        } else {
+                            break;
+                        }
                     }
                 }
                 
@@ -180,7 +225,7 @@ public:
                 } else {
                     node->key = targetNode->key;
                     node->value = targetNode->value;
-                    isLeft ? parentNode->left = nullptr : parentNode->right = nullptr;
+                    isLeft ? parentNode->left = targetNode->left : parentNode->right = nullptr;
                     delete targetNode;
                 }
                 m_count--;
@@ -196,6 +241,72 @@ public:
                 isLeft = false;
             }
         }
+    }
+    
+    
+    void remove_v2(Key key) {
+        m_root = __remove_v2(m_root, key);
+    }
+    
+    void removeMax() {
+        
+        if (isEmpty()) {
+            return;
+        }
+        
+        Node *max = m_root;
+        Node *parent = nullptr;
+        
+        while (max->right) {
+            parent = max;
+            max = max->right;
+        }
+        
+        if (parent == nullptr) { // 根节点为最大值
+            m_root = m_root->left;
+        } else {
+            // 最大值节点可能还有左节点，需要赋值给父节点的右节点
+            parent->right = max->left;
+        }
+        
+        delete max;
+        max = nullptr;
+        m_count--;
+    }
+    
+    void removeMax_v2() {
+        assert(m_root != nullptr);
+        
+        __removeMax_v2(m_root);
+    }
+    
+    
+    void removeMin() {
+        if (isEmpty()) {
+            return;
+        }
+        
+        Node *min = m_root;
+        Node *parent = nullptr;
+        while (min->left) {
+            parent = min;
+            min = min->left;
+        }
+        
+        if (parent == nullptr) { // 根节点为最小值
+            m_root = m_root->right;
+        } else { // 最小值节点可能还有右节点，需要赋值给父节点的左节点
+            parent->left = min->right;
+        }
+        
+        delete min;
+        min = nullptr;
+        m_count--;
+    }
+    
+    void removeMin_v2() {
+        assert(m_root != nullptr);
+        __removeMin_v2(m_root);
     }
     
 private:
@@ -332,6 +443,152 @@ private:
         __postTraverse(node->left);
         __postTraverse(node->right);
         cout << node->key << " ";
+    }
+    
+    
+    Node* __max(Node *node) {
+        if (node == nullptr) {
+            return nullptr;
+        }
+        
+        while (node->right) {
+            node = node->right;
+        }
+        return node;
+    }
+    
+    
+    /**
+     递归查找以root为根的搜索二叉树
+
+     @param root 搜索二叉树的根节点
+     @return 最大值
+     */
+    Node* __max_v2(Node *root) {
+        
+        if (root->right == nullptr)
+            return root;
+        else
+            return __max_v2(root->right);
+    }
+    
+    Node* __min(Node *node) {
+        if (node == nullptr) {
+            return nullptr;
+        }
+        
+        while (node->left) {
+            node = node->left;
+        }
+        return node;
+    }
+    
+    
+    /**
+     递归查找以node为根的最小值
+
+     @param root 搜索二叉树的根节点
+     @return 最小值
+     */
+    Node* __min_v2(Node *root) {
+        
+        if (root->left == nullptr)
+            return root;
+        else
+            return __min_v2(root->left);
+    }
+    
+    
+    Node* __removeMax_v2(Node *root) {
+        
+        if (root->right == nullptr) {
+            Node *left = root->left;
+            delete root;
+            m_count--;
+            return left;
+        }
+        
+        root->right = __removeMax_v2(root->right);
+        return root;
+    }
+    
+    Node* __removeMin_v2(Node *root) {
+        
+        if (root->left == nullptr) {
+            Node *right = root->right;
+            delete root;
+            m_count--;
+            return right;
+        }
+        
+        root->left = __removeMin_v2(root->left);
+        return root;
+    }
+    
+    
+    /**
+     删除以root为根的二叉搜索树中指定的key
+
+     @param root 二叉搜索树的根节点
+     @param key 删除的key
+     @return 删除指定key后的二叉搜索树
+     */
+    Node* __remove_v2(Node *root, Key key) {
+        
+        if (root == nullptr) {
+            return nullptr;
+        }
+        
+        if (key == root->key) {
+#if 1
+            if (root->left == nullptr) { // 没有左孩子
+                Node *right = root->right;
+                delete root;
+                m_count--;
+                return right;
+            }
+            
+            if (root->right == nullptr) { // 没有右孩子
+                Node *left = root->left;
+                delete root;
+                m_count--;
+                return left;
+            }
+            
+            // root->left != nullptr && root->right != nullptr
+            Node *rightMin = __min_v2(root->right);
+            Node *targetNode = new Node(rightMin);
+            m_count++;
+            targetNode->right = __removeMin_v2(root->right);
+            targetNode->left = root->left;
+            delete root;
+            m_count--;
+            return targetNode;
+#else
+            if (root->left) {
+                Node *leftMax = __max_v2(root->left);
+                root->key = leftMax->key;
+                root->value = leftMax->value;
+                root->left = __removeMax_v2(root->left);
+                return root;
+            } else if (root->right) {
+                Node *rightMin = __min_v2(root->right);
+                root->key = rightMin->key;
+                root->value = rightMin->value;
+                root->right = __removeMin_v2(root->right);
+                return root;
+            } else {
+                delete root;
+                m_count--;
+                return nullptr;
+            }
+#endif
+        } else if (key < root->key) {
+            root->left = __remove_v2(root->left, key);
+        } else { // key > root->key
+            root->right = __remove_v2(root->right, key);
+        }
+        return root;
     }
 };
 
