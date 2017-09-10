@@ -24,6 +24,7 @@
 #include "BST.hpp"
 #include "SequenceST.hpp"
 #include "FileOps.hpp"
+#include "UnionTestHelper.hpp"
 
 
 // https://www.toptal.com/developers/sorting-algorithms
@@ -58,7 +59,9 @@ int main(int argc, const char * argv[]) {
     
 //    binarySearch_run();
 //    bst_run();
-    bst_traverse();
+//    bst_traverse();
+    
+    UnionFindTestHelper::run();
     
     return 0;
 }
