@@ -21,6 +21,7 @@
 		087121E11F25777900449465 /* QuickSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121DF1F25777900449465 /* QuickSort.cpp */; };
 		08DD006F1F651AEE003128BB /* UnionFind2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DD006D1F651AEE003128BB /* UnionFind2.cpp */; };
 		08DD00721F652672003128BB /* UnionFind3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DD00701F652672003128BB /* UnionFind3.cpp */; };
+		08DD00751F6529C8003128BB /* UnionFind4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DD00731F6529C8003128BB /* UnionFind4.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +72,8 @@
 		08DD006E1F651AEE003128BB /* UnionFind2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind2.hpp; sourceTree = "<group>"; };
 		08DD00701F652672003128BB /* UnionFind3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind3.cpp; sourceTree = "<group>"; };
 		08DD00711F652672003128BB /* UnionFind3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind3.hpp; sourceTree = "<group>"; };
+		08DD00731F6529C8003128BB /* UnionFind4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind4.cpp; sourceTree = "<group>"; };
+		08DD00741F6529C8003128BB /* UnionFind4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind4.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,13 +141,15 @@
 				0823CA611F5BA1C900CF56D1 /* FileOps.hpp */,
 				0823CA631F5BA4C600CF56D1 /* SequenceST.cpp */,
 				0823CA641F5BA4C600CF56D1 /* SequenceST.hpp */,
+				08322EB81F64DD460054DD75 /* UnionTestHelper.hpp */,
 				08322EB41F64D8130054DD75 /* UnionFind1.cpp */,
 				08322EB51F64D8130054DD75 /* UnionFind1.hpp */,
-				08322EB81F64DD460054DD75 /* UnionTestHelper.hpp */,
 				08DD006D1F651AEE003128BB /* UnionFind2.cpp */,
 				08DD006E1F651AEE003128BB /* UnionFind2.hpp */,
 				08DD00701F652672003128BB /* UnionFind3.cpp */,
 				08DD00711F652672003128BB /* UnionFind3.hpp */,
+				08DD00731F6529C8003128BB /* UnionFind4.cpp */,
+				08DD00741F6529C8003128BB /* UnionFind4.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
 				08DD006F1F651AEE003128BB /* UnionFind2.cpp in Sources */,
+				08DD00751F6529C8003128BB /* UnionFind4.cpp in Sources */,
 				08DD00721F652672003128BB /* UnionFind3.cpp in Sources */,
 				087121E11F25777900449465 /* QuickSort.cpp in Sources */,
 				08322EB61F64D8130054DD75 /* UnionFind1.cpp in Sources */,

@@ -1,29 +1,30 @@
 //
-//  UnionFind3.cpp
+//  UnionFind4.cpp
 //  Algorithm
 //
 //  Created by nchkdxlq on 2017/9/10.
 //  Copyright © 2017年 nchkdxlq. All rights reserved.
 //
 
-#include "UnionFind3.hpp"
+#include "UnionFind4.hpp"
 
-namespace UF3 {
+
+namespace UF4 {
     
     UnionFind::UnionFind(int n) {
         m_count = n;
         m_parent = new int[n];
-        m_sz = new int[n];
+        m_rank = new int[n];
         for (int i = 0; i < n; i++) {
             // 初始化的时候，每个节点的指针都指向它本身
             m_parent[i] = i;
-            m_sz[i] = 1;
+            m_rank[i] = 1;
         }
     }
     
     UnionFind::~UnionFind() {
         delete [] m_parent;
-        delete [] m_sz;
+        delete [] m_rank;
     }
     
     int UnionFind::find(int p) {
@@ -37,7 +38,6 @@ namespace UF3 {
         return find(p) == find(q);
     }
     
-    
     void UnionFind::unionElements(int p, int q) {
         int pRoot = find(p);
         int qRoot = find(q);
@@ -46,17 +46,19 @@ namespace UF3 {
             return;
         
         /*
-         把元素少的集合合并到元素多的集合中，这样在大多数情况下可以让生成的树层数更少，
-         从而是查询的时间更短
+         问题：在UnionFind3中，合并集合时能够保证在大多数情况下可以让生成的树层数更低，
+         但是在有些情况下，会使得树的层数很高
          
-         而m_parent[qRoot] = pRoot; 这种做法会使得树的层数很多
+         优化: 把层数低的树合并到层数高的树中，尽可能保持树的层数最低
          */
-        if (m_sz[pRoot] < m_sz[qRoot]) {
+        
+        if (m_rank[pRoot] < m_rank[qRoot]) {
             m_parent[pRoot] = qRoot;
-            m_sz[qRoot] += m_sz[pRoot];
+        } else if (m_rank[pRoot] > m_rank[qRoot]) {
+            m_parent[qRoot] = pRoot;
         } else {
             m_parent[qRoot] = pRoot;
-            m_sz[pRoot] += m_sz[qRoot];
+            m_rank[pRoot] += 1;
         }
     }
     
