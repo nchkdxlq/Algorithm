@@ -16,6 +16,7 @@
 #include "UnionFind2.hpp"
 #include "UnionFind3.hpp"
 #include "UnionFind4.hpp"
+#include "UnionFind5.hpp"
 
 namespace UnionFindTestHelper {
     
@@ -109,6 +110,27 @@ namespace UnionFindTestHelper {
         cout << 2*n << " uf4 : " << double(end-start)/CLOCKS_PER_SEC << " s" << endl;
     }
     
+    
+    void testUF5(int n) {
+        srand((unsigned)time(NULL));
+        UF5::UnionFind uf = UF5::UnionFind(n);
+        
+        clock_t start = clock();
+        for (int i = 0; i < n; i++) {
+            int a = rand() % n;
+            int b = rand() % n;
+            uf.unionElements(a, b);
+        }
+        
+        for (int i = 0; i < n; i++) {
+            int a = rand() % n;
+            int b = rand() % n;
+            uf.isConnected(a, b);
+        }
+        clock_t end = clock();
+        cout << 2*n << " uf5 : " << double(end-start)/CLOCKS_PER_SEC << " s" << endl;
+    }
+    
     void run() {
         
         int n = 1000000;
@@ -117,6 +139,7 @@ namespace UnionFindTestHelper {
 //        testUF2(n);
         testUF3(n);
         testUF4(n);
+        testUF5(n);
     }
 }
 
