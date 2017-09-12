@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		080A81631F374AAA00AF2AA6 /* MaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 080A81611F374AAA00AF2AA6 /* MaxHeap.cpp */; };
-		080A81661F376E2E00AF2AA6 /* HeapSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 080A81641F376E2E00AF2AA6 /* HeapSort.cpp */; };
-		0823CA591F4994B500CF56D1 /* IndexMaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA571F4994B500CF56D1 /* IndexMaxHeap.cpp */; };
-		0823CA5C1F5AF30D00CF56D1 /* BinarySearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA5A1F5AF30D00CF56D1 /* BinarySearch.cpp */; };
-		0823CA5F1F5AFEE200CF56D1 /* BST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA5D1F5AFEE200CF56D1 /* BST.cpp */; };
-		0823CA621F5BA1C900CF56D1 /* FileOps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA601F5BA1C900CF56D1 /* FileOps.cpp */; };
-		0823CA651F5BA4C600CF56D1 /* SequenceST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0823CA631F5BA4C600CF56D1 /* SequenceST.cpp */; };
-		08322EB61F64D8130054DD75 /* UnionFind1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08322EB41F64D8130054DD75 /* UnionFind1.cpp */; };
+		08142AC71F68318C0008991E /* DenseGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AA21F68318C0008991E /* DenseGraph.cpp */; };
+		08142AC81F68318C0008991E /* BubbleSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AA51F68318C0008991E /* BubbleSort.cpp */; };
+		08142AC91F68318C0008991E /* HeapSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AA71F68318C0008991E /* HeapSort.cpp */; };
+		08142ACA1F68318C0008991E /* QuickSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AAB1F68318C0008991E /* QuickSort.cpp */; };
+		08142ACB1F68318C0008991E /* BST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AB11F68318C0008991E /* BST.cpp */; };
+		08142ACC1F68318C0008991E /* FileOps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AB31F68318C0008991E /* FileOps.cpp */; };
+		08142ACD1F68318C0008991E /* IndexMaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AB51F68318C0008991E /* IndexMaxHeap.cpp */; };
+		08142ACE1F68318C0008991E /* MaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AB71F68318C0008991E /* MaxHeap.cpp */; };
+		08142ACF1F68318C0008991E /* SequenceST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AB91F68318C0008991E /* SequenceST.cpp */; };
+		08142AD01F68318C0008991E /* UnionFind1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142ABC1F68318C0008991E /* UnionFind1.cpp */; };
+		08142AD11F68318C0008991E /* UnionFind2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142ABE1F68318C0008991E /* UnionFind2.cpp */; };
+		08142AD21F68318C0008991E /* UnionFind3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AC01F68318C0008991E /* UnionFind3.cpp */; };
+		08142AD31F68318C0008991E /* UnionFind4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AC21F68318C0008991E /* UnionFind4.cpp */; };
+		08142AD41F68318C0008991E /* UnionFind5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AC41F68318C0008991E /* UnionFind5.cpp */; };
+		08142AD81F6831F70008991E /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AD61F6831F70008991E /* Student.cpp */; };
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
-		083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE19A1F1E5CE0005916BB /* Student.cpp */; };
-		087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121D61F235B7E00449465 /* BubbleSort.cpp */; };
-		087121E11F25777900449465 /* QuickSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087121DF1F25777900449465 /* QuickSort.cpp */; };
-		08DD006F1F651AEE003128BB /* UnionFind2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DD006D1F651AEE003128BB /* UnionFind2.cpp */; };
-		08DD00721F652672003128BB /* UnionFind3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DD00701F652672003128BB /* UnionFind3.cpp */; };
-		08DD00751F6529C8003128BB /* UnionFind4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DD00731F6529C8003128BB /* UnionFind4.cpp */; };
-		08DD00781F653594003128BB /* UnionFind5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DD00761F653594003128BB /* UnionFind5.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,45 +38,47 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		080A81611F374AAA00AF2AA6 /* MaxHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaxHeap.cpp; sourceTree = "<group>"; };
-		080A81621F374AAA00AF2AA6 /* MaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaxHeap.hpp; sourceTree = "<group>"; };
-		080A81641F376E2E00AF2AA6 /* HeapSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeapSort.cpp; sourceTree = "<group>"; };
-		080A81651F376E2E00AF2AA6 /* HeapSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HeapSort.hpp; sourceTree = "<group>"; };
-		0823CA571F4994B500CF56D1 /* IndexMaxHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexMaxHeap.cpp; sourceTree = "<group>"; };
-		0823CA581F4994B500CF56D1 /* IndexMaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IndexMaxHeap.hpp; sourceTree = "<group>"; };
-		0823CA5A1F5AF30D00CF56D1 /* BinarySearch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearch.cpp; sourceTree = "<group>"; };
-		0823CA5B1F5AF30D00CF56D1 /* BinarySearch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinarySearch.hpp; sourceTree = "<group>"; };
-		0823CA5D1F5AFEE200CF56D1 /* BST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BST.cpp; sourceTree = "<group>"; };
-		0823CA5E1F5AFEE200CF56D1 /* BST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
-		0823CA601F5BA1C900CF56D1 /* FileOps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileOps.cpp; sourceTree = "<group>"; };
-		0823CA611F5BA1C900CF56D1 /* FileOps.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FileOps.hpp; sourceTree = "<group>"; };
-		0823CA631F5BA4C600CF56D1 /* SequenceST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceST.cpp; sourceTree = "<group>"; };
-		0823CA641F5BA4C600CF56D1 /* SequenceST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SequenceST.hpp; sourceTree = "<group>"; };
+		08142AA21F68318C0008991E /* DenseGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DenseGraph.cpp; sourceTree = "<group>"; };
+		08142AA31F68318C0008991E /* DenseGraph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DenseGraph.hpp; sourceTree = "<group>"; };
+		08142AA51F68318C0008991E /* BubbleSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BubbleSort.cpp; sourceTree = "<group>"; };
+		08142AA61F68318C0008991E /* BubbleSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BubbleSort.hpp; sourceTree = "<group>"; };
+		08142AA71F68318C0008991E /* HeapSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeapSort.cpp; sourceTree = "<group>"; };
+		08142AA81F68318C0008991E /* HeapSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HeapSort.hpp; sourceTree = "<group>"; };
+		08142AA91F68318C0008991E /* InsertionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InsertionSort.hpp; sourceTree = "<group>"; };
+		08142AAA1F68318C0008991E /* MergeSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MergeSort.hpp; sourceTree = "<group>"; };
+		08142AAB1F68318C0008991E /* QuickSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuickSort.cpp; sourceTree = "<group>"; };
+		08142AAC1F68318C0008991E /* QuickSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QuickSort.hpp; sourceTree = "<group>"; };
+		08142AAD1F68318C0008991E /* SelectionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectionSort.hpp; sourceTree = "<group>"; };
+		08142AAE1F68318C0008991E /* ShellSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShellSort.hpp; sourceTree = "<group>"; };
+		08142AAF1F68318C0008991E /* SortTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SortTestHelper.hpp; sourceTree = "<group>"; };
+		08142AB11F68318C0008991E /* BST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BST.cpp; sourceTree = "<group>"; };
+		08142AB21F68318C0008991E /* BST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
+		08142AB31F68318C0008991E /* FileOps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileOps.cpp; sourceTree = "<group>"; };
+		08142AB41F68318C0008991E /* FileOps.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FileOps.hpp; sourceTree = "<group>"; };
+		08142AB51F68318C0008991E /* IndexMaxHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexMaxHeap.cpp; sourceTree = "<group>"; };
+		08142AB61F68318C0008991E /* IndexMaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IndexMaxHeap.hpp; sourceTree = "<group>"; };
+		08142AB71F68318C0008991E /* MaxHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaxHeap.cpp; sourceTree = "<group>"; };
+		08142AB81F68318C0008991E /* MaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaxHeap.hpp; sourceTree = "<group>"; };
+		08142AB91F68318C0008991E /* SequenceST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceST.cpp; sourceTree = "<group>"; };
+		08142ABA1F68318C0008991E /* SequenceST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SequenceST.hpp; sourceTree = "<group>"; };
+		08142ABC1F68318C0008991E /* UnionFind1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind1.cpp; sourceTree = "<group>"; };
+		08142ABD1F68318C0008991E /* UnionFind1.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind1.hpp; sourceTree = "<group>"; };
+		08142ABE1F68318C0008991E /* UnionFind2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind2.cpp; sourceTree = "<group>"; };
+		08142ABF1F68318C0008991E /* UnionFind2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind2.hpp; sourceTree = "<group>"; };
+		08142AC01F68318C0008991E /* UnionFind3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind3.cpp; sourceTree = "<group>"; };
+		08142AC11F68318C0008991E /* UnionFind3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind3.hpp; sourceTree = "<group>"; };
+		08142AC21F68318C0008991E /* UnionFind4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind4.cpp; sourceTree = "<group>"; };
+		08142AC31F68318C0008991E /* UnionFind4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind4.hpp; sourceTree = "<group>"; };
+		08142AC41F68318C0008991E /* UnionFind5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind5.cpp; sourceTree = "<group>"; };
+		08142AC51F68318C0008991E /* UnionFind5.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind5.hpp; sourceTree = "<group>"; };
+		08142AC61F68318C0008991E /* UnionTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionTestHelper.hpp; sourceTree = "<group>"; };
+		08142AD61F6831F70008991E /* Student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Student.cpp; sourceTree = "<group>"; };
+		08142AD71F6831F70008991E /* Student.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Student.hpp; sourceTree = "<group>"; };
+		08142ADA1F6832050008991E /* BinarySearch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearch.cpp; sourceTree = "<group>"; };
+		08142ADB1F6832050008991E /* BinarySearch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinarySearch.hpp; sourceTree = "<group>"; };
 		0823CA671F5BA6F400CF56D1 /* bible.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = bible.rtf; sourceTree = "<group>"; };
-		08322EB41F64D8130054DD75 /* UnionFind1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnionFind1.cpp; path = resources/UnionFind1.cpp; sourceTree = "<group>"; };
-		08322EB51F64D8130054DD75 /* UnionFind1.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UnionFind1.hpp; path = resources/UnionFind1.hpp; sourceTree = "<group>"; };
-		08322EB81F64DD460054DD75 /* UnionTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionTestHelper.hpp; sourceTree = "<group>"; };
 		083DE18D1F1D0677005916BB /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		083DE1901F1D0677005916BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		083DE1981F1D080E005916BB /* SelectionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectionSort.hpp; sourceTree = "<group>"; };
-		083DE19A1F1E5CE0005916BB /* Student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Student.cpp; sourceTree = "<group>"; };
-		083DE19B1F1E5CE0005916BB /* Student.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Student.hpp; sourceTree = "<group>"; };
-		083DE1A51F1FA620005916BB /* SortTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SortTestHelper.hpp; sourceTree = "<group>"; };
-		087121D01F2338AD00449465 /* InsertionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InsertionSort.hpp; sourceTree = "<group>"; };
-		087121D61F235B7E00449465 /* BubbleSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BubbleSort.cpp; sourceTree = "<group>"; };
-		087121D71F235B7E00449465 /* BubbleSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BubbleSort.hpp; sourceTree = "<group>"; };
-		087121DA1F238BD800449465 /* ShellSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShellSort.hpp; sourceTree = "<group>"; };
-		087121DD1F23911E00449465 /* MergeSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MergeSort.hpp; sourceTree = "<group>"; };
-		087121DF1F25777900449465 /* QuickSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuickSort.cpp; sourceTree = "<group>"; };
-		087121E01F25777900449465 /* QuickSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QuickSort.hpp; sourceTree = "<group>"; };
-		08DD006D1F651AEE003128BB /* UnionFind2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind2.cpp; sourceTree = "<group>"; };
-		08DD006E1F651AEE003128BB /* UnionFind2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind2.hpp; sourceTree = "<group>"; };
-		08DD00701F652672003128BB /* UnionFind3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind3.cpp; sourceTree = "<group>"; };
-		08DD00711F652672003128BB /* UnionFind3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind3.hpp; sourceTree = "<group>"; };
-		08DD00731F6529C8003128BB /* UnionFind4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind4.cpp; sourceTree = "<group>"; };
-		08DD00741F6529C8003128BB /* UnionFind4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind4.hpp; sourceTree = "<group>"; };
-		08DD00761F653594003128BB /* UnionFind5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnionFind5.cpp; sourceTree = "<group>"; };
-		08DD00771F653594003128BB /* UnionFind5.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UnionFind5.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08142AA11F68318C0008991E /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				08142AA21F68318C0008991E /* DenseGraph.cpp */,
+				08142AA31F68318C0008991E /* DenseGraph.hpp */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		08142AA41F68318C0008991E /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				08142AA51F68318C0008991E /* BubbleSort.cpp */,
+				08142AA61F68318C0008991E /* BubbleSort.hpp */,
+				08142AA71F68318C0008991E /* HeapSort.cpp */,
+				08142AA81F68318C0008991E /* HeapSort.hpp */,
+				08142AA91F68318C0008991E /* InsertionSort.hpp */,
+				08142AAA1F68318C0008991E /* MergeSort.hpp */,
+				08142AAB1F68318C0008991E /* QuickSort.cpp */,
+				08142AAC1F68318C0008991E /* QuickSort.hpp */,
+				08142AAD1F68318C0008991E /* SelectionSort.hpp */,
+				08142AAE1F68318C0008991E /* ShellSort.hpp */,
+				08142AAF1F68318C0008991E /* SortTestHelper.hpp */,
+			);
+			path = Sort;
+			sourceTree = "<group>";
+		};
+		08142AB01F68318C0008991E /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				08142AB11F68318C0008991E /* BST.cpp */,
+				08142AB21F68318C0008991E /* BST.hpp */,
+				08142AB31F68318C0008991E /* FileOps.cpp */,
+				08142AB41F68318C0008991E /* FileOps.hpp */,
+				08142AB51F68318C0008991E /* IndexMaxHeap.cpp */,
+				08142AB61F68318C0008991E /* IndexMaxHeap.hpp */,
+				08142AB71F68318C0008991E /* MaxHeap.cpp */,
+				08142AB81F68318C0008991E /* MaxHeap.hpp */,
+				08142AB91F68318C0008991E /* SequenceST.cpp */,
+				08142ABA1F68318C0008991E /* SequenceST.hpp */,
+			);
+			path = Tree;
+			sourceTree = "<group>";
+		};
+		08142ABB1F68318C0008991E /* UnionFind */ = {
+			isa = PBXGroup;
+			children = (
+				08142ABC1F68318C0008991E /* UnionFind1.cpp */,
+				08142ABD1F68318C0008991E /* UnionFind1.hpp */,
+				08142ABE1F68318C0008991E /* UnionFind2.cpp */,
+				08142ABF1F68318C0008991E /* UnionFind2.hpp */,
+				08142AC01F68318C0008991E /* UnionFind3.cpp */,
+				08142AC11F68318C0008991E /* UnionFind3.hpp */,
+				08142AC21F68318C0008991E /* UnionFind4.cpp */,
+				08142AC31F68318C0008991E /* UnionFind4.hpp */,
+				08142AC41F68318C0008991E /* UnionFind5.cpp */,
+				08142AC51F68318C0008991E /* UnionFind5.hpp */,
+				08142AC61F68318C0008991E /* UnionTestHelper.hpp */,
+			);
+			path = UnionFind;
+			sourceTree = "<group>";
+		};
+		08142AD51F6831F70008991E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				08142AD61F6831F70008991E /* Student.cpp */,
+				08142AD71F6831F70008991E /* Student.hpp */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		08142AD91F6832050008991E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				08142ADA1F6832050008991E /* BinarySearch.cpp */,
+				08142ADB1F6832050008991E /* BinarySearch.hpp */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		0823CA661F5BA6F400CF56D1 /* resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,44 +199,14 @@
 		083DE18F1F1D0677005916BB /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				08142AA41F68318C0008991E /* Sort */,
+				08142AB01F68318C0008991E /* Tree */,
+				08142ABB1F68318C0008991E /* UnionFind */,
+				08142AA11F68318C0008991E /* Graph */,
+				08142AD91F6832050008991E /* Search */,
+				08142AD51F6831F70008991E /* Other */,
 				0823CA661F5BA6F400CF56D1 /* resources */,
 				083DE1901F1D0677005916BB /* main.cpp */,
-				083DE1A51F1FA620005916BB /* SortTestHelper.hpp */,
-				083DE1981F1D080E005916BB /* SelectionSort.hpp */,
-				087121D01F2338AD00449465 /* InsertionSort.hpp */,
-				083DE19A1F1E5CE0005916BB /* Student.cpp */,
-				083DE19B1F1E5CE0005916BB /* Student.hpp */,
-				087121D61F235B7E00449465 /* BubbleSort.cpp */,
-				087121D71F235B7E00449465 /* BubbleSort.hpp */,
-				087121DA1F238BD800449465 /* ShellSort.hpp */,
-				087121DD1F23911E00449465 /* MergeSort.hpp */,
-				087121DF1F25777900449465 /* QuickSort.cpp */,
-				087121E01F25777900449465 /* QuickSort.hpp */,
-				080A81611F374AAA00AF2AA6 /* MaxHeap.cpp */,
-				080A81621F374AAA00AF2AA6 /* MaxHeap.hpp */,
-				080A81641F376E2E00AF2AA6 /* HeapSort.cpp */,
-				080A81651F376E2E00AF2AA6 /* HeapSort.hpp */,
-				0823CA571F4994B500CF56D1 /* IndexMaxHeap.cpp */,
-				0823CA581F4994B500CF56D1 /* IndexMaxHeap.hpp */,
-				0823CA5A1F5AF30D00CF56D1 /* BinarySearch.cpp */,
-				0823CA5B1F5AF30D00CF56D1 /* BinarySearch.hpp */,
-				0823CA5D1F5AFEE200CF56D1 /* BST.cpp */,
-				0823CA5E1F5AFEE200CF56D1 /* BST.hpp */,
-				0823CA601F5BA1C900CF56D1 /* FileOps.cpp */,
-				0823CA611F5BA1C900CF56D1 /* FileOps.hpp */,
-				0823CA631F5BA4C600CF56D1 /* SequenceST.cpp */,
-				0823CA641F5BA4C600CF56D1 /* SequenceST.hpp */,
-				08322EB81F64DD460054DD75 /* UnionTestHelper.hpp */,
-				08322EB41F64D8130054DD75 /* UnionFind1.cpp */,
-				08322EB51F64D8130054DD75 /* UnionFind1.hpp */,
-				08DD006D1F651AEE003128BB /* UnionFind2.cpp */,
-				08DD006E1F651AEE003128BB /* UnionFind2.hpp */,
-				08DD00701F652672003128BB /* UnionFind3.cpp */,
-				08DD00711F652672003128BB /* UnionFind3.hpp */,
-				08DD00731F6529C8003128BB /* UnionFind4.cpp */,
-				08DD00741F6529C8003128BB /* UnionFind4.hpp */,
-				08DD00761F653594003128BB /* UnionFind5.cpp */,
-				08DD00771F653594003128BB /* UnionFind5.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -217,22 +269,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0823CA5F1F5AFEE200CF56D1 /* BST.cpp in Sources */,
-				0823CA591F4994B500CF56D1 /* IndexMaxHeap.cpp in Sources */,
-				0823CA621F5BA1C900CF56D1 /* FileOps.cpp in Sources */,
-				083DE19C1F1E5CE0005916BB /* Student.cpp in Sources */,
-				080A81661F376E2E00AF2AA6 /* HeapSort.cpp in Sources */,
-				080A81631F374AAA00AF2AA6 /* MaxHeap.cpp in Sources */,
-				0823CA5C1F5AF30D00CF56D1 /* BinarySearch.cpp in Sources */,
-				087121D81F235B7E00449465 /* BubbleSort.cpp in Sources */,
+				08142AC81F68318C0008991E /* BubbleSort.cpp in Sources */,
+				08142ACD1F68318C0008991E /* IndexMaxHeap.cpp in Sources */,
+				08142ACB1F68318C0008991E /* BST.cpp in Sources */,
+				08142AD81F6831F70008991E /* Student.cpp in Sources */,
+				08142AC91F68318C0008991E /* HeapSort.cpp in Sources */,
+				08142ACC1F68318C0008991E /* FileOps.cpp in Sources */,
+				08142AD21F68318C0008991E /* UnionFind3.cpp in Sources */,
+				08142AC71F68318C0008991E /* DenseGraph.cpp in Sources */,
+				08142ACA1F68318C0008991E /* QuickSort.cpp in Sources */,
+				08142AD11F68318C0008991E /* UnionFind2.cpp in Sources */,
+				08142AD01F68318C0008991E /* UnionFind1.cpp in Sources */,
+				08142ACE1F68318C0008991E /* MaxHeap.cpp in Sources */,
+				08142AD31F68318C0008991E /* UnionFind4.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
-				08DD006F1F651AEE003128BB /* UnionFind2.cpp in Sources */,
-				08DD00751F6529C8003128BB /* UnionFind4.cpp in Sources */,
-				08DD00721F652672003128BB /* UnionFind3.cpp in Sources */,
-				087121E11F25777900449465 /* QuickSort.cpp in Sources */,
-				08322EB61F64D8130054DD75 /* UnionFind1.cpp in Sources */,
-				08DD00781F653594003128BB /* UnionFind5.cpp in Sources */,
-				0823CA651F5BA4C600CF56D1 /* SequenceST.cpp in Sources */,
+				08142AD41F68318C0008991E /* UnionFind5.cpp in Sources */,
+				08142ACF1F68318C0008991E /* SequenceST.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
