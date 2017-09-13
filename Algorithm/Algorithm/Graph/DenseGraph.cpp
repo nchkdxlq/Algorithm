@@ -24,6 +24,15 @@ DenseGraph::~DenseGraph()
     
 }
 
+
+int DenseGraph::V() {
+    return m_v;
+}
+
+int DenseGraph::E() {
+    return m_e;
+}
+
 bool DenseGraph::hasEdge(int v, int w)
 {
     assert(v >= 0 && v < m_v);

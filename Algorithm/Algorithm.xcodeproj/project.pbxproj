@@ -22,6 +22,7 @@
 		08142AD31F68318C0008991E /* UnionFind4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AC21F68318C0008991E /* UnionFind4.cpp */; };
 		08142AD41F68318C0008991E /* UnionFind5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AC41F68318C0008991E /* UnionFind5.cpp */; };
 		08142AD81F6831F70008991E /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AD61F6831F70008991E /* Student.cpp */; };
+		08142ADE1F6973A30008991E /* SparseGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142ADC1F6973A30008991E /* SparseGraph.cpp */; };
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		08142AD71F6831F70008991E /* Student.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Student.hpp; sourceTree = "<group>"; };
 		08142ADA1F6832050008991E /* BinarySearch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearch.cpp; sourceTree = "<group>"; };
 		08142ADB1F6832050008991E /* BinarySearch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinarySearch.hpp; sourceTree = "<group>"; };
+		08142ADC1F6973A30008991E /* SparseGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SparseGraph.cpp; sourceTree = "<group>"; };
+		08142ADD1F6973A30008991E /* SparseGraph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SparseGraph.hpp; sourceTree = "<group>"; };
 		0823CA671F5BA6F400CF56D1 /* bible.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = bible.rtf; sourceTree = "<group>"; };
 		083DE18D1F1D0677005916BB /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		083DE1901F1D0677005916BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 			children = (
 				08142AA21F68318C0008991E /* DenseGraph.cpp */,
 				08142AA31F68318C0008991E /* DenseGraph.hpp */,
+				08142ADC1F6973A30008991E /* SparseGraph.cpp */,
+				08142ADD1F6973A30008991E /* SparseGraph.hpp */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
 				08142AD41F68318C0008991E /* UnionFind5.cpp in Sources */,
 				08142ACF1F68318C0008991E /* SequenceST.cpp in Sources */,
+				08142ADE1F6973A30008991E /* SparseGraph.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
