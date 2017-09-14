@@ -35,6 +35,45 @@ public:
     bool hasEdge(int v, int w);
     void addEdge(int v, int w);
     
+    
+    class Iterator {
+        
+    private:
+        DenseGraph &m_G;
+        int m_vertext;
+        int m_index;
+        
+    public:
+        Iterator(DenseGraph &g, int vertext):m_G(g) {
+            m_vertext = vertext;
+            m_index = -1;
+        }
+        
+        ~Iterator() {
+            
+        }
+        
+        int begin() {
+            m_index = -1;
+            return next();
+        }
+        
+        int next() {
+            m_index++;
+            vector<bool> edge = m_G.m_graph[m_vertext];
+            
+            for (m_index += 1; m_index < edge.size(); m_index++) {
+                if (edge[m_index])
+                    return m_index;
+            }
+            return -1;
+        }
+        
+        bool end() {
+            return m_index >= m_G.m_graph[m_vertext].size();
+        }
+    };
+    
 };
 
 

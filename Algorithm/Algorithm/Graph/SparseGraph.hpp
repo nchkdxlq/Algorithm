@@ -24,8 +24,8 @@ using namespace std;
 class SparseGraph {
     
 private:
-    int m_v;
-    int m_e;
+    int m_v; // 顶点的个数 （vertex count）
+    int m_e; // 边数 (edge count)
     bool m_directed;
     vector<vector<int>> m_graph;
 
@@ -39,6 +39,41 @@ public:
     bool hasEdge(int v, int w);
     void addEdge(int v, int w);
     
+    
+    class Iterator {
+    private:
+        SparseGraph &m_G;
+        int m_vertex;
+        int m_index;
+        
+    public:
+        Iterator(SparseGraph &g, int v): m_G(g) {
+            m_vertex = v;
+            m_index = -1;
+        }
+        
+        ~Iterator() {
+            
+        }
+        
+        int begin() {
+            m_index = 0;
+            if (m_G.m_graph[m_vertex].size() > 0)
+                return m_G.m_graph[m_vertex][0];
+            return -1;
+        }
+        
+        int next() {
+            m_index++;
+            if (m_index < m_G.m_graph[m_vertex].size())
+                return m_G.m_graph[m_vertex][m_index];
+            return -1;
+        }
+        
+        bool end() {
+            return m_index >= m_G.m_graph[m_vertex].size();
+        }
+    };
 };
 
 

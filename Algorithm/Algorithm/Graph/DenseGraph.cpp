@@ -11,8 +11,9 @@
 
 DenseGraph::DenseGraph(int v, bool directed)
 {
-    m_v = v;
     m_directed = directed;
+    m_v = v;
+    m_e = 0;
     
     for (int i = 0; i < v; i++) {
         m_graph.push_back(vector<bool>(v, false));

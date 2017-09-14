@@ -13,6 +13,7 @@ SparseGraph::SparseGraph(int n, bool directed) {
     
     m_directed = directed;
     m_v = n;
+    m_e = 0;
     
     for (int i = 0; i < n; i++) {
         m_graph.push_back(vector<int>());
@@ -66,7 +67,7 @@ void SparseGraph::addEdge(int v, int w) {
     if (!m_directed)
         m_graph[w].push_back(v);
     
-    m_v++;
+    m_e++;
 }
 
 

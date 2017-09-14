@@ -25,7 +25,7 @@
 #include "SequenceST.hpp"
 #include "FileOps.hpp"
 #include "UnionTestHelper.hpp"
-
+#include "GraphTest.hpp"
 
 // https://www.toptal.com/developers/sorting-algorithms
 
@@ -61,7 +61,9 @@ int main(int argc, const char * argv[]) {
 //    bst_run();
 //    bst_traverse();
     
-    UnionFindTestHelper::run();
+//    UnionFindTestHelper::run();
+    
+    graphTest();
     
     return 0;
 }
