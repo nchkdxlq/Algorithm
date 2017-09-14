@@ -25,6 +25,7 @@
 		08142ADE1F6973A30008991E /* SparseGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142ADC1F6973A30008991E /* SparseGraph.cpp */; };
 		08142AE11F697E260008991E /* GraphTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142ADF1F697E260008991E /* GraphTest.cpp */; };
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
+		08DC600B1F6AC8B000296490 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DC60091F6AC8B000296490 /* Component.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +86,8 @@
 		0823CA671F5BA6F400CF56D1 /* bible.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = bible.rtf; sourceTree = "<group>"; };
 		083DE18D1F1D0677005916BB /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		083DE1901F1D0677005916BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		08DC60091F6AC8B000296490 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
+		08DC600A1F6AC8B000296490 /* Component.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				08142AA31F68318C0008991E /* DenseGraph.hpp */,
 				08142ADC1F6973A30008991E /* SparseGraph.cpp */,
 				08142ADD1F6973A30008991E /* SparseGraph.hpp */,
+				08DC60091F6AC8B000296490 /* Component.cpp */,
+				08DC600A1F6AC8B000296490 /* Component.hpp */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				08142AD21F68318C0008991E /* UnionFind3.cpp in Sources */,
 				08142AC71F68318C0008991E /* DenseGraph.cpp in Sources */,
 				08142ACA1F68318C0008991E /* QuickSort.cpp in Sources */,
+				08DC600B1F6AC8B000296490 /* Component.cpp in Sources */,
 				08142AD11F68318C0008991E /* UnionFind2.cpp in Sources */,
 				08142AD01F68318C0008991E /* UnionFind1.cpp in Sources */,
 				08142ACE1F68318C0008991E /* MaxHeap.cpp in Sources */,
