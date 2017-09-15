@@ -38,7 +38,7 @@ public:
     
     bool hasEdge(int v, int w);
     void addEdge(int v, int w);
-    
+    void show();
     
     class Iterator {
     private:

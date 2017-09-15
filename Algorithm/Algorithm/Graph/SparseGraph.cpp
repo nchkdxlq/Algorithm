@@ -8,6 +8,9 @@
 
 #include "SparseGraph.hpp"
 #include <cassert>
+#include <iostream>
+
+using namespace std;
 
 SparseGraph::SparseGraph(int n, bool directed) {
     
@@ -68,6 +71,19 @@ void SparseGraph::addEdge(int v, int w) {
         m_graph[w].push_back(v);
     
     m_e++;
+}
+
+void SparseGraph::show()
+{
+    cout << ">>>>>>>>>>>>> SparseGraph Show <<<<<<<<<<<<" << endl;
+    for (int i = 0; i < m_v; i++) {
+        cout << "Vertex " << i << " :  ";
+        Iterator iter(*this, i);
+        for (int w = iter.begin(); !iter.end(); w = iter.next()) {
+            cout << w << "  ";
+        }
+        cout << endl;
+    }
 }
 
 

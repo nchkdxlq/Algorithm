@@ -8,6 +8,9 @@
 
 #include "DenseGraph.hpp"
 #include <cassert>
+#include <iostream>
+
+using namespace std;
 
 DenseGraph::DenseGraph(int v, bool directed)
 {
@@ -55,6 +58,18 @@ void DenseGraph::addEdge(int v, int w)
         m_graph[w][v] = true;
         
     m_e++;
+}
+
+void DenseGraph::show()
+{
+    cout << ">>>>>>>>>>>>> DenseGraph Show <<<<<<<<<<<<" << endl;
+    for (int i = 0; i < m_v; i++) {
+        vector<bool> e = m_graph[i];
+        for (int w = 0; w < m_v; w++) {
+            cout << e[w] << "  ";
+        }
+        cout << endl;
+    }
 }
 
 

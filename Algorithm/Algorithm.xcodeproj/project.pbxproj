@@ -26,6 +26,7 @@
 		08142AE11F697E260008991E /* GraphTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142ADF1F697E260008991E /* GraphTest.cpp */; };
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 		08DC600B1F6AC8B000296490 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DC60091F6AC8B000296490 /* Component.cpp */; };
+		08DC600E1F6B4CEA00296490 /* ReadGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DC600C1F6B4CEA00296490 /* ReadGraph.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +89,10 @@
 		083DE1901F1D0677005916BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		08DC60091F6AC8B000296490 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
 		08DC600A1F6AC8B000296490 /* Component.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
+		08DC600C1F6B4CEA00296490 /* ReadGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadGraph.cpp; sourceTree = "<group>"; };
+		08DC600D1F6B4CEA00296490 /* ReadGraph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReadGraph.hpp; sourceTree = "<group>"; };
+		08DC600F1F6B51BC00296490 /* testG1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testG1.txt; sourceTree = "<group>"; };
+		08DC60101F6B51BC00296490 /* testG2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testG2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +115,8 @@
 				08142AA31F68318C0008991E /* DenseGraph.hpp */,
 				08142ADC1F6973A30008991E /* SparseGraph.cpp */,
 				08142ADD1F6973A30008991E /* SparseGraph.hpp */,
+				08DC600C1F6B4CEA00296490 /* ReadGraph.cpp */,
+				08DC600D1F6B4CEA00296490 /* ReadGraph.hpp */,
 				08DC60091F6AC8B000296490 /* Component.cpp */,
 				08DC600A1F6AC8B000296490 /* Component.hpp */,
 			);
@@ -190,6 +197,8 @@
 		0823CA661F5BA6F400CF56D1 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				08DC600F1F6B51BC00296490 /* testG1.txt */,
+				08DC60101F6B51BC00296490 /* testG2.txt */,
 				0823CA671F5BA6F400CF56D1 /* bible.rtf */,
 			);
 			path = resources;
@@ -288,6 +297,7 @@
 				08142ACD1F68318C0008991E /* IndexMaxHeap.cpp in Sources */,
 				08142ACB1F68318C0008991E /* BST.cpp in Sources */,
 				08142AD81F6831F70008991E /* Student.cpp in Sources */,
+				08DC600E1F6B4CEA00296490 /* ReadGraph.cpp in Sources */,
 				08142AC91F68318C0008991E /* HeapSort.cpp in Sources */,
 				08142ACC1F68318C0008991E /* FileOps.cpp in Sources */,
 				08142AD21F68318C0008991E /* UnionFind3.cpp in Sources */,

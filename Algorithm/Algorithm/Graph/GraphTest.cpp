@@ -9,9 +9,10 @@
 #include "GraphTest.hpp"
 #include <ctime>
 #include <iostream>
+#include <string>
 #include "SparseGraph.hpp"
 #include "DenseGraph.hpp"
-
+#include "ReadGraph.hpp"
 
 using namespace std;
 
@@ -73,9 +74,24 @@ void denseGraphTest(int n, int m)
 }
 
 
+void readGraphTest()
+{
+    string fileName = "/Users/nchkdxlq/learn/iOS/summary/Algorithm/Algorithm/Algorithm/resources/testG1.txt";
+    
+    //ReadGraph<SparseGraph> read1(fileName);
+    //read1.graph().show();
+    
+    ReadGraph<DenseGraph> read2(fileName);
+    read2.graph().show();
+}
+
+
+
+
 void graphTest()
 {
     int n = 20, m = 100;
     sparseGraphTest(n, m);
     denseGraphTest(n, m);
+    readGraphTest();
 }
