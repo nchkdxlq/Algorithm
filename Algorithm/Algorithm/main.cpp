@@ -50,7 +50,7 @@ int main(int argc, const char * argv[]) {
     
 //    selectionSort_run();
 //    insertionSort_run();
-//    compare_insertionSort_selectionSort();
+    compare_insertionSort_selectionSort();
 //    bubbleSort_run();
 //    mergeSort_run();
 //    quickSort_run();
@@ -63,7 +63,7 @@ int main(int argc, const char * argv[]) {
     
 //    UnionFindTestHelper::run();
     
-    graphTest();
+//    graphTest();
     
     return 0;
 }
@@ -103,12 +103,58 @@ void insertionSort_run()
 
 void compare_insertionSort_selectionSort()
 {
+// 1. 随机数组
+#if 0
     int length = 10000;
-    int *arr = generateNearlyOrderedRandomArray(length, 10);
-    testSort("SelectionSort", selectionSort, arr, length);
-    testSort("InsertionSort", insertionSort, arr, length);
+    int *arr =generateRandomArray(length, 10, length * 2);
+    int *arr1 = copyIntArray(arr, length);
+    int *arr2 = copyIntArray(arr, length);
+    testSort("SelectionSort", selectionSort, arr1, length);
+    testSort("InsertionSort", insertionSort, arr2, length);
     
     delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    /*
+     arraySize: 10000  SelectionSort: 130.617 ms
+     arraySize: 10000  InsertionSort: 112.577 ms
+     */
+#endif
+// 2. 近乎有序数组
+#if 0
+    int length = 10000;
+    int *arr = generateNearlyOrderedRandomArray(length, 10);
+    int *arr1 = copyIntArray(arr, length);
+    int *arr2 = copyIntArray(arr, length);
+    testSort("SelectionSort", selectionSort, arr1, length);
+    testSort("InsertionSort", insertionSort, arr2, length);
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    /*
+     arraySize: 10000  SelectionSort: 124.516 ms
+     arraySize: 10000  InsertionSort: 0.352 ms
+     */
+#endif
+// 3. 近乎逆序数组
+#if 1
+    int length = 10000;
+    int *arr = generateNearlyOrderedRandomArray(length, 10);
+    arr = reverseIntAarray(arr, length);
+    int *arr1 = copyIntArray(arr, length);
+    int *arr2 = copyIntArray(arr, length);
+    testSort("SelectionSort", selectionSort, arr1, length);
+    testSort("InsertionSort", insertionSort, arr2, length);
+    
+    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
+    /*
+     arraySize: 10000  SelectionSort: 155.929 ms
+     arraySize: 10000  InsertionSort: 240.214 ms
+     */
+#endif
 }
 
 void bubbleSort_run()
@@ -132,7 +178,7 @@ void mergeSort_run()
     testSort("MergeSort", mergeSort, arr, length);
     testSort("MergeSort_v1", mergeSort_v1, arr1, length);
     testSort("MergeSortBU", mergeSortBU, arr2, length);
-    testSort("MergeSortBU_v1", mergeSort_v1, arr3, length);
+    testSort("MergeSortBU_v1", mergeSortBU_v1, arr3, length);
     
     delete [] arr;
     delete [] arr1;

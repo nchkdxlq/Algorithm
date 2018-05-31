@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		08142AC71F68318C0008991E /* DenseGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AA21F68318C0008991E /* DenseGraph.cpp */; };
-		08142AC81F68318C0008991E /* BubbleSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AA51F68318C0008991E /* BubbleSort.cpp */; };
-		08142AC91F68318C0008991E /* HeapSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AA71F68318C0008991E /* HeapSort.cpp */; };
-		08142ACA1F68318C0008991E /* QuickSort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AAB1F68318C0008991E /* QuickSort.cpp */; };
 		08142ACB1F68318C0008991E /* BST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AB11F68318C0008991E /* BST.cpp */; };
 		08142ACC1F68318C0008991E /* FileOps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AB31F68318C0008991E /* FileOps.cpp */; };
 		08142ACD1F68318C0008991E /* IndexMaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142AB51F68318C0008991E /* IndexMaxHeap.cpp */; };
@@ -44,13 +41,10 @@
 /* Begin PBXFileReference section */
 		08142AA21F68318C0008991E /* DenseGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DenseGraph.cpp; sourceTree = "<group>"; };
 		08142AA31F68318C0008991E /* DenseGraph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DenseGraph.hpp; sourceTree = "<group>"; };
-		08142AA51F68318C0008991E /* BubbleSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BubbleSort.cpp; sourceTree = "<group>"; };
 		08142AA61F68318C0008991E /* BubbleSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BubbleSort.hpp; sourceTree = "<group>"; };
-		08142AA71F68318C0008991E /* HeapSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeapSort.cpp; sourceTree = "<group>"; };
 		08142AA81F68318C0008991E /* HeapSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HeapSort.hpp; sourceTree = "<group>"; };
 		08142AA91F68318C0008991E /* InsertionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InsertionSort.hpp; sourceTree = "<group>"; };
 		08142AAA1F68318C0008991E /* MergeSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MergeSort.hpp; sourceTree = "<group>"; };
-		08142AAB1F68318C0008991E /* QuickSort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuickSort.cpp; sourceTree = "<group>"; };
 		08142AAC1F68318C0008991E /* QuickSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QuickSort.hpp; sourceTree = "<group>"; };
 		08142AAD1F68318C0008991E /* SelectionSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SelectionSort.hpp; sourceTree = "<group>"; };
 		08142AAE1F68318C0008991E /* ShellSort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShellSort.hpp; sourceTree = "<group>"; };
@@ -126,15 +120,12 @@
 		08142AA41F68318C0008991E /* Sort */ = {
 			isa = PBXGroup;
 			children = (
-				08142AA51F68318C0008991E /* BubbleSort.cpp */,
-				08142AA61F68318C0008991E /* BubbleSort.hpp */,
-				08142AA71F68318C0008991E /* HeapSort.cpp */,
-				08142AA81F68318C0008991E /* HeapSort.hpp */,
-				08142AA91F68318C0008991E /* InsertionSort.hpp */,
-				08142AAA1F68318C0008991E /* MergeSort.hpp */,
-				08142AAB1F68318C0008991E /* QuickSort.cpp */,
-				08142AAC1F68318C0008991E /* QuickSort.hpp */,
 				08142AAD1F68318C0008991E /* SelectionSort.hpp */,
+				08142AA91F68318C0008991E /* InsertionSort.hpp */,
+				08142AA61F68318C0008991E /* BubbleSort.hpp */,
+				08142AA81F68318C0008991E /* HeapSort.hpp */,
+				08142AAA1F68318C0008991E /* MergeSort.hpp */,
+				08142AAC1F68318C0008991E /* QuickSort.hpp */,
 				08142AAE1F68318C0008991E /* ShellSort.hpp */,
 				08142AAF1F68318C0008991E /* SortTestHelper.hpp */,
 			);
@@ -261,7 +252,7 @@
 		083DE1851F1D0677005916BB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = nchkdxlq;
 				TargetAttributes = {
 					083DE18C1F1D0677005916BB = {
@@ -293,16 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08142AC81F68318C0008991E /* BubbleSort.cpp in Sources */,
 				08142ACD1F68318C0008991E /* IndexMaxHeap.cpp in Sources */,
 				08142ACB1F68318C0008991E /* BST.cpp in Sources */,
 				08142AD81F6831F70008991E /* Student.cpp in Sources */,
 				08DC600E1F6B4CEA00296490 /* ReadGraph.cpp in Sources */,
-				08142AC91F68318C0008991E /* HeapSort.cpp in Sources */,
 				08142ACC1F68318C0008991E /* FileOps.cpp in Sources */,
 				08142AD21F68318C0008991E /* UnionFind3.cpp in Sources */,
 				08142AC71F68318C0008991E /* DenseGraph.cpp in Sources */,
-				08142ACA1F68318C0008991E /* QuickSort.cpp in Sources */,
 				08DC600B1F6AC8B000296490 /* Component.cpp in Sources */,
 				08142AD11F68318C0008991E /* UnionFind2.cpp in Sources */,
 				08142AD01F68318C0008991E /* UnionFind1.cpp in Sources */,
@@ -329,7 +317,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -337,7 +327,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -377,7 +371,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -385,7 +381,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

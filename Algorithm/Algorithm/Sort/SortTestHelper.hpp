@@ -46,7 +46,6 @@ namespace SortTestHelper {
         return arr;
     }
     
-    
     int *generateNearlyOrderedRandomArray(int length, int swapTimes) {
         
         int *arr = new int[length];
@@ -96,6 +95,14 @@ namespace SortTestHelper {
             copyArr[i] = arr[i];
         }
         return copyArr;
+    }
+
+    int* reverseIntAarray(int arr[], int length) {
+        int *reverseArr = new int[length];
+        for (int i = 0; i < length; i++) {
+            reverseArr[length-1-i] = arr[i];
+        }
+        return reverseArr;
     }
 }
 
