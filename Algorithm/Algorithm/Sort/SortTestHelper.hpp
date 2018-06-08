@@ -84,8 +84,8 @@ namespace SortTestHelper {
         
         assert(isSorted(arr, length));
         
-        double time = (double)(end - start) / CLOCKS_PER_SEC * 1000;
-        cout << "arraySize: " << length << "  " << name << ": " << time << " ms" << endl;
+        double time = (double)(end - start) / CLOCKS_PER_SEC;
+        cout << "arraySize: " << length << "  " << name << ": " << time << " s" << endl;
     }
     
     

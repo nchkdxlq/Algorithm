@@ -185,6 +185,13 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		081C73AF20C1986500B4FB53 /* LeetCode */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LeetCode;
+			sourceTree = "<group>";
+		};
 		0823CA661F5BA6F400CF56D1 /* resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +227,7 @@
 				08142AA11F68318C0008991E /* Graph */,
 				08142AD91F6832050008991E /* Search */,
 				08142AD51F6831F70008991E /* Other */,
+				081C73AF20C1986500B4FB53 /* LeetCode */,
 				0823CA661F5BA6F400CF56D1 /* resources */,
 				083DE1901F1D0677005916BB /* main.cpp */,
 			);
