@@ -249,7 +249,7 @@ void quickSort_run()
     testSort("mergeSort_v1", mergeSort_v1, arr, length);
 //    testSort("quickSort_v2", quickSort_v2, arr1, length);
     testSort("quickSort2Ways", quickSort2Ways, arr2, length);
-//    testSort("quickSort3Ways", quickSort3Ways, arr3, length);
+    testSort("quickSort3Ways", quickSort3Ways, arr3, length);
 //    testSort("heapSort_v1", heapSort_v1, arr4, length);
     
     delete [] arr;

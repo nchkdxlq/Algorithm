@@ -180,7 +180,11 @@ int __partition2Ways(T arr[], int l, int r) {
         
         if (i > j) break;
         
-        // 这种情况是 arr[i] > v，  arr[j] < v， 交互位置
+        /*
+         这种情况是 arr[i] >= v，  arr[j] <= v， 交互位置,
+         == v 的情况也交互位置，可以保证相同元素不会大量的在同一侧，
+         保证两个子数组相对平衡。
+         */
         swap(arr[i++], arr[j--]);
     }
     
@@ -242,18 +246,19 @@ void __quickSort3Ways(T arr[], int l, int r) {
     
     while (i < gt) {
         if (arr[i] < v) {
-            if (i != ++lt) {
-                swap(arr[i], arr[lt]);
-            }
+            swap(arr[i], arr[lt+1]);
             i++;
+            lt++;
         } else if (arr[i] > v) {
-            swap(arr[i], arr[--gt]);
+            swap(arr[i], arr[gt-1]);
+            gt--;
         } else { // arr[i] == v
             i++;
         }
     }
     
     swap(arr[l], arr[lt]);
+    lt--;
     
     __quickSort3Ways(arr, l, lt);
     __quickSort3Ways(arr, gt, r);
