@@ -24,6 +24,7 @@
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 		08DC600B1F6AC8B000296490 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DC60091F6AC8B000296490 /* Component.cpp */; };
 		08DC600E1F6B4CEA00296490 /* ReadGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DC600C1F6B4CEA00296490 /* ReadGraph.cpp */; };
+		08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BA72299488D00FCA0A5 /* MyArray.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +88,8 @@
 		08DC600D1F6B4CEA00296490 /* ReadGraph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReadGraph.hpp; sourceTree = "<group>"; };
 		08DC600F1F6B51BC00296490 /* testG1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testG1.txt; sourceTree = "<group>"; };
 		08DC60101F6B51BC00296490 /* testG2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testG2.txt; sourceTree = "<group>"; };
+		08E47BA72299488D00FCA0A5 /* MyArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyArray.cpp; sourceTree = "<group>"; };
+		08E47BA82299488D00FCA0A5 /* MyArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyArray.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +224,7 @@
 		083DE18F1F1D0677005916BB /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				08E47BA62299213C00FCA0A5 /* Array */,
 				08142AA41F68318C0008991E /* Sort */,
 				08142AB01F68318C0008991E /* Tree */,
 				08142ABB1F68318C0008991E /* UnionFind */,
@@ -232,6 +236,15 @@
 				083DE1901F1D0677005916BB /* main.cpp */,
 			);
 			path = Algorithm;
+			sourceTree = "<group>";
+		};
+		08E47BA62299213C00FCA0A5 /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				08E47BA72299488D00FCA0A5 /* MyArray.cpp */,
+				08E47BA82299488D00FCA0A5 /* MyArray.hpp */,
+			);
+			path = Array;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +288,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 083DE1841F1D0677005916BB;
@@ -303,6 +317,7 @@
 				08142AD11F68318C0008991E /* UnionFind2.cpp in Sources */,
 				08142AD01F68318C0008991E /* UnionFind1.cpp in Sources */,
 				08142ACE1F68318C0008991E /* MaxHeap.cpp in Sources */,
+				08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */,
 				08142AD31F68318C0008991E /* UnionFind4.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
 				08142AE11F697E260008991E /* GraphTest.cpp in Sources */,

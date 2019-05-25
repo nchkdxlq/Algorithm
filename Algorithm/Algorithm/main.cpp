@@ -27,6 +27,10 @@
 #include "UnionTestHelper.hpp"
 #include "GraphTest.hpp"
 
+
+#include "MyArray.hpp"
+
+
 // https://www.toptal.com/developers/sorting-algorithms
 
 
@@ -53,7 +57,7 @@ int main(int argc, const char * argv[]) {
 //    compare_insertionSort_selectionSort();
 //    bubbleSort_run();
 //    mergeSort_run();
-    quickSort_run();
+//    quickSort_run();
 //    maxheap_run();
 //    sortCompare();
     
@@ -64,6 +68,8 @@ int main(int argc, const char * argv[]) {
 //    UnionFindTestHelper::run();
     
 //    graphTest();
+    
+    myArray_test();
     
     return 0;
 }
