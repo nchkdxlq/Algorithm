@@ -13,7 +13,7 @@
 #include <cassert>
 
 
-void myArray_test();
+void array_entry();
 
 
 /*

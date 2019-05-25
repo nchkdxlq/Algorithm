@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
     
 //    graphTest();
     
-    myArray_test();
+    array_entry();
     
     return 0;
 }
