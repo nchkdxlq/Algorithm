@@ -29,6 +29,7 @@
 
 
 #include "MyArray.hpp"
+#include "LRUCache.hpp"
 
 
 // https://www.toptal.com/developers/sorting-algorithms
@@ -70,6 +71,7 @@ int main(int argc, const char * argv[]) {
 //    graphTest();
     
     array_entry();
+    lruCache_entry();
     
     return 0;
 }
