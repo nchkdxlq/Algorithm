@@ -26,6 +26,8 @@
 		08DC600E1F6B4CEA00296490 /* ReadGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DC600C1F6B4CEA00296490 /* ReadGraph.cpp */; };
 		08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BA72299488D00FCA0A5 /* MyArray.cpp */; };
 		08E47BAD229A52FA00FCA0A5 /* LRUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BAB229A52FA00FCA0A5 /* LRUCache.cpp */; };
+		08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */; };
+		08E47BB5229C204500FCA0A5 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BB3229C204500FCA0A5 /* Node.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,6 +95,10 @@
 		08E47BA82299488D00FCA0A5 /* MyArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyArray.hpp; sourceTree = "<group>"; };
 		08E47BAB229A52FA00FCA0A5 /* LRUCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LRUCache.cpp; sourceTree = "<group>"; };
 		08E47BAC229A52FA00FCA0A5 /* LRUCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LRUCache.hpp; sourceTree = "<group>"; };
+		08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SingleLinkedList.cpp; sourceTree = "<group>"; };
+		08E47BB1229C1FED00FCA0A5 /* SingleLinkedList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SingleLinkedList.hpp; sourceTree = "<group>"; };
+		08E47BB3229C204500FCA0A5 /* Node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		08E47BB4229C204500FCA0A5 /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,10 +260,30 @@
 		08E47BAA229A52C700FCA0A5 /* LinkedList */ = {
 			isa = PBXGroup;
 			children = (
+				08E47BB3229C204500FCA0A5 /* Node.cpp */,
+				08E47BB4229C204500FCA0A5 /* Node.hpp */,
+				08E47BAF229C1FCE00FCA0A5 /* SingleLinkedList */,
+				08E47BAE229C1FBC00FCA0A5 /* LRUCache */,
+			);
+			path = LinkedList;
+			sourceTree = "<group>";
+		};
+		08E47BAE229C1FBC00FCA0A5 /* LRUCache */ = {
+			isa = PBXGroup;
+			children = (
 				08E47BAB229A52FA00FCA0A5 /* LRUCache.cpp */,
 				08E47BAC229A52FA00FCA0A5 /* LRUCache.hpp */,
 			);
-			path = LinkedList;
+			path = LRUCache;
+			sourceTree = "<group>";
+		};
+		08E47BAF229C1FCE00FCA0A5 /* SingleLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */,
+				08E47BB1229C1FED00FCA0A5 /* SingleLinkedList.hpp */,
+			);
+			path = SingleLinkedList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +359,8 @@
 				08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */,
 				08142AD31F68318C0008991E /* UnionFind4.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
+				08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */,
+				08E47BB5229C204500FCA0A5 /* Node.cpp in Sources */,
 				08E47BAD229A52FA00FCA0A5 /* LRUCache.cpp in Sources */,
 				08142AE11F697E260008991E /* GraphTest.cpp in Sources */,
 				08142AD41F68318C0008991E /* UnionFind5.cpp in Sources */,
