@@ -71,9 +71,9 @@ int main(int argc, const char * argv[]) {
     
 //    graphTest();
     
-    array_entry();
-    lruCache_entry();
-    singleLinkedList_entry();
+//    array_entry();
+//    lruCache_entry();
+//    singleLinkedList_entry();
     doublyLinkedList_entry();
     
     return 0;

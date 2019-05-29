@@ -33,7 +33,7 @@ void singleLinkedList_entry() {
     }
     
     list.description();
-    list.traverse();
+    list.reverse();
     list.description();
 }
 

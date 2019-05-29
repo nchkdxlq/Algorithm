@@ -213,7 +213,7 @@ namespace SingleLinkedList {
         /**
          翻转链表
          */
-        void traverse() {
+        void reverse() {
             // 没有结点或已有一个结点，不需要翻转，特殊处理
             if (m_head == nullptr || m_head->next == nullptr) return;
             
