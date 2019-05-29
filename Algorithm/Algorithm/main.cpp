@@ -30,7 +30,7 @@
 
 #include "MyArray.hpp"
 #include "LRUCache.hpp"
-
+#include "SingleLinkedList.hpp"
 
 // https://www.toptal.com/developers/sorting-algorithms
 
@@ -72,6 +72,7 @@ int main(int argc, const char * argv[]) {
     
     array_entry();
     lruCache_entry();
+    singleLinkedList_entry();
     
     return 0;
 }
