@@ -10,7 +10,6 @@
 #include <cstring>
 #include <cassert>
 
-using namespace SingleLinkedList;
 using namespace std;
 
 
