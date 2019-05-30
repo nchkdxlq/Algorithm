@@ -23,6 +23,7 @@
 		08142AE11F697E260008991E /* GraphTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08142ADF1F697E260008991E /* GraphTest.cpp */; };
 		083DE1911F1D0677005916BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083DE1901F1D0677005916BB /* main.cpp */; };
 		0893CA01229E128C0086F6EB /* DoublyLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0893C9FF229E128C0086F6EB /* DoublyLinkedList.cpp */; };
+		0893CA0422A019E30086F6EB /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 0893CA0322A019E30086F6EB /* Utils.c */; };
 		08DC600B1F6AC8B000296490 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DC60091F6AC8B000296490 /* Component.cpp */; };
 		08DC600E1F6B4CEA00296490 /* ReadGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08DC600C1F6B4CEA00296490 /* ReadGraph.cpp */; };
 		08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BA72299488D00FCA0A5 /* MyArray.cpp */; };
@@ -87,6 +88,8 @@
 		083DE1901F1D0677005916BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0893C9FF229E128C0086F6EB /* DoublyLinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DoublyLinkedList.cpp; sourceTree = "<group>"; };
 		0893CA00229E128C0086F6EB /* DoublyLinkedList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DoublyLinkedList.hpp; sourceTree = "<group>"; };
+		0893CA0222A019E30086F6EB /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		0893CA0322A019E30086F6EB /* Utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Utils.c; sourceTree = "<group>"; };
 		08DC60091F6AC8B000296490 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
 		08DC600A1F6AC8B000296490 /* Component.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
 		08DC600C1F6B4CEA00296490 /* ReadGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadGraph.cpp; sourceTree = "<group>"; };
@@ -197,13 +200,6 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		081C73AF20C1986500B4FB53 /* LeetCode */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LeetCode;
-			sourceTree = "<group>";
-		};
 		0823CA661F5BA6F400CF56D1 /* resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				083DE18F1F1D0677005916BB /* Algorithm */,
+				083DE1901F1D0677005916BB /* main.cpp */,
 				083DE18E1F1D0677005916BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -241,9 +238,8 @@
 				08142AA11F68318C0008991E /* Graph */,
 				08142AD91F6832050008991E /* Search */,
 				08142AD51F6831F70008991E /* Other */,
-				081C73AF20C1986500B4FB53 /* LeetCode */,
 				0823CA661F5BA6F400CF56D1 /* resources */,
-				083DE1901F1D0677005916BB /* main.cpp */,
+				0893CA0522A01A090086F6EB /* Utils */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -255,6 +251,15 @@
 				0893CA00229E128C0086F6EB /* DoublyLinkedList.hpp */,
 			);
 			path = DoublyLinkedList;
+			sourceTree = "<group>";
+		};
+		0893CA0522A01A090086F6EB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0893CA0222A019E30086F6EB /* Utils.h */,
+				0893CA0322A019E30086F6EB /* Utils.c */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		08E47BA62299213C00FCA0A5 /* Array */ = {
@@ -362,6 +367,7 @@
 				08142AC71F68318C0008991E /* DenseGraph.cpp in Sources */,
 				0893CA01229E128C0086F6EB /* DoublyLinkedList.cpp in Sources */,
 				08DC600B1F6AC8B000296490 /* Component.cpp in Sources */,
+				0893CA0422A019E30086F6EB /* Utils.c in Sources */,
 				08142AD11F68318C0008991E /* UnionFind2.cpp in Sources */,
 				08142AD01F68318C0008991E /* UnionFind1.cpp in Sources */,
 				08142ACE1F68318C0008991E /* MaxHeap.cpp in Sources */,

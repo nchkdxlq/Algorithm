@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Utils.h"
 
 void singleLinkedList_entry();
 
@@ -32,12 +33,14 @@ class LinkedList {
     
 private:
     Node *m_head;
+    int m_length;
     
     
 public:
     
     LinkedList() {
         m_head = nullptr;
+        m_length = 0;
     }
     
     ~LinkedList() {
@@ -50,16 +53,10 @@ public:
     }
     
     int length() {
-        int length = 0;
-        Node *cur = m_head;
-        while (cur) {
-            length++;
-            cur = cur->next;
-        }
-        return length;
+        return m_length;
     }
     
-    bool insert(T data) {
+    bool append(T data) {
         Node *newNode = new Node(data);
         if (m_head == nullptr) {
             m_head = newNode;
@@ -70,18 +67,20 @@ public:
             }
             cur->next = newNode;
         }
+        m_length++;
         return true;
     }
     
     // index从0开始
     bool insertAtIndex(T data, int index) {
-        if (index < 0) return false;
+        if (index < 0 || index > m_length) return false;
         
         // 处理插入index == 0 的情况
         if (index == 0) {
             Node *newNode = new Node(data);
             newNode->next = m_head;
             m_head = newNode;
+            m_length++;
             return true;
         }
         
@@ -94,6 +93,7 @@ public:
                 Node *newNode =  Node(data);
                 newNode->next = cur->next;
                 cur->next = newNode;
+                m_length++;
                 return true;
             }
             cur = cur->next;
@@ -109,9 +109,10 @@ public:
         
         // 只有一个结点
         if (m_head->next == nullptr) {
-            *element = m_head->data;
+            PointSafeAssign(element, m_head->data);
             delete m_head;
             m_head = nullptr;
+            m_length--;
             return true;
         }
         
@@ -126,6 +127,7 @@ public:
         
         prev->next = nullptr;
         *element = cur->data;
+        m_length--;
         delete cur;
         
         return true;
@@ -134,14 +136,15 @@ public:
     // index从0开始
     bool deleteElementAtIndex(int index, T *element) {
         // 非法输入
-        if (index < 0 || m_head == nullptr) return false;
+        if (index < 0 || index > m_length-1) return false;
         
         // 删除第0个节点
         if (index == 0) {
             Node *next = m_head->next;
-            *element = m_head->data;
+            PointSafeAssign(element, m_head->data);
             delete m_head;
             m_head = next;
+            m_length--;
             return true;
         }
         
@@ -153,9 +156,10 @@ public:
             pos++;
             if (pos == index - 1 && cur->next) { // 第index-1个节点
                 Node *target = cur->next;
-                *element = target->data;
+                PointSafeAssign(element, target->data);
                 cur->next = target->next;
                 delete target;
+                m_length--;
                 return true;
             }
             cur = cur->next;
@@ -167,7 +171,7 @@ public:
     
     bool firstElement(T *element) {
         if (m_head == nullptr) return false;
-        *element = m_head->data;
+        PointSafeAssign(element, m_head->data);
         return true;
     }
     
@@ -179,7 +183,7 @@ public:
         while (cur->next) {
             cur = cur->next;
         }
-        *element = cur->data;
+        PointSafeAssign(element, cur->data);
         
         return true;
     }
@@ -200,7 +204,7 @@ public:
         }
         
         if (target) {
-            *element = target->data;
+            PointSafeAssign(element, target->data);
             return true;
         }  else {
             return false;
@@ -242,6 +246,7 @@ public:
             cur = tmp->next;
         }
         m_head = nullptr;
+        m_length = 0;
     }
     
     void description() {

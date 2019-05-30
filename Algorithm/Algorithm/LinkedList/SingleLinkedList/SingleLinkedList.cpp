@@ -21,7 +21,7 @@ void singleLinkedList_entry() {
     assert(list.length() == 0);
     
     for (int i = 0; i < str.size(); i++) {
-        list.insert(str[i]);
+        list.append(str[i]);
     }
     assert(list.length() == str.length());
     

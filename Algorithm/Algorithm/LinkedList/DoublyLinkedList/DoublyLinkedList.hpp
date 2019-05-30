@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Utils.h"
+
+
 
 using namespace std;
 
@@ -36,11 +39,13 @@ class DoublyLinkedList {
 
 private:
     Node *m_head;
+    int m_length;
 
 public:
     
     DoublyLinkedList() {
         m_head = nullptr;
+        m_length = 0;
     }
     
     ~DoublyLinkedList() {
@@ -52,39 +57,33 @@ public:
     }
     
     int length() {
-        int length = 0;
-        Node *cur = m_head;
-        while (cur) {
-            cur = cur->next;
-            length++;
-        }
-        return length;
+        return m_length;
     }
     
     
-    bool insert(T element) {
+    bool append(T element) {
         Node *newNode = new Node(element);
-        
+
         if (m_head == nullptr) {
             m_head = newNode;
-            return true;
+        } else {
+            // 找到链表的最后一个结点
+            Node *cur = m_head;
+            while (cur->next) {
+                cur = cur->next;
+            }
+            
+            cur->next = newNode;
+            newNode->prev = cur;
         }
         
-        // 找到链表的最后一个结点
-        Node *cur = m_head;
-        while (cur->next) {
-            cur = cur->next;
-        }
-        
-        cur->next = newNode;
-        newNode->prev = cur;
-        
+        m_length++;
         return true;
     }
     
     
     bool insertAtIndex(T element, int index) {
-        if (index < 0) return false;
+        if (index < 0 || index > m_length) return false;
         
         if (index == 0) {
             Node *newNode = new Node(element);
@@ -93,10 +92,9 @@ public:
                 m_head->prev = newNode;
             }
             m_head = newNode;
+            m_length++;
             return true;
         }
-        
-        if (m_head == nullptr) return false;
         
         Node *cur = m_head;
         int pos = -1;
@@ -108,6 +106,7 @@ public:
                 newNode->prev = cur;
                 newNode->next = next;
                 cur->next = newNode;
+                m_length++;
                 return true;
             }
         }
@@ -116,11 +115,12 @@ public:
     }
     
     bool deleteLast(T *element) {
-        if (m_head == nullptr) return false;
+        if (isEmpty()) return false;
         
         if (m_head->next == nullptr) { // 只有一个结点
             *element = m_head->data;
             delete m_head;
+            m_length--;
             m_head = nullptr;
             return true;
         }
@@ -133,19 +133,20 @@ public:
         Node *prev = cur->prev;
         prev->next = nullptr;
         delete cur;
-
+        m_length--;
+        
         return true;
     }
     
     bool deleteAtIndex(T *element, int index) {
-        if (index < 0) return false;
+        if (index < 0 || index >= m_length) return false;
         
         if (index == 0) {
-            if (m_head == nullptr) return false;
             Node *next = m_head->next;
-            *element = m_head->data;
+            PointSafeAssign(element, m_head->data);
             delete m_head;
             m_head = next;
+            m_length--;
             return true;
         }
         
@@ -156,12 +157,13 @@ public:
             if (pos == index) {
                 Node *prev = cur->prev;
                 Node *next = cur->next;
-                *element = cur->data;
+                PointSafeAssign(element, cur->data);
                 delete cur;
                 prev->next = next;
                 if (next) { // next结点可能没有值
                     next->prev = prev;
                 }
+                m_length--;
                 return true;
             }
             cur = cur->next;
@@ -172,18 +174,38 @@ public:
     
     
     bool elementAtIndex(T *element, int index) {
-        if (index < 0) return false;
+        if (index < 0 || index >= m_length) return false;
         
+        Node *cur = m_head;
+        int pos = -1;
+        while (cur) {
+            pos++;
+            if (pos == index) {
+                PointSafeAssign(element, cur->data);
+                break;
+            }
+            cur = cur->next;
+        }
         
-        return false;
+        return true;
     }
     
     bool firstElement(T *element) {
-        return false;
+        if (isEmpty()) return false;
+        PointSafeAssign(element, m_head->data);
+        return true;
     }
     
     bool lastElement(T *element) {
-        return false;
+        if (isEmpty()) return false;
+        
+        Node *cur = m_head;
+        while (cur->next) {
+            cur = cur->next;
+        }
+        PointSafeAssign(element, cur->data);
+        
+        return true;
     }
     
     
@@ -195,6 +217,7 @@ public:
             cur = next;
         }
         m_head = nullptr;
+        m_length = 0;
     }
     
     void description() {
