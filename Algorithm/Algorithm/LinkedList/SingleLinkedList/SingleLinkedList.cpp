@@ -14,7 +14,7 @@ using namespace std;
 
 
 void singleLinkedList_entry() {
-    string str = "123456789abcdefg";
+    string str = "123";
     
     LinkedList<char> list = LinkedList<char>();
     assert(list.isEmpty());
@@ -24,6 +24,12 @@ void singleLinkedList_entry() {
         list.append(str[i]);
     }
     assert(list.length() == str.length());
+    
+//    list.reverseBetween(1, 5);
+    list.reverseKGroup(2);
+//    list.swapPairs();
+    list.description();
+    return;
     
     for (int i = 0; i < str.size(); i++) {
         char data;

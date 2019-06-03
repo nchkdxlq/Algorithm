@@ -73,8 +73,8 @@ int main(int argc, const char * argv[]) {
     
 //    array_entry();
 //    lruCache_entry();
-//    singleLinkedList_entry();
-    doublyLinkedList_entry();
+    singleLinkedList_entry();
+//    doublyLinkedList_entry();
     
     return 0;
 }

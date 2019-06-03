@@ -235,6 +235,7 @@ public:
     }
     
     
+    
     /**
      清空链表
      */
@@ -243,7 +244,7 @@ public:
         while (cur) {
             Node *tmp = cur->next;
             delete cur;
-            cur = tmp->next;
+            cur = tmp;
         }
         m_head = nullptr;
         m_length = 0;
@@ -265,6 +266,257 @@ public:
             cur = cur->next;
         }
     }
+    
+    void reverseBetween(int m, int n) {
+        
+        __reverseBetween_v2(m, n);
+        
+    }
+    
+    void __reverseBetween_v2(int m, int n) {
+        if (m == n) return;
+        
+        Node *m_node = nullptr;
+        Node *m_prev = nullptr;
+        Node *cur = m_head;
+        int pos = 1;
+        while (pos < m) {
+            m_prev = cur;
+            cur = cur->next;
+            pos++;
+        }
+        m_node = cur; // 1. 找到第m的结点
+        
+        // 2. 把 m~n 结点翻转
+        Node *tmpHead = cur;
+        cur = cur->next;
+        pos++;
+        while (pos <= n) {
+            Node *tmpNext = cur->next;
+            cur->next = tmpHead;
+            tmpHead = cur;
+            cur = tmpNext;
+            pos++;
+        }
+        
+        // 4. 翻转后，下标m结点到了第n个位置，让新n的结点指向n+1结点
+        m_node->next = cur;
+        
+        // 5. m-1指向新的m结点
+        if (m_prev) {
+            m_prev->next = tmpHead;
+        } else {
+            m_head = tmpHead;
+        }
+    }
+    
+    void __reverseBetween_v1(int m, int n) {
+        Node *cur = m_head;
+        Node *prev = nullptr;
+        Node *node_m = nullptr;
+        Node *m_prev = nullptr;
+        int pos = 0;
+        while (cur) {
+            pos++;
+            if (pos <= m) {
+                if (pos < m) {
+                    m_prev = cur;
+                } else {
+                    node_m = cur;
+                }
+                prev = cur;
+                cur = cur->next;
+            } else if (pos > m && pos <= n) {
+                Node *tmpNext = cur->next;
+                
+                cur->next = node_m;
+                if (m == 1) {
+                    m_head = cur;
+                } else {
+                    m_prev->next = cur;
+                }
+                node_m = cur;
+                
+//                node_m->next = tmpNext;
+//                prev->next = node_m;
+                prev->next =tmpNext;
+                
+                cur = tmpNext;
+                continue;
+            } else {
+                break;
+            }
+        }
+        
+    }
+    
+    void reverseKGroup(int k) {
+        m_head = __reverseKGroup_v2(m_head, k);
+    }
+    
+    void __reverseKGroup_v1(int k) {
+        if (m_head == nullptr || k < 2) return;
+        
+        Node *newHead = nullptr; // 新链表头指针
+        Node *newTail = nullptr; // 新链表尾指针
+        Node *cur = m_head;
+        int count = 0;
+        
+        Node *tmpHead = nullptr;
+        Node *tmpTail = nullptr;
+        
+        while (cur) {
+            Node *tmpNext = cur->next;
+            cur->next = tmpHead;
+            tmpHead = cur;
+            count++;
+            if (tmpTail == nullptr) tmpTail = cur;
+            
+            if (count == k) {
+                if (newTail == nullptr) {
+                    newHead = tmpHead;
+                } else {
+                    newTail->next = tmpHead;
+                }
+                newTail = tmpTail;
+                
+                tmpHead = nullptr;
+                tmpTail = nullptr;
+                count = 0;
+            }
+            cur = tmpNext;
+        }
+        
+        if (tmpHead) { // 说明最后一组的结点书少于k, 不需要翻转，把它翻转回来
+            tmpTail = tmpHead;
+            cur = tmpHead->next;
+            while (cur) {
+                Node *next = cur->next;
+                cur->next = tmpHead;
+                tmpHead = cur;
+                cur = next;
+            }
+            
+            if (newTail) {
+                newTail->next = tmpHead;
+            } else {
+                newHead = tmpHead;
+            }
+            
+            newTail = tmpTail;
+        }
+        
+        if (newTail) newTail->next = nullptr;
+        
+        
+        m_head = newHead;
+    }
+    
+    
+    // 递归解法
+    Node* __reverseKGroup_v2(Node *head, int k) {
+        if (head == nullptr || head->next == nullptr || k < 2) {
+            return head;
+        }
+        
+        Node *newHead = nullptr;
+        int count = 0;
+        Node *cur = head;
+        Node *next = nullptr;
+        while (cur) {
+            next = cur->next;
+            cur->next = newHead;
+            newHead = cur;
+            
+            count++;
+            if (count == k) {
+                break;
+            } else {
+                cur = next;
+            }
+        }
+        
+        if (count < k) {
+            Node *tmpHead = nullptr;
+            cur = newHead;
+            while (cur) {
+                Node *next = cur->next;
+                cur->next = tmpHead;
+                tmpHead = cur;
+                cur = next;
+            }
+            return tmpHead;
+        } else {
+            head->next = __reverseKGroup_v2(next, k);
+            return newHead;
+        }
+    }
+    
+    
+    
+    void swapPairs() {
+        __swapPairs_v2();
+    }
+    
+    void __swapPairs_v2() {
+        if (length() < 2) return;
+        
+        Node *dummy = new Node(-1);
+        Node *pre = dummy;
+        Node *cur = m_head;
+        
+        while (cur) {
+            Node *next = cur->next;
+            if (next) {
+                Node *nextNext = next->next;
+                pre->next = next;
+                pre = next;
+                next = nextNext;
+            }
+            pre->next = cur;
+            pre = cur;
+            
+            cur = next;
+        }
+        pre->next = nullptr;
+        
+        m_head = dummy->next;
+        delete dummy;
+    }
+    
+    void __swapPairs_v1() {
+        if (length() < 2) return;
+        
+        Node *newHead = nullptr;
+        Node *tail = nullptr;
+        Node *cur = m_head;
+        
+        while (cur) {
+            Node *next = cur->next;
+            Node *tmp = cur; // 临时存储cur和next放在前面的结点，统一后面代码操作
+            if (next) {
+                tmp = next;
+                Node *nextNext = next->next;
+                next->next = cur;
+                next = nextNext;
+            }
+            
+            if (newHead) {
+                tail->next = tmp;
+            } else {
+                newHead = tmp;
+            }
+            tail = cur;
+            
+            cur = next;
+        }
+        
+        if (tail) tail->next = nullptr;
+        
+        m_head = newHead;
+    }
+    
+    
     
 };
 
