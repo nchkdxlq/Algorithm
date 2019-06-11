@@ -29,6 +29,8 @@
 		08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BA72299488D00FCA0A5 /* MyArray.cpp */; };
 		08E47BAD229A52FA00FCA0A5 /* LRUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BAB229A52FA00FCA0A5 /* LRUCache.cpp */; };
 		08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */; };
+		08F2B7F722AF24A900A50301 /* 703-KthLargest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7F522AF24A900A50301 /* 703-KthLargest.cpp */; };
+		08F2B7FA22AF268600A50301 /* leetCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7F822AF268600A50301 /* leetCode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +104,10 @@
 		08E47BAC229A52FA00FCA0A5 /* LRUCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LRUCache.hpp; sourceTree = "<group>"; };
 		08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SingleLinkedList.cpp; sourceTree = "<group>"; };
 		08E47BB1229C1FED00FCA0A5 /* SingleLinkedList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SingleLinkedList.hpp; sourceTree = "<group>"; };
+		08F2B7F522AF24A900A50301 /* 703-KthLargest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "703-KthLargest.cpp"; sourceTree = "<group>"; };
+		08F2B7F622AF24A900A50301 /* 703-KthLargest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "703-KthLargest.hpp"; sourceTree = "<group>"; };
+		08F2B7F822AF268600A50301 /* leetCode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = leetCode.cpp; sourceTree = "<group>"; };
+		08F2B7F922AF268600A50301 /* leetCode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = leetCode.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +236,7 @@
 		083DE18F1F1D0677005916BB /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				08F2B7F122AF23E900A50301 /* LeetCode */,
 				08E47BAA229A52C700FCA0A5 /* LinkedList */,
 				08E47BA62299213C00FCA0A5 /* Array */,
 				08142AA41F68318C0008991E /* Sort */,
@@ -262,6 +269,13 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		08DEC6E322A6AD5500EF527F /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
 		08E47BA62299213C00FCA0A5 /* Array */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +288,7 @@
 		08E47BAA229A52C700FCA0A5 /* LinkedList */ = {
 			isa = PBXGroup;
 			children = (
+				08DEC6E322A6AD5500EF527F /* Stack */,
 				0893C9FE229E12630086F6EB /* DoublyLinkedList */,
 				08E47BAF229C1FCE00FCA0A5 /* SingleLinkedList */,
 				08E47BAE229C1FBC00FCA0A5 /* LRUCache */,
@@ -297,6 +312,17 @@
 				08E47BB1229C1FED00FCA0A5 /* SingleLinkedList.hpp */,
 			);
 			path = SingleLinkedList;
+			sourceTree = "<group>";
+		};
+		08F2B7F122AF23E900A50301 /* LeetCode */ = {
+			isa = PBXGroup;
+			children = (
+				08F2B7F522AF24A900A50301 /* 703-KthLargest.cpp */,
+				08F2B7F622AF24A900A50301 /* 703-KthLargest.hpp */,
+				08F2B7F822AF268600A50301 /* leetCode.cpp */,
+				08F2B7F922AF268600A50301 /* leetCode.hpp */,
+			);
+			path = LeetCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +386,7 @@
 			files = (
 				08142ACD1F68318C0008991E /* IndexMaxHeap.cpp in Sources */,
 				08142ACB1F68318C0008991E /* BST.cpp in Sources */,
+				08F2B7F722AF24A900A50301 /* 703-KthLargest.cpp in Sources */,
 				08142AD81F6831F70008991E /* Student.cpp in Sources */,
 				08DC600E1F6B4CEA00296490 /* ReadGraph.cpp in Sources */,
 				08142ACC1F68318C0008991E /* FileOps.cpp in Sources */,
@@ -375,6 +402,7 @@
 				08142AD31F68318C0008991E /* UnionFind4.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
 				08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */,
+				08F2B7FA22AF268600A50301 /* leetCode.cpp in Sources */,
 				08E47BAD229A52FA00FCA0A5 /* LRUCache.cpp in Sources */,
 				08142AE11F697E260008991E /* GraphTest.cpp in Sources */,
 				08142AD41F68318C0008991E /* UnionFind5.cpp in Sources */,
