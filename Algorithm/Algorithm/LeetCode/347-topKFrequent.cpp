@@ -11,22 +11,31 @@
 #include <unordered_map>
 #include <utility>
 #include <queue>
+#include <iostream>
 
 using namespace std;
 
-bool cmpK(const pair<int, int>& l, const pair<int, int>& r) {
-    return l.second < r.second;
-}
+
+struct cmpK {
+    
+    bool operator ()(const pair<int, int>& l, const pair<int, int>& r) const
+    {
+        return l.second < r.second;// 按照value从小到大排列
+    }
+    
+};
 
 vector<int> topKFrequent(vector<int>& nums, int k) {
     unordered_map<int, int> counter;
     for (auto i : nums) {
         counter[i]++;
     }
-
-//    priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmpK)> q(counter.begin(), counter.end());
     
+#if 1
+    priority_queue<pair<int, int>, vector<pair<int, int>>, cmpK> q(counter.begin(), counter.end());
+#else
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q(counter.begin(), counter.end());
+#endif
     
     vector<int> ret;
     
@@ -43,5 +52,10 @@ vector<int> topKFrequent(vector<int>& nums, int k) {
 
 void entry_347() {
     vector<int> nums{1,1,1,2,2,2,2,3,3};
-    topKFrequent(nums, 2);
+    vector<int> ret = topKFrequent(nums, 2);
+    
+    for (auto i : ret) {
+        cout << i << " ";
+    }
+    cout << endl;
 }

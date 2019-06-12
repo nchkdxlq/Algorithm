@@ -11,7 +11,9 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 #include "Utils.h"
+
 
 void singleLinkedList_entry();
 
@@ -269,8 +271,51 @@ public:
     
     void reverseBetween(int m, int n) {
         
-        __reverseBetween_v2(m, n);
+        __reverseBetween_v3(m, n);
         
+    }
+    
+    
+    void __reverseBetween_v3(int m, int n) {
+        if (m == n) return;
+        
+        Node dummy = Node(-1);
+        Node *tail = &dummy;
+        
+        Node *cur = m_head;
+        int pos = 1;
+        
+        while (pos < m) {
+            tail->next = cur;
+            tail = cur;
+            cur = cur->next;
+            pos++;
+        }
+        // while循环后，pos == m, cur在m的位置
+        
+        Node *tmpHead = nullptr;
+        Node *tmpTail = cur; // 第m个节点翻转后会变成子链表的最后一个节点，先记录下来
+        while (pos <= n) {
+            Node *next = cur->next;
+            cur->next = tmpHead;
+            tmpHead = cur;
+            cur = next;
+            pos++;
+        }
+        // while循环后，pos == n+1, cur在n+1的位置
+        
+        tail->next = tmpHead;
+        tail = tmpTail;
+        
+        
+        // n+1以及后面的结点
+        while (cur) {
+            tail->next = cur;
+            tail = cur;
+            cur = cur->next;
+        }
+        
+        m_head = dummy.next;
     }
     
     void __reverseBetween_v2(int m, int n) {
@@ -516,7 +561,135 @@ public:
         m_head = newHead;
     }
     
+    void partition(T x) {
+     
+        Node *lessDummy = new Node(-1);
+        Node *lessPre = lessDummy;
+        Node *dummy = new Node(-1);
+        Node *pre = dummy;
+        
+
+        Node *cur = m_head;
+        while (cur) {
+            if (cur->data < x) {
+                lessPre->next = cur;
+                lessPre = cur;
+            } else {
+                pre->next = cur;
+                pre = cur;
+            }
+            cur = cur->next;
+        }
+        
+        lessPre->next = nullptr;
+        pre->next = nullptr;
+        
+        if (lessDummy->next) {
+            lessPre->next = dummy->next;
+            m_head = lessDummy->next;
+        } else {
+            m_head = dummy->next;
+        }
+        
+        delete lessDummy;
+        delete dummy;
+    }
     
+    void removeNthFromEnd(int n) {
+        __removeNthFromEnd_v2(n);
+    }
+    
+    void __removeNthFromEnd_v2(int n) {
+        if (m_head == nullptr) return;
+        
+        int count = 0;
+        vector<Node *>ptrV;
+        Node *cur = m_head;
+        while (cur) {
+            count++;
+            ptrV.push_back(cur);
+            cur = cur->next;
+        }
+        
+        int targetIndex = count - n;
+        if (targetIndex == 0) {
+            Node *next = m_head->next;
+            delete m_head;
+            m_head = next;
+        } else {
+            Node *pre = ptrV[targetIndex-1];
+            Node *target = pre->next;
+            Node *next = target->next;
+            delete target;
+            pre->next = next;
+        }
+        
+        
+    }
+    
+    void __removeNthFromEnd_v1(int n) {
+        if (m_head == nullptr) return;
+        
+        Node *slow = nullptr;
+        Node *fast = nullptr;
+        int slowIndex = -1;
+        int fastIndex = -1;
+        int count = 0;
+        
+        Node *cur = m_head;
+        
+        while (cur) {
+            Node *next = cur->next;
+            if (next) {
+                Node *nextNext = next->next;
+                if (slow) {
+                    slow = slow->next;
+                } else {
+                    slow = cur;
+                }
+                slowIndex++;
+                
+                fast = next;
+                fastIndex += 2;
+                
+                count += 2;
+                cur = nextNext;
+            } else {
+                count += 1;
+                cur = next;
+            }
+        }
+        
+        int targetIndex = count - n;
+        if (targetIndex == 0) { // 删除的第0个结点
+            Node *next = m_head->next;
+            delete m_head;
+            m_head = next;
+        }
+        
+        Node *pre = nullptr;
+        int index = -1;
+        if (targetIndex > slowIndex) {
+            pre = slow;
+            index = slowIndex;
+        } else {
+            pre = m_head;
+            index = 0;
+        }
+        
+        cur = pre->next;
+        while (cur) {
+            index++;
+            if (index == targetIndex) {
+                Node *next = cur->next;
+                delete cur;
+                pre->next = next;
+                break;
+            }
+            pre = cur;
+            cur = cur->next;
+        }
+    }
     
 };
 

@@ -14,8 +14,8 @@ using namespace std;
 
 
 void singleLinkedList_entry() {
-    string str = "123";
-    
+    string str = "12345678";
+//    vector<int> test =
     LinkedList<char> list = LinkedList<char>();
     assert(list.isEmpty());
     assert(list.length() == 0);
@@ -25,10 +25,26 @@ void singleLinkedList_entry() {
     }
     assert(list.length() == str.length());
     
-//    list.reverseBetween(1, 5);
-    list.reverseKGroup(2);
+    list.reverseBetween(5, 8);
+//    list.reverseKGroup(2);
 //    list.swapPairs();
+//    list.partition('3');
+//    list.removeNthFromEnd(2);
     list.description();
+    
+    
+    vector<int> iv{1, 2, 3, 4, 5, 6};
+    cout << "size() = " << iv.size() << endl;
+    cout << "capacity() = " << iv.capacity() << endl;
+    iv.resize(10);
+    cout << "size() = " << iv.size() << endl;
+    cout << "capacity() = " << iv.capacity() << endl;
+    iv.reserve(20);
+    cout << "size() = " << iv.size() << endl;
+    cout << "capacity() = " << iv.capacity() << endl;
+    iv.push_back(7);
+    iv.pop_back();
+    
     return;
     
     for (int i = 0; i < str.size(); i++) {
