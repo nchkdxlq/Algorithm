@@ -8,8 +8,9 @@
 
 #include "leetCode.hpp"
 #include "703-KthLargest.hpp"
-
+#include "347-topKFrequent.hpp"
 
 void leetcode_entry() {
-    entry_703();
+//    entry_703();
+    entry_347();
 }

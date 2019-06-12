@@ -31,6 +31,7 @@
 		08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */; };
 		08F2B7F722AF24A900A50301 /* 703-KthLargest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7F522AF24A900A50301 /* 703-KthLargest.cpp */; };
 		08F2B7FA22AF268600A50301 /* leetCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7F822AF268600A50301 /* leetCode.cpp */; };
+		08F2B7FD22AFF16500A50301 /* 347-topKFrequent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7FB22AFF16500A50301 /* 347-topKFrequent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -108,6 +109,8 @@
 		08F2B7F622AF24A900A50301 /* 703-KthLargest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "703-KthLargest.hpp"; sourceTree = "<group>"; };
 		08F2B7F822AF268600A50301 /* leetCode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = leetCode.cpp; sourceTree = "<group>"; };
 		08F2B7F922AF268600A50301 /* leetCode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = leetCode.hpp; sourceTree = "<group>"; };
+		08F2B7FB22AFF16500A50301 /* 347-topKFrequent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "347-topKFrequent.cpp"; sourceTree = "<group>"; };
+		08F2B7FC22AFF16500A50301 /* 347-topKFrequent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "347-topKFrequent.hpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,10 +320,12 @@
 		08F2B7F122AF23E900A50301 /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
-				08F2B7F522AF24A900A50301 /* 703-KthLargest.cpp */,
-				08F2B7F622AF24A900A50301 /* 703-KthLargest.hpp */,
 				08F2B7F822AF268600A50301 /* leetCode.cpp */,
 				08F2B7F922AF268600A50301 /* leetCode.hpp */,
+				08F2B7F522AF24A900A50301 /* 703-KthLargest.cpp */,
+				08F2B7F622AF24A900A50301 /* 703-KthLargest.hpp */,
+				08F2B7FB22AFF16500A50301 /* 347-topKFrequent.cpp */,
+				08F2B7FC22AFF16500A50301 /* 347-topKFrequent.hpp */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				08F2B7F722AF24A900A50301 /* 703-KthLargest.cpp in Sources */,
 				08142AD81F6831F70008991E /* Student.cpp in Sources */,
 				08DC600E1F6B4CEA00296490 /* ReadGraph.cpp in Sources */,
+				08F2B7FD22AFF16500A50301 /* 347-topKFrequent.cpp in Sources */,
 				08142ACC1F68318C0008991E /* FileOps.cpp in Sources */,
 				08142AD21F68318C0008991E /* UnionFind3.cpp in Sources */,
 				08142AC71F68318C0008991E /* DenseGraph.cpp in Sources */,
