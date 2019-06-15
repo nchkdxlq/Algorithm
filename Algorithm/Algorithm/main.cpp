@@ -10,8 +10,6 @@
 #include <vector>
 #include <string>
 
-#include "leetCode.hpp"
-
 #include "SortTestHelper.hpp"
 #include "SelectionSort.hpp"
 #include "InsertionSort.hpp"
@@ -55,8 +53,6 @@ void bst_traverse();
 
 
 int main(int argc, const char * argv[]) {
-    
-    leetcode_entry();
     
 //    selectionSort_run();
 //    insertionSort_run();

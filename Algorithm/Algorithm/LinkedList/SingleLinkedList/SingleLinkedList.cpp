@@ -45,8 +45,6 @@ void singleLinkedList_entry() {
     iv.push_back(7);
     iv.pop_back();
     
-    return;
-    
     for (int i = 0; i < str.size(); i++) {
         char data;
         bool status = list.elementAtIndex(i, &data);
