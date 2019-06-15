@@ -32,6 +32,8 @@
 		08F2B7F722AF24A900A50301 /* 703-KthLargest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7F522AF24A900A50301 /* 703-KthLargest.cpp */; };
 		08F2B7FA22AF268600A50301 /* leetCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7F822AF268600A50301 /* leetCode.cpp */; };
 		08F2B7FD22AFF16500A50301 /* 347-topKFrequent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7FB22AFF16500A50301 /* 347-topKFrequent.cpp */; };
+		08F2B80022B13D0A00A50301 /* 23-mergeKLists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B7FE22B13D0A00A50301 /* 23-mergeKLists.cpp */; };
+		08F2B80322B32F1400A50301 /* 387-firstUniqChar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F2B80122B32F1400A50301 /* 387-firstUniqChar.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +113,10 @@
 		08F2B7F922AF268600A50301 /* leetCode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = leetCode.hpp; sourceTree = "<group>"; };
 		08F2B7FB22AFF16500A50301 /* 347-topKFrequent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "347-topKFrequent.cpp"; sourceTree = "<group>"; };
 		08F2B7FC22AFF16500A50301 /* 347-topKFrequent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "347-topKFrequent.hpp"; sourceTree = "<group>"; };
+		08F2B7FE22B13D0A00A50301 /* 23-mergeKLists.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "23-mergeKLists.cpp"; sourceTree = "<group>"; };
+		08F2B7FF22B13D0A00A50301 /* 23-mergeKLists.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "23-mergeKLists.hpp"; sourceTree = "<group>"; };
+		08F2B80122B32F1400A50301 /* 387-firstUniqChar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "387-firstUniqChar.cpp"; sourceTree = "<group>"; };
+		08F2B80222B32F1400A50301 /* 387-firstUniqChar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "387-firstUniqChar.hpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +332,10 @@
 				08F2B7F622AF24A900A50301 /* 703-KthLargest.hpp */,
 				08F2B7FB22AFF16500A50301 /* 347-topKFrequent.cpp */,
 				08F2B7FC22AFF16500A50301 /* 347-topKFrequent.hpp */,
+				08F2B7FE22B13D0A00A50301 /* 23-mergeKLists.cpp */,
+				08F2B7FF22B13D0A00A50301 /* 23-mergeKLists.hpp */,
+				08F2B80122B32F1400A50301 /* 387-firstUniqChar.cpp */,
+				08F2B80222B32F1400A50301 /* 387-firstUniqChar.hpp */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -408,8 +418,10 @@
 				08142AD31F68318C0008991E /* UnionFind4.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
 				08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */,
+				08F2B80322B32F1400A50301 /* 387-firstUniqChar.cpp in Sources */,
 				08F2B7FA22AF268600A50301 /* leetCode.cpp in Sources */,
 				08E47BAD229A52FA00FCA0A5 /* LRUCache.cpp in Sources */,
+				08F2B80022B13D0A00A50301 /* 23-mergeKLists.cpp in Sources */,
 				08142AE11F697E260008991E /* GraphTest.cpp in Sources */,
 				08142AD41F68318C0008991E /* UnionFind5.cpp in Sources */,
 				08142ACF1F68318C0008991E /* SequenceST.cpp in Sources */,

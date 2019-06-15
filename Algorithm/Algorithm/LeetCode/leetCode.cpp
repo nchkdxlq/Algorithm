@@ -9,8 +9,12 @@
 #include "leetCode.hpp"
 #include "703-KthLargest.hpp"
 #include "347-topKFrequent.hpp"
+#include "23-mergeKLists.hpp"
+#include "387-firstUniqChar.hpp"
 
 void leetcode_entry() {
 //    entry_703();
-    entry_347();
+//    entry_347();
+//    __23_entry();
+    __387_entry();
 }
