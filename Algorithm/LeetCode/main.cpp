@@ -15,9 +15,9 @@
 int main(int argc, const char * argv[]) {
     
 //    entry_703();
-//    entry_347();
+    entry_347();
 //    __23_entry();
-    __387_entry();
+//    __387_entry();
     
     return 0;
 }

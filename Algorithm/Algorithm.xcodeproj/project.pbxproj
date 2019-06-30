@@ -410,7 +410,7 @@
 					};
 					083DE18C1F1D0677005916BB = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 733RR644TP;
+						DevelopmentTeam = PAXG53JU3J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -622,7 +622,7 @@
 		083DE1951F1D0677005916BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 733RR644TP;
+				DEVELOPMENT_TEAM = PAXG53JU3J;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -630,7 +630,7 @@
 		083DE1961F1D0677005916BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 733RR644TP;
+				DEVELOPMENT_TEAM = PAXG53JU3J;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
