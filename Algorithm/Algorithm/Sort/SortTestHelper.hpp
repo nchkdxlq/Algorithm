@@ -104,6 +104,38 @@ namespace SortTestHelper {
         }
         return reverseArr;
     }
+    
+    
+    struct ListNode {
+        int val;
+        ListNode *next;
+        
+        ListNode(int x) : val(x), next(nullptr) { }
+    };
+    
+    
+    ListNode *generateLinkedListFromArray(int arr[], int length) {
+        if (length == 0) return nullptr;
+        
+        ListNode dummy = ListNode(-1);
+        ListNode *tail = &dummy;
+        
+        for (int i = 0; i < length; i++) {
+            ListNode *node = new ListNode(arr[i]);
+            tail->next = node;
+            tail = node;
+        }
+        
+        return dummy.next;
+    }
+    
+    void destroyLinkedList(ListNode *list) {
+        while (list) {
+            ListNode *next = list->next;
+            delete list;
+            list = next;
+        }
+    }
 }
 
 #endif /* SortTestHelper_hpp */

@@ -34,6 +34,7 @@
 		08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BA72299488D00FCA0A5 /* MyArray.cpp */; };
 		08E47BAD229A52FA00FCA0A5 /* LRUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BAB229A52FA00FCA0A5 /* LRUCache.cpp */; };
 		08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */; };
+		1880A7EA22CA46B7003493A7 /* SortEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1880A7E822CA46B7003493A7 /* SortEntry.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,6 +127,8 @@
 		08E47BAC229A52FA00FCA0A5 /* LRUCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LRUCache.hpp; sourceTree = "<group>"; };
 		08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SingleLinkedList.cpp; sourceTree = "<group>"; };
 		08E47BB1229C1FED00FCA0A5 /* SingleLinkedList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SingleLinkedList.hpp; sourceTree = "<group>"; };
+		1880A7E822CA46B7003493A7 /* SortEntry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SortEntry.cpp; sourceTree = "<group>"; };
+		1880A7E922CA46B7003493A7 /* SortEntry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SortEntry.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,9 +185,11 @@
 		08142AA41F68318C0008991E /* Sort */ = {
 			isa = PBXGroup;
 			children = (
-				08142AAD1F68318C0008991E /* SelectionSort.hpp */,
-				08142AA91F68318C0008991E /* InsertionSort.hpp */,
+				1880A7E922CA46B7003493A7 /* SortEntry.hpp */,
+				1880A7E822CA46B7003493A7 /* SortEntry.cpp */,
 				08142AA61F68318C0008991E /* BubbleSort.hpp */,
+				08142AA91F68318C0008991E /* InsertionSort.hpp */,
+				08142AAD1F68318C0008991E /* SelectionSort.hpp */,
 				08142AA81F68318C0008991E /* HeapSort.hpp */,
 				08142AAA1F68318C0008991E /* MergeSort.hpp */,
 				08142AAC1F68318C0008991E /* QuickSort.hpp */,
@@ -465,6 +470,7 @@
 				08142AD01F68318C0008991E /* UnionFind1.cpp in Sources */,
 				08142ACE1F68318C0008991E /* MaxHeap.cpp in Sources */,
 				08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */,
+				1880A7EA22CA46B7003493A7 /* SortEntry.cpp in Sources */,
 				08142AD31F68318C0008991E /* UnionFind4.cpp in Sources */,
 				083DE1911F1D0677005916BB /* main.cpp in Sources */,
 				08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */,
