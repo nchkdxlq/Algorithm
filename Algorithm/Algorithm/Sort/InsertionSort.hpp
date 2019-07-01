@@ -44,18 +44,13 @@ template<typename T>
 void __insertionSort(T arr[], int l, int r)
 {
     for (int i = l+1; i <= r; i++) {
-        
         T item = arr[i];
-        int j = i;
-        /*
-         要考察的元素item与下标为j-1的元素比较，比item大的元素都往后移动一个下标,
-         直到遇到小与item的元素或者j==i时，则位置j就是元素item插入的位置
-         */
-        for (; j > l && arr[j-1] > item; j--) {
-            arr[j] = arr[j-1];
+        int j = i - 1;
+        for (; j >= l && arr[j] > item; j--) {
+            arr[j+1] = arr[j];
         }
-        if (j != i) {
-            arr[j] = item;
+        if (j+1 != i) {
+            arr[j+1] = item;
         }
     }
 }
@@ -64,19 +59,26 @@ void __insertionSort(T arr[], int l, int r)
 template <typename T>
 void insertionSort(T arr[], int length) {
     
+    /**
+        把数组分成两个部分，有序区间[l, l+1) 和无序区[l+1, r]，开始时有序区只有一个元素.
+     */
     for (int i = 1; i < length; i++) {
+        T item = arr[i]; // 需要考察的元素
+        int j = i - 1; // 有序区间最后一个元素
         
-        T item = arr[i];
-        int j = i;
-        /*
-         要考察的元素item与下标为j-1的元素比较，比item大的元素都往后移动一个下标,
-         直到遇到小与item的元素或者j==0时，则位置j就是元素item插入的位置
-         */
-        for (; j > 0 && arr[j-1] > item; j--) {
-            arr[j] = arr[j-1];
+        // 在有序区间从后往前找，比item的大的元素往后移一位，直到找到第一个 <= item的元素下标为止。
+        for ( ; j >= 0; j--) {
+            if (arr[j] > item) {
+                arr[j+1] = arr[j];
+            } else {
+                break;
+            }
         }
-        if (j != i) {
-            arr[j] = item;
+        
+        // 当上面循环结束后，j为第一小于item的元素的下标，或者 j=-1, 不管哪种情况，j+1都是item应该在的位置。
+        
+        if (j+1 != i) {
+            arr[j+1] = item;
         }
     }
 }

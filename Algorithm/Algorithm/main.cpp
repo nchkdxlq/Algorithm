@@ -55,7 +55,7 @@ void bst_traverse();
 int main(int argc, const char * argv[]) {
     
 //    selectionSort_run();
-//    insertionSort_run();
+    insertionSort_run();
 //    compare_insertionSort_selectionSort();
 //    bubbleSort_run();
 //    mergeSort_run();
