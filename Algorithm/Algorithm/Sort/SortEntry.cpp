@@ -29,6 +29,20 @@ void __bubbleSort()
 }
 
 
+void __linkedList_bubbleSort() {
+    
+    int length = 10;
+    int *arr = generateRandomArray(length, 10, length * 2);
+    
+    ListNode *list = generateLinkedListFromArray(arr, length);
+    printLinkedList(list);
+    
+//    ListNode *sortedList = linkedList_bubbleSort(list);
+    ListNode *sortedList = v2_linkedList_bubbleSort(list);
+    printLinkedList(sortedList);
+}
+
+
 void __insertionSort()
 {
     int length = 10000;
@@ -310,9 +324,10 @@ void __sortCompare() {
 
 
 void sort_entry() {
-    __bubbleSort();
+//    __bubbleSort();
+    __linkedList_bubbleSort();
     
-    __insertionSort();
-    
-    __selectionSort();
+//    __insertionSort();
+//
+//    __selectionSort();
 }

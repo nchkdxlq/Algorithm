@@ -109,8 +109,9 @@ namespace SortTestHelper {
     struct ListNode {
         int val;
         ListNode *next;
+        ListNode *pre;
         
-        ListNode(int x) : val(x), next(nullptr) { }
+        ListNode(int x) : val(x), next(nullptr), pre(nullptr) { }
     };
     
     
@@ -122,6 +123,7 @@ namespace SortTestHelper {
         
         for (int i = 0; i < length; i++) {
             ListNode *node = new ListNode(arr[i]);
+            node->pre = tail;
             tail->next = node;
             tail = node;
         }
@@ -129,12 +131,49 @@ namespace SortTestHelper {
         return dummy.next;
     }
     
+    bool isLinkedListSorted(ListNode *list)
+    {
+        if (list == nullptr) return true;
+        
+        ListNode *cur = list;
+        ListNode *next = list->next;
+        
+        while (cur && next) {
+            if (cur->val > next->val) return false;
+            cur = next;
+            next = next->next;
+        }
+        
+        return true;
+    }
+
+    void linkedListTestSort(string name, ListNode *(*sort)(ListNode *), ListNode *list, int length) {
+        
+        clock_t start = clock();
+        ListNode *sortedList = sort(list);
+        clock_t end = clock();
+        
+        assert(isLinkedListSorted(sortedList));
+        
+        double time = (double)(end - start) / CLOCKS_PER_SEC;
+        cout << "LinkedListSize: " << length << "  " << name << ": " << time << " s" << endl;
+    }
+    
+    
     void destroyLinkedList(ListNode *list) {
         while (list) {
             ListNode *next = list->next;
             delete list;
             list = next;
         }
+    }
+    
+    void printLinkedList(ListNode *list) {
+        while (list) {
+            cout << list->val << " -> ";
+            list = list->next;
+        }
+        cout << "NULL" << endl;
     }
 }
 
