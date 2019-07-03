@@ -15,6 +15,62 @@
 #include "InsertionSort.hpp"
 
 
+int __test_partition(int arr[], int l, int r) {
+
+#if 1
+    int item = arr[r];
+    int p = r;
+
+    for (int i = p-1; i >= l; i--) {
+        if (arr[i] > item) {
+            swap(arr[i], arr[p-1]);
+            p--;
+        }
+    }
+
+    swap(arr[p], arr[r]);
+
+    return p;
+    
+#else
+    int v = arr[l];
+    
+    // arr[l+1, p] < v ; arr[p+1...i) >= v
+    int p = l;
+    for (int i = p + 1; i <= r; i++) {
+        if (arr[i] < v) {
+            swap(arr[i], arr[p+1]);
+            p++;
+        }
+    }
+    
+    swap(arr[l], arr[p]);
+    
+    return p;
+#endif
+}
+
+void __test_quickSort(int arr[], int l, int r) {
+    if (l >= r) return;
+    
+    int p = __test_partition(arr, l, r);
+    __test_quickSort(arr, l, p-1);
+    __test_quickSort(arr, p+1, r);
+}
+
+
+
+void test_quickSort(int arr[], int n) {
+    __test_quickSort(arr, 0, n-1);
+}
+
+
+
+
+
+
+
+
 #pragma mark - 第一版快速排序
 
 /*

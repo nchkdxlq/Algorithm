@@ -13,6 +13,61 @@
 #include "InsertionSort.hpp"
 
 
+
+void __test_merge(int arr[], int l, int mid, int r) {
+    
+    int length = r - l + 1;
+    int tmp[length];
+    
+    int i = l;
+    int j = mid+1;
+    int k = 0;
+    
+    while (i <= mid && j <= r) {
+        if (arr[i] < arr[j]) {
+            tmp[k++] = arr[i++];
+        } else {
+            tmp[k++] = arr[j++];
+        }
+    }
+    
+    while (i <= mid) {
+        tmp[k++] = arr[i++];
+    }
+    
+    while (j <= r) {
+        tmp[k++] = arr[j++];
+    }
+    
+    k = 0;
+    while (k < length) {
+        arr[l+k] = tmp[k];
+        k++;
+    }
+}
+
+
+void __test_mergeSort(int arr[], int l, int r) {
+    
+    if (l >= r) return;
+    
+    int mid = l + (r - l) / 2;
+    
+    __test_mergeSort(arr, l, mid);
+    __test_mergeSort(arr, mid+1, r);
+    
+    __test_merge(arr, l, mid, r);
+}
+
+
+
+void test_mergeSort(int arr[], int length) {
+    __test_mergeSort(arr, 0, length - 1);
+}
+
+
+
+
 // 将arr[l...mid]和arr[mid+1...r]两部分进行归并
 template <typename T>
 void __merge(T arr[], int l, int mid, int r) {

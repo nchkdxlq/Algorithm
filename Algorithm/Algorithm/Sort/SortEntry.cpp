@@ -141,10 +141,10 @@ void __mergeSort()
     int *arr2 = copyIntArray(arr, length);
     int *arr3 = copyIntArray(arr, length);
     
-    testSort("MergeSort", mergeSort, arr, length);
-    testSort("MergeSort_v1", mergeSort_v1, arr1, length);
-    testSort("MergeSortBU", mergeSortBU, arr2, length);
-    testSort("MergeSortBU_v1", mergeSortBU_v1, arr3, length);
+    testSort("MergeSort", test_mergeSort, arr, length);
+//    testSort("MergeSort_v1", mergeSort_v1, arr1, length);
+//    testSort("MergeSortBU", mergeSortBU, arr2, length);
+//    testSort("MergeSortBU_v1", mergeSortBU_v1, arr3, length);
     
     delete [] arr;
     delete [] arr1;
@@ -158,9 +158,14 @@ void __quickSort()
     int length = 1000000;
     int *arr, *arr1, *arr2, *arr3, *arr4;
     
-#if 0
+    
+#if 1
     cout << ">>>>>>> randomArray <<<<<<<" << endl;
     arr = generateRandomArray(length, 0, length);
+    testSort("test_quicksort", test_quickSort, arr, length);
+    
+    return;
+    
     arr1 = copyIntArray(arr, length);
     arr2 = copyIntArray(arr, length);
     arr3 = copyIntArray(arr, length);
@@ -202,11 +207,10 @@ void __quickSort()
     delete [] arr4;
 #endif
     
-#if 1
+#if 0
     
     cout << endl;
     cout << ">>>>>>> randomArray, range [0, 10] <<<<<<<" << endl;
-    
     arr = generateRandomArray(length, 0, 10);
     arr1 = copyIntArray(arr, length);
     arr2 = copyIntArray(arr, length);
@@ -214,10 +218,10 @@ void __quickSort()
     arr4 = copyIntArray(arr, length);
     
     testSort("mergeSort_v1", mergeSort_v1, arr, length);
-    //    testSort("quickSort_v2", quickSort_v2, arr1, length);
+    testSort("quickSort_v2", quickSort_v2, arr1, length);
     testSort("quickSort2Ways", quickSort2Ways, arr2, length);
     testSort("quickSort3Ways", quickSort3Ways, arr3, length);
-    //    testSort("heapSort_v1", heapSort_v1, arr4, length);
+    testSort("heapSort_v1", heapSort_v1, arr4, length);
     
     delete [] arr;
     delete [] arr1;
@@ -325,9 +329,12 @@ void __sortCompare() {
 
 void sort_entry() {
 //    __bubbleSort();
-    __linkedList_bubbleSort();
+//    __linkedList_bubbleSort();
     
 //    __insertionSort();
 //
 //    __selectionSort();
+    
+//    __mergeSort();
+    __quickSort();
 }
