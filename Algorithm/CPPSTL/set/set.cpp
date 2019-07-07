@@ -79,7 +79,9 @@ int thirdMax(vector<int>& nums) {
 
 void set_entry() {
     
-    std::set<int> s;
+    // 初始化
+//    std::set<int> s = {1, 4, 5};
+    std::set<int> s{1, 4, 5};
     
     /*
      

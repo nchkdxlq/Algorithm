@@ -37,7 +37,10 @@
 		18256C1422D0C8ED0080405D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18256C1322D0C8ED0080405D /* main.cpp */; };
 		1858648622D0C9F900BCFC3E /* set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1858648222D0C91600BCFC3E /* set.cpp */; };
 		1858648722D0C9FB00BCFC3E /* priorityQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1858647E22D0C90F00BCFC3E /* priorityQueue.cpp */; };
+		1858648B22D0CAB800BCFC3E /* map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1858648922D0CAB800BCFC3E /* map.cpp */; };
+		1858648E22D0D6D300BCFC3E /* 20-isValid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1858648C22D0D6D300BCFC3E /* 20-isValid.cpp */; };
 		1880A7EA22CA46B7003493A7 /* SortEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1880A7E822CA46B7003493A7 /* SortEntry.cpp */; };
+		18B30A9D22D0FF92001EFB36 /* 56-merge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18B30A9B22D0FF92001EFB36 /* 56-merge.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -145,8 +148,15 @@
 		1858647F22D0C90F00BCFC3E /* priorityQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = priorityQueue.hpp; sourceTree = "<group>"; };
 		1858648222D0C91600BCFC3E /* set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = set.cpp; sourceTree = "<group>"; };
 		1858648322D0C91600BCFC3E /* set.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = set.hpp; sourceTree = "<group>"; };
+		1858648922D0CAB800BCFC3E /* map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = map.cpp; sourceTree = "<group>"; };
+		1858648A22D0CAB800BCFC3E /* map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = map.hpp; sourceTree = "<group>"; };
+		1858648C22D0D6D300BCFC3E /* 20-isValid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "20-isValid.cpp"; sourceTree = "<group>"; };
+		1858648D22D0D6D300BCFC3E /* 20-isValid.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "20-isValid.hpp"; sourceTree = "<group>"; };
+		1858649022D0D74000BCFC3E /* stlheaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stlheaders.h; sourceTree = "<group>"; };
 		1880A7E822CA46B7003493A7 /* SortEntry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SortEntry.cpp; sourceTree = "<group>"; };
 		1880A7E922CA46B7003493A7 /* SortEntry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SortEntry.hpp; sourceTree = "<group>"; };
+		18B30A9B22D0FF92001EFB36 /* 56-merge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "56-merge.cpp"; sourceTree = "<group>"; };
+		18B30A9C22D0FF92001EFB36 /* 56-merge.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "56-merge.hpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +187,10 @@
 		08016CB222B4BF7600492DC5 /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
+				1858649022D0D74000BCFC3E /* stlheaders.h */,
 				08016CB922B4BF7600492DC5 /* main.cpp */,
+				18E6C30822D1723D0063B521 /* 20-isValid */,
+				18B30A9A22D0FF7C001EFB36 /* 56-merge */,
 				08016CB722B4BF7600492DC5 /* 23-mergeKLists.hpp */,
 				08016CB622B4BF7600492DC5 /* 23-mergeKLists.cpp */,
 				08016CBA22B4BF7700492DC5 /* 347-topKFrequent.hpp */,
@@ -391,6 +404,7 @@
 		18256C1222D0C8ED0080405D /* CPPSTL */ = {
 			isa = PBXGroup;
 			children = (
+				1858648822D0CA9800BCFC3E /* map */,
 				1858648122D0C91600BCFC3E /* set */,
 				1858647D22D0C90F00BCFC3E /* priority_queue */,
 				18256C1322D0C8ED0080405D /* main.cpp */,
@@ -414,6 +428,33 @@
 				1858648322D0C91600BCFC3E /* set.hpp */,
 			);
 			path = set;
+			sourceTree = "<group>";
+		};
+		1858648822D0CA9800BCFC3E /* map */ = {
+			isa = PBXGroup;
+			children = (
+				1858648922D0CAB800BCFC3E /* map.cpp */,
+				1858648A22D0CAB800BCFC3E /* map.hpp */,
+			);
+			path = map;
+			sourceTree = "<group>";
+		};
+		18B30A9A22D0FF7C001EFB36 /* 56-merge */ = {
+			isa = PBXGroup;
+			children = (
+				18B30A9B22D0FF92001EFB36 /* 56-merge.cpp */,
+				18B30A9C22D0FF92001EFB36 /* 56-merge.hpp */,
+			);
+			path = "56-merge";
+			sourceTree = "<group>";
+		};
+		18E6C30822D1723D0063B521 /* 20-isValid */ = {
+			isa = PBXGroup;
+			children = (
+				1858648C22D0D6D300BCFC3E /* 20-isValid.cpp */,
+				1858648D22D0D6D300BCFC3E /* 20-isValid.hpp */,
+			);
+			path = "20-isValid";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,9 +563,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858648E22D0D6D300BCFC3E /* 20-isValid.cpp in Sources */,
 				08016CBC22B4BF7700492DC5 /* 347-topKFrequent.cpp in Sources */,
 				08016CBE22B4BF7700492DC5 /* 703-KthLargest.cpp in Sources */,
 				08016CBF22B4BF7700492DC5 /* main.cpp in Sources */,
+				18B30A9D22D0FF92001EFB36 /* 56-merge.cpp in Sources */,
 				08016CC022B4BF7700492DC5 /* 387-firstUniqChar.cpp in Sources */,
 				08016CBD22B4BF7700492DC5 /* 23-mergeKLists.cpp in Sources */,
 			);
@@ -566,6 +609,7 @@
 			files = (
 				1858648622D0C9F900BCFC3E /* set.cpp in Sources */,
 				1858648722D0C9FB00BCFC3E /* priorityQueue.cpp in Sources */,
+				1858648B22D0CAB800BCFC3E /* map.cpp in Sources */,
 				18256C1422D0C8ED0080405D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

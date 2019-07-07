@@ -10,13 +10,15 @@
 
 #include "priorityQueue.hpp"
 #include "set.hpp"
+#include "map.hpp"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     
     
-    priority_queue_entry();
+//    priority_queue_entry();
 //    set_entry();
+    map_entry();
     
     return 0;
 }
