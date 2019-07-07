@@ -9,25 +9,11 @@
 #include "23-mergeKLists.hpp"
 #include <vector>
 #include <iostream>
-
+#include "LinkedListHelper.hpp"
 
 using namespace std;
+using namespace Singly;
 
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-    
-    void print() {
-        ListNode *head = this;
-        while (head) {
-            cout << head->val << " -> ";
-            head = head->next;
-        }
-        cout << "NULL" << endl;
-    }
-};
 
 
 void siftDown(vector<ListNode*>& lists, int i) {
@@ -131,13 +117,13 @@ void __23_entry() {
     vector<int> v2{-1,5,11};
     vector<int> v3{6,10};
     
-    ListNode *l1 = create_list(v1);
-    ListNode *l2 = create_list(v2);
-    ListNode *l3 = create_list(v3);
+    ListNode *l1 = create_singlyLinkedList(v1);
+    ListNode *l2 = create_singlyLinkedList(v2);
+    ListNode *l3 = create_singlyLinkedList(v3);
     
     vector<ListNode *> lists{l1, l2, l3};
     
     
     ListNode *head = mergeKLists(lists);
-    head->print();
+    print_singlyLinkedList(head);
 }
