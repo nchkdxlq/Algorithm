@@ -33,8 +33,10 @@ using namespace Singly;
 namespace sortList_148 {
     
     class Solution {
-    public:
-        ListNode* sortList(ListNode* head) {
+    private:
+        
+        // 自底向上归并迭代解法
+        ListNode* v1_sortList(ListNode* head) {
             
             ListNode dummy = ListNode(-1);
             dummy.next = head;
@@ -125,6 +127,65 @@ namespace sortList_148 {
             
             return dummy.next;
         }
+        
+        // 递归解法
+        ListNode* v2_sortList(ListNode* head) {
+            
+            if (head == nullptr) return nullptr;
+            if (head->next == nullptr) return head;
+            
+            ListNode *mid = _getMid(head);
+            ListNode *right = mid->next;
+            mid->next = nullptr; // 分割成两个链表
+            return _merge(v2_sortList(head), v2_sortList(right));
+        }
+        
+        // 利用快慢指针找到链表的中间结点
+        ListNode* _getMid(ListNode *head) {
+            ListNode *slow = head; // 慢指针一次前进一步
+            ListNode *fast = head; // 快指针一次前进两步
+            
+            while (fast) {
+                // 只有当fast存在下下个结点时，slow才前进一步
+                if (fast->next && fast->next->next) {
+                    slow = slow->next;
+                    fast = fast->next->next;
+                } else {
+                    break;
+                }
+            }
+            
+            return slow;
+        }
+        
+        // 合并顺序列表
+        ListNode* _merge(ListNode *l1, ListNode *l2) {
+            ListNode dummy = ListNode(-1);
+            ListNode *tail = &dummy;
+            
+            while (l1 && l2) {
+                if (l1->val < l2->val) {
+                    tail->next = l1;
+                    tail = l1;
+                    l1 = l1->next;
+                } else {
+                    tail->next = l2;
+                    tail = l2;
+                    l2 = l2->next;
+                }
+            }
+            
+            tail->next = l1 ? l1 : l2;
+            
+            return dummy.next;
+        }
+        
+        
+    public:
+        ListNode* sortList(ListNode* head) {
+            return v2_sortList(head);
+        }
+        
     };
 }
 
