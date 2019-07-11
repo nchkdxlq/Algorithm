@@ -37,6 +37,7 @@
 		1814CCFC22D1E0330088D969 /* 148-sortList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1814CCFA22D1E0330088D969 /* 148-sortList.cpp */; };
 		1814CCFF22D1F1C50088D969 /* LinkedListHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1814CCFD22D1F1C50088D969 /* LinkedListHelper.cpp */; };
 		18256C1422D0C8ED0080405D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18256C1322D0C8ED0080405D /* main.cpp */; };
+		1848ABA222D62F9B007F0F61 /* 206-reverseList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1848ABA022D62F9B007F0F61 /* 206-reverseList.cpp */; };
 		1858648622D0C9F900BCFC3E /* set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1858648222D0C91600BCFC3E /* set.cpp */; };
 		1858648722D0C9FB00BCFC3E /* priorityQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1858647E22D0C90F00BCFC3E /* priorityQueue.cpp */; };
 		1858648B22D0CAB800BCFC3E /* map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1858648922D0CAB800BCFC3E /* map.cpp */; };
@@ -151,6 +152,8 @@
 		1814CCFE22D1F1C50088D969 /* LinkedListHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinkedListHelper.hpp; sourceTree = "<group>"; };
 		18256C1122D0C8ED0080405D /* CPPSTL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPPSTL; sourceTree = BUILT_PRODUCTS_DIR; };
 		18256C1322D0C8ED0080405D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1848ABA022D62F9B007F0F61 /* 206-reverseList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "206-reverseList.cpp"; sourceTree = "<group>"; };
+		1848ABA122D62F9B007F0F61 /* 206-reverseList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "206-reverseList.hpp"; sourceTree = "<group>"; };
 		1858647E22D0C90F00BCFC3E /* priorityQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = priorityQueue.cpp; sourceTree = "<group>"; };
 		1858647F22D0C90F00BCFC3E /* priorityQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = priorityQueue.hpp; sourceTree = "<group>"; };
 		1858648222D0C91600BCFC3E /* set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = set.cpp; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 				18E6C30822D1723D0063B521 /* 20-isValid */,
 				18B30A9A22D0FF7C001EFB36 /* 56-merge */,
 				1814CCF922D1E0060088D969 /* 148-sortList */,
+				1848AB9F22D62F5F007F0F61 /* 206-reverseList */,
 				18E6C30A22D1A5ED0063B521 /* 349-intersection */,
 				08016CB722B4BF7600492DC5 /* 23-mergeKLists.hpp */,
 				08016CB622B4BF7600492DC5 /* 23-mergeKLists.cpp */,
@@ -442,6 +446,15 @@
 			path = CPPSTL;
 			sourceTree = "<group>";
 		};
+		1848AB9F22D62F5F007F0F61 /* 206-reverseList */ = {
+			isa = PBXGroup;
+			children = (
+				1848ABA022D62F9B007F0F61 /* 206-reverseList.cpp */,
+				1848ABA122D62F9B007F0F61 /* 206-reverseList.hpp */,
+			);
+			path = "206-reverseList";
+			sourceTree = "<group>";
+		};
 		1858647D22D0C90F00BCFC3E /* priority_queue */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +622,7 @@
 				1814CCFC22D1E0330088D969 /* 148-sortList.cpp in Sources */,
 				08016CBE22B4BF7700492DC5 /* 703-KthLargest.cpp in Sources */,
 				08016CBF22B4BF7700492DC5 /* main.cpp in Sources */,
+				1848ABA222D62F9B007F0F61 /* 206-reverseList.cpp in Sources */,
 				18B30A9D22D0FF92001EFB36 /* 56-merge.cpp in Sources */,
 				08016CC022B4BF7700492DC5 /* 387-firstUniqChar.cpp in Sources */,
 				08016CBD22B4BF7700492DC5 /* 23-mergeKLists.cpp in Sources */,
