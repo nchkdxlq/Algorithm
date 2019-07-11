@@ -11,6 +11,7 @@
 #include "priorityQueue.hpp"
 #include "set.hpp"
 #include "map.hpp"
+#include "string.hpp"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -18,7 +19,8 @@ int main(int argc, const char * argv[]) {
     
 //    priority_queue_entry();
 //    set_entry();
-    map_entry();
+//    map_entry();
+    string_entry();
     
     return 0;
 }
