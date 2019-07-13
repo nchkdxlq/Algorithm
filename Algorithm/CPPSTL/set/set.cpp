@@ -83,6 +83,14 @@ void set_entry() {
 //    std::set<int> s = {1, 4, 5};
     std::set<int> s{1, 4, 5};
     
+    // >= 1
+    auto lower_bound = s.lower_bound(1);
+    cout << "lower_bound " << *lower_bound << endl;
+    
+    // > 1
+    auto upper_bound = s.upper_bound(1);
+    cout << "upper_bound " << *upper_bound << endl;
+    
     /*
      
      默认情况下，set对元素从小到大排序
