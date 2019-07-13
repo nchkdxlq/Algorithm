@@ -36,6 +36,7 @@
 		08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */; };
 		1814CCFC22D1E0330088D969 /* 148-sortList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1814CCFA22D1E0330088D969 /* 148-sortList.cpp */; };
 		1814CCFF22D1F1C50088D969 /* LinkedListHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1814CCFD22D1F1C50088D969 /* LinkedListHelper.cpp */; };
+		18208B4722D963FA00F5823E /* 220-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18208B4522D963FA00F5823E /* 220-duplicate.cpp */; };
 		18256C1422D0C8ED0080405D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18256C1322D0C8ED0080405D /* main.cpp */; };
 		18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C7C22D801D900F59043 /* 217-duplicate.cpp */; };
 		18367C8222D80E4D00F59043 /* 219-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C8022D80E4D00F59043 /* 219-duplicate.cpp */; };
@@ -154,6 +155,8 @@
 		1814CCFB22D1E0330088D969 /* 148-sortList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "148-sortList.hpp"; sourceTree = "<group>"; };
 		1814CCFD22D1F1C50088D969 /* LinkedListHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LinkedListHelper.cpp; sourceTree = "<group>"; };
 		1814CCFE22D1F1C50088D969 /* LinkedListHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinkedListHelper.hpp; sourceTree = "<group>"; };
+		18208B4522D963FA00F5823E /* 220-duplicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "220-duplicate.cpp"; sourceTree = "<group>"; };
+		18208B4622D963FA00F5823E /* 220-duplicate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "220-duplicate.hpp"; sourceTree = "<group>"; };
 		18256C1122D0C8ED0080405D /* CPPSTL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPPSTL; sourceTree = BUILT_PRODUCTS_DIR; };
 		18256C1322D0C8ED0080405D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		18367C7C22D801D900F59043 /* 217-duplicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "217-duplicate.cpp"; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 				1848AB9F22D62F5F007F0F61 /* 206-reverseList */,
 				18367C7B22D801A900F59043 /* 217-duplicate */,
 				18367C7F22D80E2E00F59043 /* 219-duplicate */,
+				18208B4422D963D300F5823E /* 220-duplicate */,
 				18E6C30A22D1A5ED0063B521 /* 349-intersection */,
 				08016CB722B4BF7600492DC5 /* 23-mergeKLists.hpp */,
 				08016CB622B4BF7600492DC5 /* 23-mergeKLists.cpp */,
@@ -450,6 +454,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		18208B4422D963D300F5823E /* 220-duplicate */ = {
+			isa = PBXGroup;
+			children = (
+				18208B4522D963FA00F5823E /* 220-duplicate.cpp */,
+				18208B4622D963FA00F5823E /* 220-duplicate.hpp */,
+			);
+			path = "220-duplicate";
+			sourceTree = "<group>";
+		};
 		18256C1222D0C8ED0080405D /* CPPSTL */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,6 +689,7 @@
 				08016CBF22B4BF7700492DC5 /* main.cpp in Sources */,
 				18B7FD1522D6BE450037BEBA /* 179-largestNumber.cpp in Sources */,
 				1848ABA222D62F9B007F0F61 /* 206-reverseList.cpp in Sources */,
+				18208B4722D963FA00F5823E /* 220-duplicate.cpp in Sources */,
 				18B30A9D22D0FF92001EFB36 /* 56-merge.cpp in Sources */,
 				18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */,
 				08016CC022B4BF7700492DC5 /* 387-firstUniqChar.cpp in Sources */,
