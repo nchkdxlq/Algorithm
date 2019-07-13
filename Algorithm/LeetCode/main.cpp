@@ -20,6 +20,7 @@
 #include "347-topKFrequent.hpp"
 #include "349-intersection.hpp"
 #include "703-KthLargest.hpp"
+#include "922-sortArrayByParityII.hpp"
 
 
 
@@ -36,7 +37,9 @@ int main(int argc, const char * argv[]) {
 //    __206_entry();
 //    __217_entry();
 //    __219_entry();
-    __220_entry();
+//    __220_entry();
 //    __349_entry();
+    __922_entry();
+    
     return 0;
 }
