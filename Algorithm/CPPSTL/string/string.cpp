@@ -85,12 +85,50 @@ void __size()
     
     // 在不扩容的情况下，字符串可容纳字符的最大个数  容量
     cout << "capacity = " << s1.capacity() << endl;
+    
+    sort(s1.begin(), s1.end());
 }
 
+
+vector<string> commonChars(vector<string>& A) {
+    int counter[26] = {};
+    for (int i = 0; i < 26; i++) counter[i] = INT_MAX;
+    vector<string> ret;
+    
+    for (auto &s : A) {
+        int word[26] = {0};
+        
+        for (auto c : s) {
+            word[c-'a'] = word[c-'a'] + 1;
+        }
+        
+        for (int i = 0; i < 26; i++) {
+            counter[i] = min(counter[i], word[i]);
+        }
+    }
+    
+    for (int i = 0; i < 26; i++) {
+        int j = 0;
+        while (j < counter[i]) {
+            string s(1,('a'+i));
+            ret.push_back(s);
+            j++;
+        }
+    }
+    
+    return ret;
+}
 
 
 void string_entry() {
     __init();
     __size();
     __iterator();
+    
+    string s1 = "bella";
+    string s2 = "label";
+    string s3 = "roller";
+    
+    vector<string> strList{s1, s2, s3};
+    vector<string> ret = commonChars(strList);
 }

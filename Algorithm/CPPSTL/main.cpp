@@ -18,9 +18,9 @@ int main(int argc, const char * argv[]) {
     
     
 //    priority_queue_entry();
-    set_entry();
+//    set_entry();
 //    map_entry();
-//    string_entry();
+    string_entry();
     
     return 0;
 }
