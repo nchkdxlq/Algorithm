@@ -38,11 +38,11 @@ void bst_traverse();
 
 int main(int argc, const char * argv[]) {
     
-    sort_entry();
+//    sort_entry();
     
 //    binarySearch_run();
 //    bst_run();
-//    bst_traverse();
+    bst_traverse();
     
 //    UnionFindTestHelper::run();
     

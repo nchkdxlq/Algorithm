@@ -77,16 +77,49 @@ public:
             if (*node == nullptr) {
                 *node = new Node(key, value);
                 m_count++;
-                break;
+                return;
             }
             
             if (key == (*node)->key) {
                 (*node)->value = value;
-                break;
+                return;
             } else if (key < (*node)->key) {
                 node = &(*node)->left;
             } else { // key > node->key
                 node = &(*node)->right;
+            }
+        }
+    }
+    
+    void insert_v3(Key key, Value value) {
+        if (m_root == nullptr) {
+            m_root = new Node(key, value);
+            m_count++;
+            return;
+        }
+        
+        Node *cur = m_root;
+        
+        while (cur) {
+             if (key < cur->key) {
+                 if (cur->left == nullptr) {
+                     cur->left = new Node(key, value);
+                     m_count++;
+                     break;
+                 } else {
+                     cur = cur->left;
+                 }
+            } else if (key > cur->key) {
+                if (cur->right == nullptr) {
+                    cur->right = new Node(key, value);
+                    m_count++;
+                    break;
+                } else {
+                    cur = cur->right;
+                }
+            } else { // cur->key == key
+                cur->value = value;
+                break;
             }
         }
     }
@@ -511,7 +544,7 @@ private:
         root->right = __removeMax_v2(root->right);
         return root;
     }
-    
+
     Node* __removeMin_v2(Node *root) {
         
         if (root->left == nullptr) {
@@ -559,8 +592,8 @@ private:
             Node *rightMin = __min_v2(root->right);
             Node *targetNode = new Node(rightMin);
             m_count++;
-            targetNode->right = __removeMin_v2(root->right);
             targetNode->left = root->left;
+            targetNode->right = __removeMin_v2(root->right);
             delete root;
             m_count--;
             return targetNode;
@@ -589,6 +622,54 @@ private:
             root->right = __remove_v2(root->right, key);
         }
         return root;
+    }
+    
+    void __remove_v3(Node *node, Key key) {
+        // node结点的父节点
+        Node *p = nullptr;
+        
+        while (node && node->key != key) {
+            p = node;
+            if (key < node->key)
+                node = node->left;
+            else
+                node = node->right;
+        }
+        
+        if (node == nullptr) return;
+        
+        if (node->left && node->right) {
+            // 寻找右子树中的最小结点
+            Node *min = node->right;
+            Node *minP = node;
+            while (min->left) {
+                minP = min;
+                min = min->left;
+            }
+            
+            node->value = min->value;
+            p = minP;
+            node = min;
+        }
+        
+        Node *child = nullptr;
+        // 只有左结点
+        if (node->left) {
+            child = node->left;
+        } else if (node->right) {
+            child = node->right;
+        }
+        
+        if (p == nullptr) { // 删除的是根结点
+            m_root = child;
+        } else if (p->right == node) {
+            p->right = child;
+        } else {
+            p->left = child;
+        }
+        
+        delete node;
+        m_count--;
     }
 };
 
