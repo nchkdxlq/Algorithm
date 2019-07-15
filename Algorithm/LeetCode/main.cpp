@@ -10,6 +10,7 @@
 #include "20-isValid.hpp"
 #include "23-mergeKLists.hpp"
 #include "56-merge.hpp"
+#include "98-isValidBST.hpp"
 #include "148-sortList.hpp"
 #include "179-largestNumber.hpp"
 #include "206-reverseList.hpp"
@@ -32,6 +33,7 @@ int main(int argc, const char * argv[]) {
 //    __387_entry();
 //    __20_entry();
 //    __56_entry();
+    __98_entry();
 //    __148_entry();
 //    __179_entry();
 //    __206_entry();
@@ -39,7 +41,7 @@ int main(int argc, const char * argv[]) {
 //    __219_entry();
 //    __220_entry();
 //    __349_entry();
-    __922_entry();
+//    __922_entry();
     
     return 0;
 }
