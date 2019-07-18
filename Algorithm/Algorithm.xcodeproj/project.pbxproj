@@ -34,6 +34,7 @@
 		08E47BA92299488D00FCA0A5 /* MyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BA72299488D00FCA0A5 /* MyArray.cpp */; };
 		08E47BAD229A52FA00FCA0A5 /* LRUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BAB229A52FA00FCA0A5 /* LRUCache.cpp */; };
 		08E47BB2229C1FED00FCA0A5 /* SingleLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */; };
+		1811585422DFF1A9002693CC /* 100-isSameTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1811585222DFF1A9002693CC /* 100-isSameTree.cpp */; };
 		1814CCFC22D1E0330088D969 /* 148-sortList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1814CCFA22D1E0330088D969 /* 148-sortList.cpp */; };
 		1814CCFF22D1F1C50088D969 /* LinkedListHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1814CCFD22D1F1C50088D969 /* LinkedListHelper.cpp */; };
 		18208B4722D963FA00F5823E /* 220-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18208B4522D963FA00F5823E /* 220-duplicate.cpp */; };
@@ -157,6 +158,8 @@
 		08E47BAC229A52FA00FCA0A5 /* LRUCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LRUCache.hpp; sourceTree = "<group>"; };
 		08E47BB0229C1FED00FCA0A5 /* SingleLinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SingleLinkedList.cpp; sourceTree = "<group>"; };
 		08E47BB1229C1FED00FCA0A5 /* SingleLinkedList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SingleLinkedList.hpp; sourceTree = "<group>"; };
+		1811585222DFF1A9002693CC /* 100-isSameTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "100-isSameTree.cpp"; sourceTree = "<group>"; };
+		1811585322DFF1A9002693CC /* 100-isSameTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "100-isSameTree.hpp"; sourceTree = "<group>"; };
 		1814CCFA22D1E0330088D969 /* 148-sortList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "148-sortList.cpp"; sourceTree = "<group>"; };
 		1814CCFB22D1E0330088D969 /* 148-sortList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "148-sortList.hpp"; sourceTree = "<group>"; };
 		1814CCFD22D1F1C50088D969 /* LinkedListHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LinkedListHelper.cpp; sourceTree = "<group>"; };
@@ -238,6 +241,7 @@
 				18E6C30822D1723D0063B521 /* 20-isValid */,
 				18B30A9A22D0FF7C001EFB36 /* 56-merge */,
 				18C5791A22DBFAE2000FE701 /* 98-isValidBST */,
+				1811585122DFF185002693CC /* 100-isSameTree */,
 				1814CCF922D1E0060088D969 /* 148-sortList */,
 				18B7FD1222D6BE130037BEBA /* 179-largestNumber */,
 				1848AB9F22D62F5F007F0F61 /* 206-reverseList */,
@@ -456,6 +460,15 @@
 				08E47BB1229C1FED00FCA0A5 /* SingleLinkedList.hpp */,
 			);
 			path = SingleLinkedList;
+			sourceTree = "<group>";
+		};
+		1811585122DFF185002693CC /* 100-isSameTree */ = {
+			isa = PBXGroup;
+			children = (
+				1811585222DFF1A9002693CC /* 100-isSameTree.cpp */,
+				1811585322DFF1A9002693CC /* 100-isSameTree.hpp */,
+			);
+			path = "100-isSameTree";
 			sourceTree = "<group>";
 		};
 		1814CCF922D1E0060088D969 /* 148-sortList */ = {
@@ -761,6 +774,7 @@
 				18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */,
 				08016CC022B4BF7700492DC5 /* 387-firstUniqChar.cpp in Sources */,
 				18367C8222D80E4D00F59043 /* 219-duplicate.cpp in Sources */,
+				1811585422DFF1A9002693CC /* 100-isSameTree.cpp in Sources */,
 				08016CBD22B4BF7700492DC5 /* 23-mergeKLists.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

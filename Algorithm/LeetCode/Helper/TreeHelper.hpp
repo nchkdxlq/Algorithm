@@ -33,4 +33,7 @@ namespace BTree {
 }
 
 
+
+using namespace BTree;
+
 #endif /* TreeHelper_hpp */
