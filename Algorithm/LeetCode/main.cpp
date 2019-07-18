@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include "OfferMain.hpp"
+
 #include "20-isValid.hpp"
 #include "23-mergeKLists.hpp"
 #include "56-merge.hpp"
@@ -26,7 +28,8 @@
 
 
 int main(int argc, const char * argv[]) {
-    
+    // 剑指Offer入口
+    offer_main();
 //    entry_703();
 //    entry_347();
 //    __23_entry();

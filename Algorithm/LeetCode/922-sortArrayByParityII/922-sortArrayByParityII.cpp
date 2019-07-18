@@ -98,7 +98,7 @@ void __922_entry() {
         if (status == false) {
             break;
         }
-        status = (i&1) == (ret[i]&1);
+        status = (i & 1) == (ret[i] & 1);
     }
     cout << (status ? "true" : "false") << endl;
 }
