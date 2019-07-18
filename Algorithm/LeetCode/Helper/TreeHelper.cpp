@@ -13,7 +13,7 @@
 
 namespace BTree {
     
-    TreeNode* generateBSTFromVector(vector<int> &nums) {
+    TreeNode* create_binaryTree(vector<int> &nums) {
         if (nums.empty()) return nullptr;
         
         queue<TreeNode *> q;

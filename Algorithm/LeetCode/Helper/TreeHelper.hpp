@@ -26,7 +26,7 @@ namespace BTree {
     };
     
     
-    TreeNode* generateBSTFromVector(vector<int> &nums);
+    TreeNode* create_binaryTree(vector<int> &nums);
     
     
     vector<int> bst_midTraverse(TreeNode *root);

@@ -87,7 +87,7 @@ void __98_entry() {
     vector<int> nums = {5,1,4,INT_MAX,INT_MAX,3,6}; // false
     nums = {2,1,3}; // true
     nums = {1,1}; // true
-    TreeNode *root = generateBSTFromVector(nums);
+    TreeNode *root = create_binaryTree(nums);
     bool ret = isValidBST_98::Solution().isValidBST(root);
     cout << (ret ? "true" : "false") << endl;
 }

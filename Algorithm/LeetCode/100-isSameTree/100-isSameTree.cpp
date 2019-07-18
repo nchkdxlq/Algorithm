@@ -11,6 +11,13 @@
 #include "stlheaders.h"
 
 
+/*
+ 
+ 给定两个二叉树，编写一个函数来检验它们是否相同。
+ 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。
+ 
+ */
+
 namespace IsSameTree_100 {
     
     class Solution {
@@ -111,10 +118,18 @@ namespace IsSameTree_100 {
 
 
 
-
-
-
-
 void __100_entry() {
     
+    // true
+    vector<int> nums1 = {1,2,3};
+    vector<int> nums2 = {1,2,3};
+    
+    // false
+    nums1 = {1,2,1};
+    nums2 = {1,1,2};
+    
+    TreeNode *p = BTree::create_binaryTree(nums1);
+    TreeNode *q = BTree::create_binaryTree(nums2);
+    bool ret = IsSameTree_100::Solution().isSameTree(p, q);
+    cout << (ret ? "true" : "false") << endl;
 }
