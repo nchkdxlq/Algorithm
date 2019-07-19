@@ -37,8 +37,8 @@ int main(int argc, const char * argv[]) {
 //    __387_entry();
 //    __20_entry();
 //    __56_entry();
-//    __98_entry();
-    __100_entry();
+    __98_entry();
+//    __100_entry();
 //    __148_entry();
 //    __179_entry();
 //    __206_entry();
