@@ -22,6 +22,7 @@
 #include "217-duplicate.hpp"
 #include "219-duplicate.hpp"
 #include "220-duplicate.hpp"
+#include "257-binaryTreePaths.hpp"
 #include "387-firstUniqChar.hpp"
 #include "347-topKFrequent.hpp"
 #include "349-intersection.hpp"
@@ -42,13 +43,14 @@ int main(int argc, const char * argv[]) {
 //    __98_entry();
 //    __100_entry();
 //    __112_entry();
-    __113_entry();
+//    __113_entry();
 //    __148_entry();
 //    __179_entry();
 //    __206_entry();
 //    __217_entry();
 //    __219_entry();
 //    __220_entry();
+    __257_entry();
 //    __349_entry();
 //    __922_entry();
     
