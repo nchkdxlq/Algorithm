@@ -7,7 +7,7 @@
 //
 
 #include "349-intersection.hpp"
-#include "stlheaders.h"
+#include "STLHelper.hpp"
 
 /*
  给定两个数组，编写一个函数来计算它们的交集。

@@ -61,6 +61,7 @@
 		18C5791D22DBFB1A000FE701 /* 98-isValidBST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18C5791B22DBFB1A000FE701 /* 98-isValidBST.cpp */; };
 		18C5792022DBFFF4000FE701 /* TreeHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18C5791E22DBFFF4000FE701 /* TreeHelper.cpp */; };
 		18D6062A22ED999C004E721F /* 102-levelOrder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18D6062822ED999C004E721F /* 102-levelOrder.cpp */; };
+		18D6062D22EDAC36004E721F /* STLHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18D6062B22EDAC36004E721F /* STLHelper.cpp */; };
 		18E6C30D22D1A6290063B521 /* 349-intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18E6C30B22D1A6290063B521 /* 349-intersection.cpp */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +219,8 @@
 		18C5791F22DBFFF4000FE701 /* TreeHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TreeHelper.hpp; sourceTree = "<group>"; };
 		18D6062822ED999C004E721F /* 102-levelOrder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "102-levelOrder.cpp"; sourceTree = "<group>"; };
 		18D6062922ED999C004E721F /* 102-levelOrder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "102-levelOrder.hpp"; sourceTree = "<group>"; };
+		18D6062B22EDAC36004E721F /* STLHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = STLHelper.cpp; sourceTree = "<group>"; };
+		18D6062C22EDAC36004E721F /* STLHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = STLHelper.hpp; sourceTree = "<group>"; };
 		18E6C30B22D1A6290063B521 /* 349-intersection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "349-intersection.cpp"; sourceTree = "<group>"; };
 		18E6C30C22D1A6290063B521 /* 349-intersection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "349-intersection.hpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -508,6 +511,8 @@
 				1814CCFE22D1F1C50088D969 /* LinkedListHelper.hpp */,
 				18C5791E22DBFFF4000FE701 /* TreeHelper.cpp */,
 				18C5791F22DBFFF4000FE701 /* TreeHelper.hpp */,
+				18D6062B22EDAC36004E721F /* STLHelper.cpp */,
+				18D6062C22EDAC36004E721F /* STLHelper.hpp */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -843,6 +848,7 @@
 				08016CBF22B4BF7700492DC5 /* main.cpp in Sources */,
 				18B7FD1522D6BE450037BEBA /* 179-largestNumber.cpp in Sources */,
 				18C5791D22DBFB1A000FE701 /* 98-isValidBST.cpp in Sources */,
+				18D6062D22EDAC36004E721F /* STLHelper.cpp in Sources */,
 				18BA68A322DF619C000870FF /* OfferMain.cpp in Sources */,
 				1848ABA222D62F9B007F0F61 /* 206-reverseList.cpp in Sources */,
 				18208B4722D963FA00F5823E /* 220-duplicate.cpp in Sources */,

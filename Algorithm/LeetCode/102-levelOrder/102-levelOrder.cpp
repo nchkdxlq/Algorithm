@@ -8,7 +8,7 @@
 
 #include "102-levelOrder.hpp"
 #include "TreeHelper.hpp"
-#include "stlheaders.h"
+#include "STLHelper.hpp"
 
 
 /*
@@ -153,10 +153,7 @@ void __102_entry() {
     cout << "==== levelOrder ====" << endl;
     
     for (auto &level : ret) {
-        cout << "[ ";
-        for (auto item : level) {
-            cout << item << " ";
-        }
-        cout << "]" << endl;
+        STLHelper::print_vector<int>(level);
+        cout << endl;
     }
 }

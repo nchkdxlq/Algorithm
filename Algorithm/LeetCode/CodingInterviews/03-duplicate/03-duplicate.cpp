@@ -7,7 +7,7 @@
 //
 
 #include "03-duplicate.hpp"
-#include "stlheaders.h"
+#include "STLHelper.hpp"
 
 namespace CI_03_1 {
     
