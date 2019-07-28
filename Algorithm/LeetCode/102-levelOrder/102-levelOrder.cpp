@@ -78,6 +78,35 @@ namespace levelOrder_102 {
 
         
         /*
+         执行用时 :8 ms, 在所有 C++ 提交中击败了87.78%的用户
+         内存消耗 :13.7 MB, 在所有 C++ 提交中击败了75.90%的用户
+         */
+        vector<vector<int>> v1_1_levelOrder(TreeNode* root) {
+            queue<TreeNode *> q;
+            vector<vector<int>> ret;
+            if (root) q.push(root);
+            
+            while (!q.empty()) {
+                auto size = q.size();
+                vector<int> tmp;
+                
+                for (int i = 0; i < size; i++) {
+                    TreeNode *node = q.front();
+                    tmp.push_back(node->val);
+                    q.pop();
+                    
+                    if (node->left) q.push(node->left);
+                    if (node->right) q.push(node->right);
+                }
+                
+                ret.push_back(tmp);
+            }
+            
+            return ret;
+        }
+        
+        
+        /*
          执行用时 :4 ms, 在所有 C++ 提交中击败了97.70%的用户
          内存消耗 :14.7 MB, 在所有 C++ 提交中击败了14.54%的用户
          */
