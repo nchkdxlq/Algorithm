@@ -48,5 +48,7 @@ namespace STLHelper {
 }
 
 
+using namespace STLHelper;
+
 
 #endif /* STLHelper_hpp */
