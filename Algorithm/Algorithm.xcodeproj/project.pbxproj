@@ -41,6 +41,7 @@
 		18208B4B22D9890000F5823E /* 922-sortArrayByParityII.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18208B4922D9890000F5823E /* 922-sortArrayByParityII.cpp */; };
 		1821144F22DA23A2003EBCB3 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1821144D22DA23A2003EBCB3 /* BinaryTree.cpp */; };
 		18256C1422D0C8ED0080405D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18256C1322D0C8ED0080405D /* main.cpp */; };
+		182ACE0122EFBD8300BD4445 /* 101-isSymmetric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182ACDFF22EFBD8300BD4445 /* 101-isSymmetric.cpp */; };
 		18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C7C22D801D900F59043 /* 217-duplicate.cpp */; };
 		18367C8222D80E4D00F59043 /* 219-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C8022D80E4D00F59043 /* 219-duplicate.cpp */; };
 		18404ED522E2CF2E00D4034E /* 112-hasPathSum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18404ED322E2CF2E00D4034E /* 112-hasPathSum.cpp */; };
@@ -178,6 +179,8 @@
 		1821144E22DA23A2003EBCB3 /* BinaryTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryTree.hpp; sourceTree = "<group>"; };
 		18256C1122D0C8ED0080405D /* CPPSTL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPPSTL; sourceTree = BUILT_PRODUCTS_DIR; };
 		18256C1322D0C8ED0080405D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		182ACDFF22EFBD8300BD4445 /* 101-isSymmetric.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "101-isSymmetric.cpp"; sourceTree = "<group>"; };
+		182ACE0022EFBD8300BD4445 /* 101-isSymmetric.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "101-isSymmetric.hpp"; sourceTree = "<group>"; };
 		18367C7C22D801D900F59043 /* 217-duplicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "217-duplicate.cpp"; sourceTree = "<group>"; };
 		18367C7D22D801D900F59043 /* 217-duplicate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "217-duplicate.hpp"; sourceTree = "<group>"; };
 		18367C8022D80E4D00F59043 /* 219-duplicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "219-duplicate.cpp"; sourceTree = "<group>"; };
@@ -260,6 +263,7 @@
 				18B30A9A22D0FF7C001EFB36 /* 56-merge */,
 				18C5791A22DBFAE2000FE701 /* 98-isValidBST */,
 				1811585122DFF185002693CC /* 100-isSameTree */,
+				182ACDFE22EFBD5D00BD4445 /* 101-isSymmetric */,
 				18D6062722ED997E004E721F /* 102-levelOrder */,
 				18404ED222E2CF0E00D4034E /* 112-hasPathSum */,
 				18404ED722E30D7600D4034E /* 113-hasPathSumll */,
@@ -546,6 +550,15 @@
 				18256C1322D0C8ED0080405D /* main.cpp */,
 			);
 			path = CPPSTL;
+			sourceTree = "<group>";
+		};
+		182ACDFE22EFBD5D00BD4445 /* 101-isSymmetric */ = {
+			isa = PBXGroup;
+			children = (
+				182ACDFF22EFBD8300BD4445 /* 101-isSymmetric.cpp */,
+				182ACE0022EFBD8300BD4445 /* 101-isSymmetric.hpp */,
+			);
+			path = "101-isSymmetric";
 			sourceTree = "<group>";
 		};
 		18367C7B22D801A900F59043 /* 217-duplicate */ = {
@@ -853,6 +866,7 @@
 				1848ABA222D62F9B007F0F61 /* 206-reverseList.cpp in Sources */,
 				18208B4722D963FA00F5823E /* 220-duplicate.cpp in Sources */,
 				18404EDE22E3408600D4034E /* 257-binaryTreePaths.cpp in Sources */,
+				182ACE0122EFBD8300BD4445 /* 101-isSymmetric.cpp in Sources */,
 				18B30A9D22D0FF92001EFB36 /* 56-merge.cpp in Sources */,
 				18404EDA22E30DB800D4034E /* 113-hasPathSumll.cpp in Sources */,
 				18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */,

@@ -14,6 +14,7 @@
 #include "56-merge.hpp"
 #include "98-isValidBST.hpp"
 #include "100-isSameTree.hpp"
+#include "101-isSymmetric.hpp"
 #include "102-levelOrder.hpp"
 #include "148-sortList.hpp"
 #include "179-largestNumber.hpp"
@@ -44,7 +45,8 @@ int main(int argc, const char * argv[]) {
 //    __56_entry();
 //    __98_entry();
 //    __100_entry();
-    __102_entry();
+//    __102_entry();
+    __101_entry();
 //    __112_entry();
 //    __113_entry();
 //    __148_entry();
