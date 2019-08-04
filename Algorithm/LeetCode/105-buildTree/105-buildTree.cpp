@@ -46,7 +46,7 @@ namespace buildTree_105 {
         
         // 在inorder[left...right]子数组中，查找值等于preorder[index]下标，
         TreeNode *helper(vector<int> &inorder, int left, int right, unordered_map<int, int> &index_map,
-                            vector<int> &preorder, int &index) {
+                            vector<int> &preorder, int index) {
             if (index >= preorder.size()) return nullptr;
             
             int rootIndex = index_map[preorder[index]];
@@ -54,10 +54,13 @@ namespace buildTree_105 {
             if (rootIndex < left || rootIndex > right) return nullptr;
             
             TreeNode *node = new TreeNode(inorder[rootIndex]);
-            index++;
             
-            node->left = helper(inorder, left, rootIndex-1, index_map, preorder, index);
-            node->right = helper(inorder, rootIndex+1, right, index_map, preorder, index);
+            // 左子树的根节点为 preorder[index+1]
+            node->left = helper(inorder, left, rootIndex-1, index_map, preorder, index+1);
+            
+            // len为左子树的结点个数, 所以index+len+1为右子树的根节点在preorder的下标
+            int len = rootIndex - left;
+            node->right = helper(inorder, rootIndex+1, right, index_map, preorder, index+len+1);
             
             return node;
         }
@@ -68,8 +71,8 @@ void __105_entry() {
     vector<int> preorder = {1, 2};
     vector<int> inorder = {1, 2};
     
-//    preorder = {3,9,20,15,7};
-//    inorder = {9,3,15,20,7};
+    preorder = {3,9,20,15,7};
+    inorder = {9,3,15,20,7};
     
     TreeNode *root = buildTree_105::Solution().buildTree(preorder, inorder);
     

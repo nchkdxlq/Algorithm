@@ -93,7 +93,7 @@ namespace BTree {
 #pragma mark - 中序遍历
     
     void recursive_inorder_traverse_helper(TreeNode *node, vector<int> &result) {
-        if (node) return;
+        if (node == nullptr) return;
         
         recursive_inorder_traverse_helper(node->left, result);
         result.push_back(node->val);
