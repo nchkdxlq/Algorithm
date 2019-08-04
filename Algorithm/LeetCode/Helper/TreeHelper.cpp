@@ -152,3 +152,28 @@ namespace BTree {
 
 
 
+
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int>res;
+        TreeNode *cur;
+        queue<pair<TreeNode *,int> >q;
+        if(root) q.push(make_pair(root,0));
+        while(!q.empty()) {
+            cur=q.front().first;
+            int depth=q.front().second;
+            q.pop();
+            
+            if(res.size()==depth)
+                res.push_back(cur->val);
+            else res[depth]=cur->val;
+            if(cur->left)
+                q.push(make_pair(cur->left,depth+1));
+            if(cur->right)
+                q.push(make_pair(cur->right,depth+1));
+            
+        }
+        return res;
+    }
+};
