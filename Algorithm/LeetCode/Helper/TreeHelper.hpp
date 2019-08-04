@@ -28,8 +28,11 @@ namespace BTree {
     
     TreeNode* create_binaryTree(vector<int> &nums);
     
+    vector<int> preorderTraverse(TreeNode *root);
+    vector<int> inorderTraverse(TreeNode *root);
+    vector<int> postorderTraverse(TreeNode *root);
     
-    vector<int> bst_midTraverse(TreeNode *root);
+    vector<int> levelTraverse(TreeNode *root);
 }
 
 

@@ -16,6 +16,7 @@
 #include "100-isSameTree.hpp"
 #include "101-isSymmetric.hpp"
 #include "102-levelOrder.hpp"
+#include "105-buildTree.hpp"
 #include "145-postorderTraversal.hpp"
 #include "148-sortList.hpp"
 #include "179-largestNumber.hpp"
@@ -48,9 +49,10 @@ int main(int argc, const char * argv[]) {
 //    __100_entry();
 //    __102_entry();
 //    __101_entry();
+    __105_entry();
 //    __112_entry();
 //    __113_entry();
-    __145_entry();
+//    __145_entry();
 //    __148_entry();
 //    __179_entry();
 //    __206_entry();
