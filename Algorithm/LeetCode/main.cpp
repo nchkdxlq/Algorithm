@@ -27,6 +27,7 @@
 #include "217-duplicate.hpp"
 #include "219-duplicate.hpp"
 #include "220-duplicate.hpp"
+#include "226-invertTree.hpp"
 #include "257-binaryTreePaths.hpp"
 #include "387-firstUniqChar.hpp"
 #include "347-topKFrequent.hpp"
@@ -51,7 +52,7 @@ int main(int argc, const char * argv[]) {
 //    __102_entry();
 //    __101_entry();
 //    __105_entry();
-    __106_entry();
+//    __106_entry();
 //    __112_entry();
 //    __113_entry();
 //    __145_entry();
@@ -61,6 +62,7 @@ int main(int argc, const char * argv[]) {
 //    __217_entry();
 //    __219_entry();
 //    __220_entry();
+    __226_entry();
 //    __257_entry();
 //    __349_entry();
 //    __437_entry();
