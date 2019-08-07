@@ -9,7 +9,7 @@
 #include "TreeHelper.hpp"
 #include <queue>
 #include <stack>
-
+#include <unordered_set>
 
 namespace BTree {
     
@@ -130,6 +130,54 @@ namespace BTree {
     
 #pragma mark - 后序遍历
     
+    // 递归实现
+    void recursive_postorder_traverse_helper(TreeNode *node, vector<int> &result) {
+        if (node == nullptr) return;
+        
+        recursive_postorder_traverse_helper(node->left, result);
+        recursive_postorder_traverse_helper(node->right, result);
+        result.push_back(node->val);
+    }
+    vector<int> recursive_postorder_traverse(TreeNode *root) {
+        vector<int> result;
+        recursive_postorder_traverse_helper(root, result);
+        return result;
+    }
+    
+    // 迭代实现
+    vector<int> iterator_postorder_traverse(TreeNode *root) {
+        vector<int> result;
+        stack<TreeNode *> path;
+        unordered_set<TreeNode *> mark; // 保存已经访问过的结点
+        
+        if (root) path.push(root);
+        
+        while (!path.empty()) {
+            auto node = path.top();
+            // 左右结点是否访问过标志，并且认为没有左右结点为访问过
+            bool leftVisited = true, rightVisited = true;
+            
+            // 因为先访问左结点，在访问右结点，所有需要先把右结点入栈；左结点存在并且在marku不存在，则结点还没访问，右结点同理
+            if (node->right && mark.find(node->right) == mark.end()) {
+                rightVisited = false;
+                path.push(node->right);
+            }
+            if (node->left && mark.find(node->left) == mark.end()) {
+                leftVisited = false;
+                path.push(node->left);
+            }
+            
+            // 左右结点访问过了才能访问当前结点，并且把当前结点加入到mark中。
+            if (leftVisited && rightVisited) {
+                result.push_back(node->val);
+                mark.insert(node);
+                path.pop();
+            }
+        }
+        
+        return result;
+    }
+    
 #pragma mark - 层序遍历
     
     
@@ -144,7 +192,8 @@ namespace BTree {
     }
     
     vector<int> postorderTraverse(TreeNode *root) {
-        return {};
+//        return recursive_postorder_traverse(root);
+        return iterator_postorder_traverse(root);
     }
     
     vector<int> levelTraverse(TreeNode *root) {
