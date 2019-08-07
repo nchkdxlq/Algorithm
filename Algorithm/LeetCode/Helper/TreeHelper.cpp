@@ -128,6 +128,11 @@ namespace BTree {
         return nums;
     }
     
+#pragma mark - 后序遍历
+    
+#pragma mark - 层序遍历
+    
+    
     vector<int> preorderTraverse(TreeNode *root) {
         return recursive_preorder_traverse(root);
 //        return iterator_preorder_traverse(root);
@@ -146,34 +151,56 @@ namespace BTree {
         return {};
     }
     
+#pragma mark - 所有路径
+    
+    vector<vector<int>> v1_allPath(TreeNode *node) {
+        if (node == nullptr) return {};
+        
+        vector<vector<int>> leftPath = v1_allPath(node->left);
+        vector<vector<int>> rightPath = v1_allPath(node->right);
+        
+        // merge path
+        leftPath.insert(leftPath.end(), rightPath.begin(), rightPath.end());
+    
+        if (leftPath.empty()) {
+            leftPath.push_back({node->val});
+        } else {
+            // 把当前结点插入到所有路径的第一个位置
+            for (auto &item : leftPath) {
+                item.insert(item.begin(), node->val);
+            }
+        }
+        
+        return leftPath;
+    }
+    
 
+    
+    void v2_allPath_helper(TreeNode *node, vector<int> &subPath, vector<vector<int>> &allPath) {
+        if (node == nullptr) return;
+        
+        subPath.push_back(node->val);
+        
+        if (node->left == nullptr && node->right == nullptr) { // 到了叶子结点
+            allPath.push_back(subPath);
+        }
+        
+        v2_allPath_helper(node->left, subPath, allPath);
+        v2_allPath_helper(node->right, subPath, allPath);
+        
+        subPath.pop_back();
+    }
+    
+    vector<vector<int>> v2_allPath(TreeNode *root) {
+        vector<vector<int>> allPath;
+        vector<int> subPath;
+        v2_allPath_helper(root, subPath, allPath);
+        return allPath;
+    }
+    
+    vector<vector<int>> allPath(TreeNode *root) {
+//        return v1_allPath(root);
+        return v2_allPath(root);
+    }
 
 }
-
-
-
-
-class Solution {
-public:
-    vector<int> rightSideView(TreeNode* root) {
-        vector<int>res;
-        TreeNode *cur;
-        queue<pair<TreeNode *,int> >q;
-        if(root) q.push(make_pair(root,0));
-        while(!q.empty()) {
-            cur=q.front().first;
-            int depth=q.front().second;
-            q.pop();
-            
-            if(res.size()==depth)
-                res.push_back(cur->val);
-            else res[depth]=cur->val;
-            if(cur->left)
-                q.push(make_pair(cur->left,depth+1));
-            if(cur->right)
-                q.push(make_pair(cur->right,depth+1));
-            
-        }
-        return res;
-    }
-};

@@ -33,6 +33,8 @@ namespace BTree {
     vector<int> postorderTraverse(TreeNode *root);
     
     vector<int> levelTraverse(TreeNode *root);
+    
+    vector<vector<int>> allPath(TreeNode *root);
 }
 
 

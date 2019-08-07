@@ -41,6 +41,7 @@
 		18208B4B22D9890000F5823E /* 922-sortArrayByParityII.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18208B4922D9890000F5823E /* 922-sortArrayByParityII.cpp */; };
 		1821144F22DA23A2003EBCB3 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1821144D22DA23A2003EBCB3 /* BinaryTree.cpp */; };
 		18256C1422D0C8ED0080405D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18256C1322D0C8ED0080405D /* main.cpp */; };
+		182573E322FA56020013EBA8 /* 129-sumNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182573E122FA56020013EBA8 /* 129-sumNumbers.cpp */; };
 		182ACE0122EFBD8300BD4445 /* 101-isSymmetric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182ACDFF22EFBD8300BD4445 /* 101-isSymmetric.cpp */; };
 		183511A022F26C3500968475 /* 145-postorderTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1835119E22F26C3500968475 /* 145-postorderTraversal.cpp */; };
 		18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C7C22D801D900F59043 /* 217-duplicate.cpp */; };
@@ -184,6 +185,8 @@
 		1821144E22DA23A2003EBCB3 /* BinaryTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryTree.hpp; sourceTree = "<group>"; };
 		18256C1122D0C8ED0080405D /* CPPSTL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPPSTL; sourceTree = BUILT_PRODUCTS_DIR; };
 		18256C1322D0C8ED0080405D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		182573E122FA56020013EBA8 /* 129-sumNumbers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "129-sumNumbers.cpp"; sourceTree = "<group>"; };
+		182573E222FA56020013EBA8 /* 129-sumNumbers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "129-sumNumbers.hpp"; sourceTree = "<group>"; };
 		182ACDFF22EFBD8300BD4445 /* 101-isSymmetric.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "101-isSymmetric.cpp"; sourceTree = "<group>"; };
 		182ACE0022EFBD8300BD4445 /* 101-isSymmetric.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "101-isSymmetric.hpp"; sourceTree = "<group>"; };
 		1835119E22F26C3500968475 /* 145-postorderTraversal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "145-postorderTraversal.cpp"; sourceTree = "<group>"; };
@@ -284,6 +287,7 @@
 				189D84D022F6AF5600D4E1A7 /* 106-buildTree */,
 				18404ED222E2CF0E00D4034E /* 112-hasPathSum */,
 				18404ED722E30D7600D4034E /* 113-hasPathSumll */,
+				182573E022FA55DE0013EBA8 /* 129-sumNumbers */,
 				1835119D22F26C1700968475 /* 145-postorderTraversal */,
 				1814CCF922D1E0060088D969 /* 148-sortList */,
 				18B7FD1222D6BE130037BEBA /* 179-largestNumber */,
@@ -570,6 +574,15 @@
 				18256C1322D0C8ED0080405D /* main.cpp */,
 			);
 			path = CPPSTL;
+			sourceTree = "<group>";
+		};
+		182573E022FA55DE0013EBA8 /* 129-sumNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				182573E122FA56020013EBA8 /* 129-sumNumbers.cpp */,
+				182573E222FA56020013EBA8 /* 129-sumNumbers.hpp */,
+			);
+			path = "129-sumNumbers";
 			sourceTree = "<group>";
 		};
 		182ACDFE22EFBD5D00BD4445 /* 101-isSymmetric */ = {
@@ -936,6 +949,7 @@
 				18404EDE22E3408600D4034E /* 257-binaryTreePaths.cpp in Sources */,
 				182ACE0122EFBD8300BD4445 /* 101-isSymmetric.cpp in Sources */,
 				189D84DB22F6DBF600D4E1A7 /* 199-rightSideView.cpp in Sources */,
+				182573E322FA56020013EBA8 /* 129-sumNumbers.cpp in Sources */,
 				18B30A9D22D0FF92001EFB36 /* 56-merge.cpp in Sources */,
 				18404EDA22E30DB800D4034E /* 113-hasPathSumll.cpp in Sources */,
 				18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */,
