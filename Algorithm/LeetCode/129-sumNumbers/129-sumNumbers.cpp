@@ -32,6 +32,7 @@ namespace sumNumbers_129 {
         int sumNumbers(TreeNode* root) {
 //            return v1_sumNumbers(root);
             return v2_sumNumbers(root);
+//            return v3_sumNumbers(root);
         }
     private:
         /*
@@ -90,31 +91,59 @@ namespace sumNumbers_129 {
          内存消耗 :12.6 MB, 在所有 C++ 提交中击败了27.36%的用户
          */
         int v2_sumNumbers(TreeNode* root) {
-            vector<int> allSum;
-            v2_sumNumbers_helper(root, 0, allSum);
-            
-            int ret = 0;
-            for (auto i : allSum) {
-                ret += i;
-            }
-            return ret;
+            int sum = 0;
+            v2_sumNumbers_helper(root, 0, sum);
+            return sum;
         }
         
         
         /// @param node 当前结点
-        /// @param subSum 根节点到当前结点父结点的组曾数字的和
-        /// @param allSum 路径和数组
-        void v2_sumNumbers_helper(TreeNode *node, int subSum, vector<int> &allSum) {
+        /// @param num 根节点到当前结点父结点的组成的数字
+        /// @param sum 路径和数组
+        void v2_sumNumbers_helper(TreeNode *node, int num, int &sum) {
             if (node == nullptr) return;
             
-            subSum = subSum * 10 + node->val;
+            num = num * 10 + node->val;
             if (node->left == nullptr && node->right == nullptr) {
-                allSum.push_back(subSum);
+                sum += num;
                 return;
             }
             
-            v2_sumNumbers_helper(node->left, subSum, allSum);
-            v2_sumNumbers_helper(node->right, subSum, allSum);
+            v2_sumNumbers_helper(node->left, num, sum);
+            v2_sumNumbers_helper(node->right, num, sum);
+        }
+        
+        /*
+         
+         
+         */
+        int v3_sumNumbers(TreeNode *root) {
+            stack<pair<TreeNode *, int>> path;
+            int ret = 0;
+            if (root) {
+                path.push(make_pair(root, 0));
+            }
+            
+            while (!path.empty()) {
+                auto node_sum_pair = path.top();
+                path.pop();
+                TreeNode *node = node_sum_pair.first;
+                int sum = node_sum_pair.second;
+                sum = sum * 10 + node->val;
+                if (node->left == nullptr && node->right == nullptr) {
+                    ret += sum;
+                }
+                
+                if (node->left) {
+                    path.push(make_pair(node->left, sum));
+                }
+                
+                if (node->right) {
+                    path.push(make_pair(node->right, sum));
+                }
+            }
+            
+            return ret;
         }
         
     };
