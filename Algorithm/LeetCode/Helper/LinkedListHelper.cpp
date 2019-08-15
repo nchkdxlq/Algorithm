@@ -31,6 +31,30 @@ namespace Singly {
         }
         cout << "NULL" << endl;
     }
+    
+    
+    /**
+     寻找以head为头结点，tail为尾结点但不包含tail链表的中间结点,
+     当tail为空结点或者不是以head为头的链表中的结点时，返回以head为头结点链表的中间结点
+
+     @param head 链表的头结点
+     @param tail 链表的尾结点
+     @return 链表的中间结点
+     */
+    ListNode* getMidNode(ListNode *head, ListNode* tail) {
+        if (head == tail) return nullptr;
+        if (head == nullptr || head->next == nullptr) return head;
+        
+        auto slow = head;
+        auto fast = head;
+        
+        while (fast && fast->next != tail && fast->next && fast->next->next != tail) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        
+        return slow;
+    }
 }
 
 

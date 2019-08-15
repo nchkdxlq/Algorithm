@@ -26,6 +26,8 @@ namespace Singly {
     ListNode *create_singlyLinkedList(vector<int> &nums);
     
     void print_singlyLinkedList(ListNode *list);
+    
+    ListNode* getMidNode(ListNode *head, ListNode* tail);
 }
 
 namespace Doubly {

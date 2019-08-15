@@ -11,6 +11,11 @@
 #include "TreeHelper.hpp"
 
 
+#include "LinkedListHelper.hpp"
+
+using namespace Singly;
+
+
 /*
  给定一个二叉树，它的每个结点都存放一个 0-9 的数字，每条从根到叶子节点的路径都代表一个数字。
  
@@ -114,8 +119,7 @@ namespace sumNumbers_129 {
         }
         
         /*
-         
-         
+         问题的关键是要找到根节点到当前结点父节点组成的数字
          */
         int v3_sumNumbers(TreeNode *root) {
             stack<pair<TreeNode *, int>> path;
@@ -151,12 +155,12 @@ namespace sumNumbers_129 {
 
 
 void __129_entry() {
-    
+
     vector<int> nums = {1,2,3}; // 25
     nums = {4,9,0,5,1}; // 1026
     TreeNode *root = create_binaryTree(nums);
     int sum = sumNumbers_129::Solution().sumNumbers(root);
-    
+
     cout << "==== 129-sumNumbers ====" << endl;
     cout << "sum = " << sum << endl;
 }
