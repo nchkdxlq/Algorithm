@@ -285,26 +285,8 @@
 				18E6C30822D1723D0063B521 /* 20-isValid */,
 				18B30A9A22D0FF7C001EFB36 /* 56-merge */,
 				18C5791A22DBFAE2000FE701 /* 98-isValidBST */,
-				1811585122DFF185002693CC /* 100-isSameTree */,
-				182ACDFE22EFBD5D00BD4445 /* 101-isSymmetric */,
-				18D6062722ED997E004E721F /* 102-levelOrder */,
-				189D84CC22F6690E00D4E1A7 /* 105-buildTree */,
-				189D84D022F6AF5600D4E1A7 /* 106-buildTree */,
-				18AA35B922FE69180069D479 /* 108-sortedArrayToBST */,
-				184BCAB42304DA6D0029EFE8 /* 109-sortedListToBST */,
-				18404ED222E2CF0E00D4034E /* 112-hasPathSum */,
-				18404ED722E30D7600D4034E /* 113-hasPathSumll */,
-				182573E022FA55DE0013EBA8 /* 129-sumNumbers */,
-				1835119D22F26C1700968475 /* 145-postorderTraversal */,
-				1814CCF922D1E0060088D969 /* 148-sortList */,
-				18B7FD1222D6BE130037BEBA /* 179-largestNumber */,
-				189D84D822F6DBDE00D4E1A7 /* 199-rightSideView */,
-				1848AB9F22D62F5F007F0F61 /* 206-reverseList */,
-				18367C7B22D801A900F59043 /* 217-duplicate */,
-				18367C7F22D80E2E00F59043 /* 219-duplicate */,
-				18208B4422D963D300F5823E /* 220-duplicate */,
-				189D84D422F6C96A00D4E1A7 /* 226-invertTree */,
-				18404EDB22E3406A00D4034E /* 257-binaryTreePaths */,
+				18F31CEC2304E165000AB5FB /* 100+ */,
+				18F31CEB2304E15D000AB5FB /* 200+ */,
 				18E6C30A22D1A5ED0063B521 /* 349-intersection */,
 				1846690522E5355500D452C4 /* 437-PathSumIII */,
 				18208B4822D988D200F5823E /* 922-sortArrayByParityII */,
@@ -840,6 +822,48 @@
 				18E6C30C22D1A6290063B521 /* 349-intersection.hpp */,
 			);
 			path = "349-intersection";
+			sourceTree = "<group>";
+		};
+		18F31CEA2304E149000AB5FB /* 230-kthSmallest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "230-kthSmallest";
+			sourceTree = "<group>";
+		};
+		18F31CEB2304E15D000AB5FB /* 200+ */ = {
+			isa = PBXGroup;
+			children = (
+				1848AB9F22D62F5F007F0F61 /* 206-reverseList */,
+				18367C7B22D801A900F59043 /* 217-duplicate */,
+				18367C7F22D80E2E00F59043 /* 219-duplicate */,
+				18208B4422D963D300F5823E /* 220-duplicate */,
+				18F31CEA2304E149000AB5FB /* 230-kthSmallest */,
+				189D84D422F6C96A00D4E1A7 /* 226-invertTree */,
+				18404EDB22E3406A00D4034E /* 257-binaryTreePaths */,
+			);
+			path = "200+";
+			sourceTree = "<group>";
+		};
+		18F31CEC2304E165000AB5FB /* 100+ */ = {
+			isa = PBXGroup;
+			children = (
+				1811585122DFF185002693CC /* 100-isSameTree */,
+				182ACDFE22EFBD5D00BD4445 /* 101-isSymmetric */,
+				18D6062722ED997E004E721F /* 102-levelOrder */,
+				189D84CC22F6690E00D4E1A7 /* 105-buildTree */,
+				189D84D022F6AF5600D4E1A7 /* 106-buildTree */,
+				18AA35B922FE69180069D479 /* 108-sortedArrayToBST */,
+				184BCAB42304DA6D0029EFE8 /* 109-sortedListToBST */,
+				18404ED222E2CF0E00D4034E /* 112-hasPathSum */,
+				18404ED722E30D7600D4034E /* 113-hasPathSumll */,
+				182573E022FA55DE0013EBA8 /* 129-sumNumbers */,
+				1835119D22F26C1700968475 /* 145-postorderTraversal */,
+				1814CCF922D1E0060088D969 /* 148-sortList */,
+				18B7FD1222D6BE130037BEBA /* 179-largestNumber */,
+				189D84D822F6DBDE00D4E1A7 /* 199-rightSideView */,
+			);
+			path = "100+";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
