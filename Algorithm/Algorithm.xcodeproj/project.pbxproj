@@ -72,6 +72,7 @@
 		18D6062A22ED999C004E721F /* 102-levelOrder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18D6062822ED999C004E721F /* 102-levelOrder.cpp */; };
 		18D6062D22EDAC36004E721F /* STLHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18D6062B22EDAC36004E721F /* STLHelper.cpp */; };
 		18E6C30D22D1A6290063B521 /* 349-intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18E6C30B22D1A6290063B521 /* 349-intersection.cpp */; };
+		18F31CEF2304E1FC000AB5FB /* 230-kthSmallest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18F31CED2304E1FC000AB5FB /* 230-kthSmallest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -249,6 +250,8 @@
 		18D6062C22EDAC36004E721F /* STLHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = STLHelper.hpp; sourceTree = "<group>"; };
 		18E6C30B22D1A6290063B521 /* 349-intersection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "349-intersection.cpp"; sourceTree = "<group>"; };
 		18E6C30C22D1A6290063B521 /* 349-intersection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "349-intersection.hpp"; sourceTree = "<group>"; };
+		18F31CED2304E1FC000AB5FB /* 230-kthSmallest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "230-kthSmallest.cpp"; sourceTree = "<group>"; };
+		18F31CEE2304E1FC000AB5FB /* 230-kthSmallest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "230-kthSmallest.hpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -827,6 +830,8 @@
 		18F31CEA2304E149000AB5FB /* 230-kthSmallest */ = {
 			isa = PBXGroup;
 			children = (
+				18F31CED2304E1FC000AB5FB /* 230-kthSmallest.cpp */,
+				18F31CEE2304E1FC000AB5FB /* 230-kthSmallest.hpp */,
 			);
 			path = "230-kthSmallest";
 			sourceTree = "<group>";
@@ -838,8 +843,8 @@
 				18367C7B22D801A900F59043 /* 217-duplicate */,
 				18367C7F22D80E2E00F59043 /* 219-duplicate */,
 				18208B4422D963D300F5823E /* 220-duplicate */,
-				18F31CEA2304E149000AB5FB /* 230-kthSmallest */,
 				189D84D422F6C96A00D4E1A7 /* 226-invertTree */,
+				18F31CEA2304E149000AB5FB /* 230-kthSmallest */,
 				18404EDB22E3406A00D4034E /* 257-binaryTreePaths */,
 			);
 			path = "200+";
@@ -978,6 +983,7 @@
 				1858648E22D0D6D300BCFC3E /* 20-isValid.cpp in Sources */,
 				18D6062A22ED999C004E721F /* 102-levelOrder.cpp in Sources */,
 				18E6C30D22D1A6290063B521 /* 349-intersection.cpp in Sources */,
+				18F31CEF2304E1FC000AB5FB /* 230-kthSmallest.cpp in Sources */,
 				18404ED522E2CF2E00D4034E /* 112-hasPathSum.cpp in Sources */,
 				1846690822E5358700D452C4 /* 437-PathSumIII.cpp in Sources */,
 				18BA68A722DF627E000870FF /* 03-duplicate.cpp in Sources */,
