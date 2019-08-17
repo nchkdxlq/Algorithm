@@ -131,4 +131,7 @@ void string_entry() {
     
     vector<string> strList{s1, s2, s3};
     vector<string> ret = commonChars(strList);
+    
+    auto a = tolower('A'); // a
+    auto b = toupper('b'); // B
 }

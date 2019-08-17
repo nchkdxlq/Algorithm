@@ -45,6 +45,7 @@
 		182ACE0122EFBD8300BD4445 /* 101-isSymmetric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182ACDFF22EFBD8300BD4445 /* 101-isSymmetric.cpp */; };
 		1833C0C42306DEBC006D7287 /* 46-permute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0C22306DEBC006D7287 /* 46-permute.cpp */; };
 		1833C0C82307D4E1006D7287 /* 17-letterCombinations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0C62307D4E1006D7287 /* 17-letterCombinations.cpp */; };
+		1833C0CD2307E6BC006D7287 /* 784-letterCasePermutation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0CB2307E6BC006D7287 /* 784-letterCasePermutation.cpp */; };
 		183511A022F26C3500968475 /* 145-postorderTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1835119E22F26C3500968475 /* 145-postorderTraversal.cpp */; };
 		18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C7C22D801D900F59043 /* 217-duplicate.cpp */; };
 		18367C8222D80E4D00F59043 /* 219-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C8022D80E4D00F59043 /* 219-duplicate.cpp */; };
@@ -196,6 +197,8 @@
 		1833C0C32306DEBC006D7287 /* 46-permute.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "46-permute.hpp"; sourceTree = "<group>"; };
 		1833C0C62307D4E1006D7287 /* 17-letterCombinations.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "17-letterCombinations.cpp"; sourceTree = "<group>"; };
 		1833C0C72307D4E1006D7287 /* 17-letterCombinations.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "17-letterCombinations.hpp"; sourceTree = "<group>"; };
+		1833C0CB2307E6BC006D7287 /* 784-letterCasePermutation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "784-letterCasePermutation.cpp"; sourceTree = "<group>"; };
+		1833C0CC2307E6BC006D7287 /* 784-letterCasePermutation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "784-letterCasePermutation.hpp"; sourceTree = "<group>"; };
 		1835119E22F26C3500968475 /* 145-postorderTraversal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "145-postorderTraversal.cpp"; sourceTree = "<group>"; };
 		1835119F22F26C3500968475 /* 145-postorderTraversal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "145-postorderTraversal.hpp"; sourceTree = "<group>"; };
 		18367C7C22D801D900F59043 /* 217-duplicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "217-duplicate.cpp"; sourceTree = "<group>"; };
@@ -300,6 +303,7 @@
 				18F31CEB2304E15D000AB5FB /* 200+ */,
 				18E6C30A22D1A5ED0063B521 /* 349-intersection */,
 				1846690522E5355500D452C4 /* 437-PathSumIII */,
+				1833C0C92307E69C006D7287 /* 700+ */,
 				18208B4822D988D200F5823E /* 922-sortArrayByParityII */,
 				08016CB722B4BF7600492DC5 /* 23-mergeKLists.hpp */,
 				08016CB622B4BF7600492DC5 /* 23-mergeKLists.cpp */,
@@ -609,6 +613,23 @@
 				1833C0C72307D4E1006D7287 /* 17-letterCombinations.hpp */,
 			);
 			path = "17-letterCombinations";
+			sourceTree = "<group>";
+		};
+		1833C0C92307E69C006D7287 /* 700+ */ = {
+			isa = PBXGroup;
+			children = (
+				1833C0CA2307E6A3006D7287 /* 784-letterCasePermutation */,
+			);
+			path = "700+";
+			sourceTree = "<group>";
+		};
+		1833C0CA2307E6A3006D7287 /* 784-letterCasePermutation */ = {
+			isa = PBXGroup;
+			children = (
+				1833C0CB2307E6BC006D7287 /* 784-letterCasePermutation.cpp */,
+				1833C0CC2307E6BC006D7287 /* 784-letterCasePermutation.hpp */,
+			);
+			path = "784-letterCasePermutation";
 			sourceTree = "<group>";
 		};
 		1835119D22F26C1700968475 /* 145-postorderTraversal */ = {
@@ -1021,6 +1042,7 @@
 				08016CBE22B4BF7700492DC5 /* 703-KthLargest.cpp in Sources */,
 				08016CBF22B4BF7700492DC5 /* main.cpp in Sources */,
 				189D84CF22F6693D00D4E1A7 /* 105-buildTree.cpp in Sources */,
+				1833C0CD2307E6BC006D7287 /* 784-letterCasePermutation.cpp in Sources */,
 				18B7FD1522D6BE450037BEBA /* 179-largestNumber.cpp in Sources */,
 				18C5791D22DBFB1A000FE701 /* 98-isValidBST.cpp in Sources */,
 				18D6062D22EDAC36004E721F /* STLHelper.cpp in Sources */,

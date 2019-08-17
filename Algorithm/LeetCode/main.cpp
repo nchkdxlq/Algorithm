@@ -41,6 +41,7 @@
 #include "349-intersection.hpp"
 #include "437-PathSumIII.hpp"
 #include "703-KthLargest.hpp"
+#include "784-letterCasePermutation.hpp"
 #include "922-sortArrayByParityII.hpp"
 
 
@@ -50,7 +51,7 @@ int main(int argc, const char * argv[]) {
     offer_main();
 //    entry_703();
 //    entry_347();
-    __17_entry();
+//    __17_entry();
 //    __23_entry();
 //    __387_entry();
 //    __20_entry();
@@ -80,6 +81,7 @@ int main(int argc, const char * argv[]) {
 //    __257_entry();
 //    __349_entry();
 //    __437_entry();
+    __784_entry();
 //    __922_entry();
     
     return 0;
