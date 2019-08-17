@@ -44,6 +44,7 @@
 		182573E322FA56020013EBA8 /* 129-sumNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182573E122FA56020013EBA8 /* 129-sumNumbers.cpp */; };
 		182ACE0122EFBD8300BD4445 /* 101-isSymmetric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182ACDFF22EFBD8300BD4445 /* 101-isSymmetric.cpp */; };
 		1833C0C42306DEBC006D7287 /* 46-permute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0C22306DEBC006D7287 /* 46-permute.cpp */; };
+		1833C0C82307D4E1006D7287 /* 17-letterCombinations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0C62307D4E1006D7287 /* 17-letterCombinations.cpp */; };
 		183511A022F26C3500968475 /* 145-postorderTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1835119E22F26C3500968475 /* 145-postorderTraversal.cpp */; };
 		18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C7C22D801D900F59043 /* 217-duplicate.cpp */; };
 		18367C8222D80E4D00F59043 /* 219-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C8022D80E4D00F59043 /* 219-duplicate.cpp */; };
@@ -193,6 +194,8 @@
 		182ACE0022EFBD8300BD4445 /* 101-isSymmetric.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "101-isSymmetric.hpp"; sourceTree = "<group>"; };
 		1833C0C22306DEBC006D7287 /* 46-permute.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "46-permute.cpp"; sourceTree = "<group>"; };
 		1833C0C32306DEBC006D7287 /* 46-permute.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "46-permute.hpp"; sourceTree = "<group>"; };
+		1833C0C62307D4E1006D7287 /* 17-letterCombinations.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "17-letterCombinations.cpp"; sourceTree = "<group>"; };
+		1833C0C72307D4E1006D7287 /* 17-letterCombinations.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "17-letterCombinations.hpp"; sourceTree = "<group>"; };
 		1835119E22F26C3500968475 /* 145-postorderTraversal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "145-postorderTraversal.cpp"; sourceTree = "<group>"; };
 		1835119F22F26C3500968475 /* 145-postorderTraversal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "145-postorderTraversal.hpp"; sourceTree = "<group>"; };
 		18367C7C22D801D900F59043 /* 217-duplicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "217-duplicate.cpp"; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 				08016CB922B4BF7600492DC5 /* main.cpp */,
 				18BA68A022DF611F000870FF /* CodingInterviews */,
 				1814CD0022D1F5EC0088D969 /* Helper */,
+				1833C0C52307D4C5006D7287 /* 17-letterCombinations */,
 				18E6C30822D1723D0063B521 /* 20-isValid */,
 				1833C0C12306DE93006D7287 /* 46-permute */,
 				18B30A9A22D0FF7C001EFB36 /* 56-merge */,
@@ -596,6 +600,15 @@
 				1833C0C32306DEBC006D7287 /* 46-permute.hpp */,
 			);
 			path = "46-permute";
+			sourceTree = "<group>";
+		};
+		1833C0C52307D4C5006D7287 /* 17-letterCombinations */ = {
+			isa = PBXGroup;
+			children = (
+				1833C0C62307D4E1006D7287 /* 17-letterCombinations.cpp */,
+				1833C0C72307D4E1006D7287 /* 17-letterCombinations.hpp */,
+			);
+			path = "17-letterCombinations";
 			sourceTree = "<group>";
 		};
 		1835119D22F26C1700968475 /* 145-postorderTraversal */ = {
@@ -991,6 +1004,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				184BCAB72304DA8E0029EFE8 /* 109-sortedListToBST.cpp in Sources */,
+				1833C0C82307D4E1006D7287 /* 17-letterCombinations.cpp in Sources */,
 				1814CCFF22D1F1C50088D969 /* LinkedListHelper.cpp in Sources */,
 				18C5792022DBFFF4000FE701 /* TreeHelper.cpp in Sources */,
 				1858648E22D0D6D300BCFC3E /* 20-isValid.cpp in Sources */,
