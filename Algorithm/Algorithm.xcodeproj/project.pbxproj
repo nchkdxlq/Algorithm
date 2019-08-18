@@ -47,6 +47,7 @@
 		1833C0C82307D4E1006D7287 /* 17-letterCombinations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0C62307D4E1006D7287 /* 17-letterCombinations.cpp */; };
 		1833C0CD2307E6BC006D7287 /* 784-letterCasePermutation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0CB2307E6BC006D7287 /* 784-letterCasePermutation.cpp */; };
 		1833C0D12307F4D2006D7287 /* 47-permuteUnique.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0CF2307F4D2006D7287 /* 47-permuteUnique.cpp */; };
+		1833C0D52308F0F3006D7287 /* 77-combine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1833C0D32308F0F3006D7287 /* 77-combine.cpp */; };
 		183511A022F26C3500968475 /* 145-postorderTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1835119E22F26C3500968475 /* 145-postorderTraversal.cpp */; };
 		18367C7E22D801D900F59043 /* 217-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C7C22D801D900F59043 /* 217-duplicate.cpp */; };
 		18367C8222D80E4D00F59043 /* 219-duplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18367C8022D80E4D00F59043 /* 219-duplicate.cpp */; };
@@ -202,6 +203,8 @@
 		1833C0CC2307E6BC006D7287 /* 784-letterCasePermutation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "784-letterCasePermutation.hpp"; sourceTree = "<group>"; };
 		1833C0CF2307F4D2006D7287 /* 47-permuteUnique.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "47-permuteUnique.cpp"; sourceTree = "<group>"; };
 		1833C0D02307F4D2006D7287 /* 47-permuteUnique.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "47-permuteUnique.hpp"; sourceTree = "<group>"; };
+		1833C0D32308F0F3006D7287 /* 77-combine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "77-combine.cpp"; sourceTree = "<group>"; };
+		1833C0D42308F0F3006D7287 /* 77-combine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "77-combine.hpp"; sourceTree = "<group>"; };
 		1835119E22F26C3500968475 /* 145-postorderTraversal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "145-postorderTraversal.cpp"; sourceTree = "<group>"; };
 		1835119F22F26C3500968475 /* 145-postorderTraversal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "145-postorderTraversal.hpp"; sourceTree = "<group>"; };
 		18367C7C22D801D900F59043 /* 217-duplicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "217-duplicate.cpp"; sourceTree = "<group>"; };
@@ -302,6 +305,7 @@
 				1833C0C12306DE93006D7287 /* 46-permute */,
 				1833C0CE2307F4BE006D7287 /* 47-permuteUnique */,
 				18B30A9A22D0FF7C001EFB36 /* 56-merge */,
+				1833C0D22308F0DE006D7287 /* 77-combine */,
 				18C5791A22DBFAE2000FE701 /* 98-isValidBST */,
 				18F31CEC2304E165000AB5FB /* 100+ */,
 				18F31CEB2304E15D000AB5FB /* 200+ */,
@@ -643,6 +647,15 @@
 				1833C0D02307F4D2006D7287 /* 47-permuteUnique.hpp */,
 			);
 			path = "47-permuteUnique";
+			sourceTree = "<group>";
+		};
+		1833C0D22308F0DE006D7287 /* 77-combine */ = {
+			isa = PBXGroup;
+			children = (
+				1833C0D32308F0F3006D7287 /* 77-combine.cpp */,
+				1833C0D42308F0F3006D7287 /* 77-combine.hpp */,
+			);
+			path = "77-combine";
 			sourceTree = "<group>";
 		};
 		1835119D22F26C1700968475 /* 145-postorderTraversal */ = {
@@ -1040,6 +1053,7 @@
 				184BCAB72304DA8E0029EFE8 /* 109-sortedListToBST.cpp in Sources */,
 				1833C0C82307D4E1006D7287 /* 17-letterCombinations.cpp in Sources */,
 				1814CCFF22D1F1C50088D969 /* LinkedListHelper.cpp in Sources */,
+				1833C0D52308F0F3006D7287 /* 77-combine.cpp in Sources */,
 				18C5792022DBFFF4000FE701 /* TreeHelper.cpp in Sources */,
 				1858648E22D0D6D300BCFC3E /* 20-isValid.cpp in Sources */,
 				18D6062A22ED999C004E721F /* 102-levelOrder.cpp in Sources */,

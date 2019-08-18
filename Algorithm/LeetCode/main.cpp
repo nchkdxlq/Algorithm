@@ -15,6 +15,7 @@
 #include "46-permute.hpp"
 #include "47-permuteUnique.hpp"
 #include "56-merge.hpp"
+#include "77-combine.hpp"
 #include "98-isValidBST.hpp"
 #include "100-isSameTree.hpp"
 #include "101-isSymmetric.hpp"
@@ -57,8 +58,9 @@ int main(int argc, const char * argv[]) {
 //    __387_entry();
 //    __20_entry();
 //    __46_entry();
-    __47_entry();
+//    __47_entry();
 //    __56_entry();
+    __77_entry();
 //    __98_entry();
 //    __100_entry();
 //    __102_entry();
