@@ -13,6 +13,7 @@
 #include "20-isValid.hpp"
 #include "23-mergeKLists.hpp"
 #include "46-permute.hpp"
+#include "47-permuteUnique.hpp"
 #include "56-merge.hpp"
 #include "98-isValidBST.hpp"
 #include "100-isSameTree.hpp"
@@ -56,6 +57,7 @@ int main(int argc, const char * argv[]) {
 //    __387_entry();
 //    __20_entry();
 //    __46_entry();
+    __47_entry();
 //    __56_entry();
 //    __98_entry();
 //    __100_entry();
@@ -81,7 +83,7 @@ int main(int argc, const char * argv[]) {
 //    __257_entry();
 //    __349_entry();
 //    __437_entry();
-    __784_entry();
+//    __784_entry();
 //    __922_entry();
     
     return 0;

@@ -121,6 +121,7 @@ void __46_entry() {
     vector<int> nums = {1,2,3};
     auto ret = permute_46::Solution().permute(nums);
     
+    cout << "==== 46-permute ====" << endl;
     for (auto &item : ret) {
         print_vector(item);
         cout << endl;
