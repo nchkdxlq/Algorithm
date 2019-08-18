@@ -23,7 +23,8 @@ namespace combinationSum_39 {
     class Solution {
     public:
         vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-            return v1_combinationSum(candidates, target);
+//            return v1_combinationSum(candidates, target);
+            return v2_combinationSum(candidates, target);
         }
         
     private:
@@ -74,19 +75,41 @@ namespace combinationSum_39 {
         }
         
         
+        /*
+         执行用时 : 20 ms,80.15%
+         内存消耗 : 9.7 MB, 86.66%
+         */
         vector<vector<int>> v2_combinationSum(vector<int>& candidates, int target) {
+            if (candidates.empty()) return {};
+            vector<int> cur;
+            v2_combinationSum_helper(candidates, target, 0, cur);
             return res;
+        }
+        
+        void v2_combinationSum_helper(vector<int>& candidates, int target, int index, vector<int>& cur) {
+            if (target == 0) {
+                res.push_back(cur);
+                return;
+            } else if (target < 0) {
+                return;
+            }
+            
+            for (int i = index; i < candidates.size(); i++) {
+                cur.push_back(candidates[i]);
+                v2_combinationSum_helper(candidates, target - candidates[i], i, cur);
+                cur.pop_back();
+            }
         }
         
     };
 }
 
 
-
-
 void __39_entry() {
-    vector<int> candidates = {2,3,5};
-    int target = 8;
+    vector<int> candidates = {2,3,5}; int target = 8;
+    
+    candidates = {8,7,4,3}; target = 11;
+    
     auto res = combinationSum_39::Solution().combinationSum(candidates, target);
     
     cout << "==== 39-candidates ====" << endl;
