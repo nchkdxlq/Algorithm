@@ -15,6 +15,8 @@
  
  https://leetcode-cn.com/problems/combinations/
  
+ 优秀题解：https://leetcode-cn.com/problems/combinations/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-ma-/
+ 
  */
 
 namespace combine_77 {
@@ -50,18 +52,17 @@ namespace combine_77 {
         // 求解C(n,k), 当前已经存在的组合存储在res中, 需要从begin开始搜索新的元素
         // 执行用时 :92 ms, 93.41%
         // 内存消耗 :11.9 MB, 67.29%
-        void v2_combine_helper(int begin, int end, int k, vector<int>& sub, vector<vector<int>>& res) {
-            if (sub.size() == k) {
-                res.push_back(sub);
+        void v2_combine_helper(int begin, int end, int k, vector<int>& cur, vector<vector<int>>& res) {
+            if (cur.size() == k) { // 找到可行解
+                res.push_back(cur);
                 return;
             }
             
-            
-            int tmp = end - (k - (int)sub.size()) + 1;
+            int tmp = end - (k - (int)cur.size()) + 1;
             for (int i = begin; i <= tmp; i++) {
-                sub.push_back(i);
-                v2_combine_helper(i+1, end, k, sub, res);
-                sub.pop_back();
+                cur.push_back(i); // 搜索当前元素
+                v2_combine_helper(i+1, end, k, cur, res); // 搜索更多元素，以满足可行解
+                cur.pop_back(); // 回溯
             }
         }
     };

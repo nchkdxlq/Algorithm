@@ -12,6 +12,7 @@
 #include "17-letterCombinations.hpp"
 #include "20-isValid.hpp"
 #include "23-mergeKLists.hpp"
+#include "39-combinationSum.hpp"
 #include "46-permute.hpp"
 #include "47-permuteUnique.hpp"
 #include "56-merge.hpp"
@@ -57,10 +58,11 @@ int main(int argc, const char * argv[]) {
 //    __23_entry();
 //    __387_entry();
 //    __20_entry();
+    __39_entry();
 //    __46_entry();
 //    __47_entry();
 //    __56_entry();
-    __77_entry();
+//    __77_entry();
 //    __98_entry();
 //    __100_entry();
 //    __102_entry();
