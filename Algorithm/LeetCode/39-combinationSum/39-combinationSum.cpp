@@ -24,7 +24,8 @@ namespace combinationSum_39 {
     public:
         vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
 //            return v1_combinationSum(candidates, target);
-            return v2_combinationSum(candidates, target);
+//            return v2_combinationSum(candidates, target);
+            return v3_combinationSum(candidates, target);
         }
         
     private:
@@ -101,18 +102,47 @@ namespace combinationSum_39 {
             }
         }
         
+        /*
+         执行用时 :12 ms, 98.93%
+         内存消耗 : 9.7 MB, 86.99%
+         */
+        vector<vector<int>> v3_combinationSum(vector<int>& candidates, int target) {
+            if (candidates.empty()) return {};
+            vector<int> cur;
+            // 优化点，先排序，是剪枝的前提条件
+            sort(candidates.begin(), candidates.end());
+            v3_combinationSum_helper(candidates, target, 0, cur);
+            return res;
+        }
+        
+        void v3_combinationSum_helper(vector<int>& candidates, int target, int index, vector<int>& cur) {
+            if (target == 0) {
+                res.push_back(cur);
+                return;
+            }
+            
+            for (int i = index; i < candidates.size(); i++) {
+                // 剪枝, 因为candidates是升序的，所以，如果candidates[i] > target, 那么后面的元素都大于target，可提前结束循环
+                if (candidates[i] > target) break;
+                
+                cur.push_back(candidates[i]);
+                v3_combinationSum_helper(candidates, target - candidates[i], i, cur);
+                cur.pop_back();
+            }
+        }
+        
     };
 }
 
 
 void __39_entry() {
-    vector<int> candidates = {2,3,5}; int target = 8;
+    vector<int> candidates = {2,3,6,7}; int target = 7;
     
-    candidates = {8,7,4,3}; target = 11;
+    candidates = {2,3,5}; target = 8;
     
     auto res = combinationSum_39::Solution().combinationSum(candidates, target);
     
-    cout << "==== 39-candidates ====" << endl;
+    cout << "==== 39-combinationSum ====" << endl;
     cout << "[" << endl;
     for (auto &item : res) {
         cout << "   ";
