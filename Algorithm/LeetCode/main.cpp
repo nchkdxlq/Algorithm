@@ -60,9 +60,9 @@ int main(int argc, const char * argv[]) {
 //    __387_entry();
 //    __20_entry();
 //    __39_entry();
-    __40_entry();
+//    __40_entry();
 //    __46_entry();
-//    __47_entry();
+    __47_entry();
 //    __56_entry();
 //    __77_entry();
 //    __98_entry();

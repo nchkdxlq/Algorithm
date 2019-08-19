@@ -50,6 +50,8 @@ namespace permuteUnique_47 {
                 swap(nums[i], nums[index]);
                 v1_backTrack(nums, index+1, res);
                 swap(nums[i], nums[index]); // 回溯
+                
+                used.insert(nums[i]); // 记录已经使用过的值
             }
         }
         
@@ -58,7 +60,7 @@ namespace permuteUnique_47 {
             if (nums.empty()) return {};
             
             vector<vector<int>> res;
-            // 先排序，对数组预处理
+            // 先排序，对数组预处理, 是后面剪枝的前提条件
             sort(nums.begin(), nums.end());
             v2_backTrack(nums, 0, res);
             
@@ -72,11 +74,22 @@ namespace permuteUnique_47 {
             }
             
             for (int i = index; i < nums.size(); i++) {
+#if 0
                 if (i == index || nums[i-1] != nums[i]) { // 剪枝
                     swap(nums[index], nums[i]);
                     v2_backTrack(nums, index+1, res);
                     swap(nums[index], nums[i]);
                 }
+#else
+                if (i > index && nums[i] == nums[i-1]) // 剪枝
+                    continue;
+                
+                swap(nums[index], nums[i]);
+                v2_backTrack(nums, index+1, res);
+                swap(nums[index], nums[i]);
+                
+                while(index + 1 < nums.size() && nums[index] == nums[index + 1]) index++;
+#endif
             }
         }
         
@@ -86,9 +99,14 @@ namespace permuteUnique_47 {
 
 void __47_entry() {
     vector<int> nums = {1,1,2};
+    nums = {0,1,0,0,9}; // 20
+//    nums = {1,2,3};
+    
     auto ret = permuteUnique_47::Solution().permuteUnique(nums);
     
     cout << "==== 47-permuteUnique ====" << endl;
+    cout << "size = " << ret.size() << endl;
+    
     for (auto &item : ret) {
         print_vector(item);
         cout << endl;
