@@ -6,9 +6,12 @@
 //  Copyright © 2019 nchkdxlq. All rights reserved.
 //
 
-#ifndef _0_combinationSum2_hpp
-#define _0_combinationSum2_hpp
+#ifndef _40_combinationSum2_hpp
+#define _40_combinationSum2_hpp
 
 #include <stdio.h>
 
-#endif /* _0_combinationSum2_hpp */
+
+void __40_entry();
+
+#endif /* _40_combinationSum2_hpp */
