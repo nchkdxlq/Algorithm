@@ -23,6 +23,7 @@ namespace permuteUnique_47 {
         vector<vector<int>> permuteUnique(vector<int> nums) {
 //            return v1_permuteUnique(nums);
             return v2_permuteUnique(nums);
+//            return v3_permuteUnique(nums);
         }
         
     private:
@@ -74,22 +75,47 @@ namespace permuteUnique_47 {
             }
             
             for (int i = index; i < nums.size(); i++) {
-#if 0
-                if (i == index || nums[i-1] != nums[i]) { // 剪枝
-                    swap(nums[index], nums[i]);
-                    v2_backTrack(nums, index+1, res);
-                    swap(nums[index], nums[i]);
-                }
-#else
-                if (i > index && nums[i] == nums[i-1]) // 剪枝
+                if (i > index && nums[i] == nums[index]) // 剪枝
                     continue;
                 
                 swap(nums[index], nums[i]);
                 v2_backTrack(nums, index+1, res);
                 swap(nums[index], nums[i]);
+            }
+        }
+        
+        
+        vector<bool> used;
+        
+        vector<vector<int>> v3_permuteUnique(vector<int> nums) {
+            if (nums.empty()) return {};
+            
+            // 先排序，对数组预处理, 是后面剪枝的前提条件
+            sort(nums.begin(), nums.end());
+            used = vector<bool>(nums.size(), false);
+            
+            vector<vector<int>> res;
+            vector<int> cur;
+            v3_backTrack(nums, cur, res);
+            
+            return res;
+        }
+        
+        void v3_backTrack(vector<int>& nums, vector<int>& cur, vector<vector<int>>& res) {
+            if (nums.size() == cur.size()) {
+                res.push_back(cur);
+                return;
+            }
+            
+            for (int i = 0; i < nums.size(); i++) {
+                if (used[i]) // 剪枝
+                    continue;
                 
-                while(index + 1 < nums.size() && nums[index] == nums[index + 1]) index++;
-#endif
+                used[i] = true;
+                cur.push_back(nums[i]);
+                v3_backTrack(nums, cur, res);
+                cur.pop_back();
+                used[i] = false;
             }
         }
         
@@ -99,7 +125,7 @@ namespace permuteUnique_47 {
 
 void __47_entry() {
     vector<int> nums = {1,1,2};
-    nums = {0,1,0,0,9}; // 20
+//    nums = {0,1,0,1,0,9};
 //    nums = {1,2,3};
     
     auto ret = permuteUnique_47::Solution().permuteUnique(nums);
