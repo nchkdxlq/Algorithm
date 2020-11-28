@@ -112,7 +112,12 @@ public class ArrayList<T> {
     public int indexOf(T element) {
         for (int i = 0; i < size; i++) {
             // java中 == 判断对象的内存地址是否相等
-            if (elements[i].equals(element)) return i;
+            T value = elements[i];
+            if (element == null) {
+                if (value == null) return i;
+            } else {
+                if (value != null && value.equals(element)) return i;
+            }
         }
         return ELEMENT_NOT_FOUND;
     }
