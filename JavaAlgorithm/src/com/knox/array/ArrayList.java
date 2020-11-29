@@ -38,6 +38,18 @@ public class ArrayList<T> extends AbstractList<T> {
         System.out.println("[ capacity from " + oldCapacity + " to " + newCapacity + " ]");
     }
 
+    private void trim() {
+        int newCapacity = elements.length >> 1;
+        // 剩余空间不足一半 || 容量比较小时, 不扩容
+        if (size > newCapacity || newCapacity < DEFAULT_CAPACITY) return;
+
+        T[] newElements = (T[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newElements[i] = elements[i];
+        }
+        elements = newElements;
+    }
+
     @Override
     public void append(T element) {
         insert(element, size);
@@ -64,6 +76,7 @@ public class ArrayList<T> extends AbstractList<T> {
         // 清空数组中最后一个元素
         elements[size-1] = null;
         size--;
+        trim(); // 缩容
         return target;
     }
 
