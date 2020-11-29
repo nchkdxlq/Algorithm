@@ -5,7 +5,16 @@ import com.knox.list.AbstractList;
 import com.knox.list.List;
 import com.knox.util.Util;
 
-
+/*
+* 处理链表的关键
+*
+* 1. 头结点空时特殊处理
+* 2. 插入、删除的下标为0的情况
+* 3. 在指定位置插入、删除指定下标节点的关键在于找到上一个结点
+* 4. 定义一个根据下标返回对应结点的方法
+*
+*
+* */
 public class SingleLinkedList<T> extends AbstractList<T> {
 
     private static class Node<T> {
@@ -20,9 +29,17 @@ public class SingleLinkedList<T> extends AbstractList<T> {
 
     private Node<T> first;
 
-
-    public SingleLinkedList() { }
-
+    // 根据指定的下标返回结点
+    private Node<T> nodeForIndex(int index) {
+        checkIndex(index);
+        Node<T> cur = first;
+        int i = 0;
+        while (i < index) {
+            cur = cur.next;
+            i++;
+        }
+        return cur;
+    }
 
     @Override
     public void append(T element) {
@@ -43,19 +60,18 @@ public class SingleLinkedList<T> extends AbstractList<T> {
     public void insert(T element, int index) {
         checkIndexForInsert(index);
         Node<T> newNode = new Node<>(element);
-        if (first == null) {
-            first = newNode;
-        } else {
-            int preIndex = index - 1; // 插入位置的前一个位置的下标
-            int i = 0;
-            Node<T> cur = first;
-            while (i < preIndex) {
-                cur = cur.next;
-                i++;
+        if (index == 0) {
+            if (first == null) {
+                first = newNode;
+            } else {
+                Node<T> next = first.next;
+                first = newNode;
+                newNode.next = next;
             }
-            // cur为插入位置的前一个结点, next为插入位置的后一个结点
-            Node<T> next = cur.next;
-            cur.next = newNode;
+        } else {
+            Node<T> prev = nodeForIndex(index - 1);
+            Node<T> next = prev.next;
+            prev.next = newNode;
             newNode.next = next;
         }
         size++;
@@ -89,22 +105,17 @@ public class SingleLinkedList<T> extends AbstractList<T> {
     public T removeAtIndex(int index) {
         checkIndex(index);
 
-        Node<T> pre = null, // pre为当前访问结点的上一个结点
-                cur = first; // cur为当前访问的结点
-        int curIndex = 0;
-        while (curIndex < index) {
-            pre = cur;
-            cur = cur.next;
-            curIndex++;
-        }
-
-        if (pre == null) { // 删除的第一个结点, first指向cur下一个结点
-            first = cur.next;
+        Node<T> targetNode;
+        if (index == 0) {
+            targetNode = first;
+            first = first.next;
         } else {
-            pre.next = cur.next; //pre.next指向cur下一个结点
+            Node<T> prev = nodeForIndex(index - 1);
+            targetNode = prev.next;
+            prev.next = targetNode.next;
         }
         size--;
-        return cur.value;
+        return targetNode.value;
     }
 
     @Override
@@ -129,30 +140,15 @@ public class SingleLinkedList<T> extends AbstractList<T> {
 
     @Override
     public T get(int index) {
-        checkIndex(index);
-
-        Node<T> cur = first;
-        int i = 0;
-        while (i < index) {
-            cur = cur.next;
-            i++;
-        }
-        return cur.value;
+        Node<T> node = nodeForIndex(index);
+        return node.value;
     }
 
     @Override
     public T set(T element, int index) {
-        checkIndex(index);
-
-        Node<T> cur = first;
-        int curIndex = 0;
-        while (curIndex < index) {
-            cur = cur.next;
-            curIndex++;
-        }
-        T oldValue = cur.value;
-        cur.value = element;
-
+        Node<T> node = nodeForIndex(index);
+        T oldValue = node.value;
+        node.value = element;
         return oldValue;
     }
 
