@@ -16,7 +16,7 @@ public class _206_reverseList {
     private static class Solution {
         public ListNode reverseList(ListNode head) {
 //            return reverseList_v1(head);
-            return reverseList_v2(head);
+            return reverseList_v3(head);
         }
 
         // 递归结果
@@ -50,6 +50,32 @@ public class _206_reverseList {
 
             return dummy.next;
         }
+
+        /*
+        * 迭代解法
+        * 思路：
+        * 1. 新建一个空链表 newHead
+        * 2. 遍历原链表, 把当前结点放到新链表第一个位置
+        * 3. 放到新链表第一个位置有几个关键不步骤
+        *   a) 记录原链表的下一个结点 next = head.next
+        *   b) 当前结点执行新链表第一个结点 head.next = newHead
+        *   c) 新链表头指针指向当前结点 newHead = head;
+        *   d) 继续迭代, 重复上面步骤
+        *
+        * */
+        private ListNode reverseList_v3(ListNode head) {
+            if (head == null || head.next == null) return head;
+
+            ListNode newHead = null;
+            while (head != null) {
+                ListNode next = head.next;
+                head.next = newHead;
+                newHead = head;
+                head = next;
+            }
+
+            return newHead;
+        }
     }
 
 
@@ -60,7 +86,5 @@ public class _206_reverseList {
         ListNode head = LeetCodeHelper.createSingleLinkedListFromArray(arr1);
         ListNode ret = ins.reverseList(head);
         LeetCodeHelper.printLinkedList(ret);
-
-
     }
 }
