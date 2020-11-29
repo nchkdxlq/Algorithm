@@ -1,8 +1,10 @@
 package com.knox.LinkedList;
 
 import com.knox.Asserts;
+import com.knox.list.AbstractList;
+import com.knox.list.List;
 
-public class SingleLinkedList<T> {
+public class SingleLinkedList<T> extends AbstractList<T> {
 
     private static class Node<T> {
         public T value;
@@ -14,35 +16,13 @@ public class SingleLinkedList<T> {
         }
     }
 
-    private static final int ELEMENT_NOT_FOUND = -1;
-
-    private int size;
     private Node<T> first;
-
-
-    private void checkIndex(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index:" + index + ", Size: " + size);
-        }
-    }
-
-    private void checkIndexForInsert(int index) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Index:" + index + ", Size: " + size);
-        }
-    }
 
 
     public SingleLinkedList() { }
 
-    public boolean isEmpty() {
-        return size == 0;
-    }
 
-    public int size() {
-        return size;
-    }
-
+    @Override
     public void append(T element) {
         Node<T> newNode = new Node<>(element);
         if (first == null) {
@@ -57,6 +37,7 @@ public class SingleLinkedList<T> {
         size++;
     }
 
+    @Override
     public void insert(T element, int index) {
         checkIndexForInsert(index);
         Node<T> newNode = new Node<>(element);
@@ -78,48 +59,53 @@ public class SingleLinkedList<T> {
         size++;
     }
 
-    public T first() {
-        checkIndex(0);
-        return first.value;
-    }
-
-    public T last() {
-        checkIndex(0);
-        Node<T> cur = first;
-        while (cur.next != null) {
-            cur = cur.next;
+    @Override
+    public void remove(T element) {
+        Node<T> cur = first; // 当前访问的结点
+        Node<T> pre = null; // 当前结点的上一个结点
+        boolean contains = false;
+        while (cur != null) {
+            if (cur.value == element) {
+                contains = true;
+                break;
+            } else {
+                pre = cur;
+                cur = cur.next;
+            }
         }
-        return cur.value;
+        if (contains) {
+            if (pre == null) {
+                first = cur.next;
+            } else {
+                pre.next = cur.next;
+            }
+            size--;
+        }
     }
 
-    public T get(int index) {
+    @Override
+    public T removeAtIndex(int index) {
         checkIndex(index);
 
-        Node<T> cur = first;
-        int i = 0;
-        while (i < index) {
-            cur = cur.next;
-            i++;
-        }
-        return cur.value;
-    }
-
-
-    public T set(T element, int index) {
-        checkIndex(index);
-
-        Node<T> cur = first;
+        Node<T> pre = null, // pre为当前访问结点的上一个结点
+                cur = first; // cur为当前访问的结点
         int curIndex = 0;
         while (curIndex < index) {
+            pre = cur;
             cur = cur.next;
             curIndex++;
         }
-        T oldValue = cur.value;
-        cur.value = element;
 
-        return oldValue;
+        if (pre == null) { // 删除的第一个结点, first指向cur下一个结点
+            first = cur.next;
+        } else {
+            pre.next = cur.next; //pre.next指向cur下一个结点
+        }
+        size--;
+        return cur.value;
     }
 
+    @Override
     public int indexOf(T element) {
         int index = 0;
         Node<T> cur = first;
@@ -133,7 +119,7 @@ public class SingleLinkedList<T> {
         return ELEMENT_NOT_FOUND;
     }
 
-
+    @Override
     public boolean contains(T element) {
         Node<T> node = first;
         while (node != null) {
@@ -149,7 +135,21 @@ public class SingleLinkedList<T> {
         return false;
     }
 
-    public T remove(int index) {
+    @Override
+    public T get(int index) {
+        checkIndex(index);
+
+        Node<T> cur = first;
+        int i = 0;
+        while (i < index) {
+            cur = cur.next;
+            i++;
+        }
+        return cur.value;
+    }
+
+    @Override
+    public T set(T element, int index) {
         checkIndex(index);
 
         Node<T> cur = first;
@@ -158,16 +158,35 @@ public class SingleLinkedList<T> {
             cur = cur.next;
             curIndex++;
         }
-        size--;
+        T oldValue = cur.value;
+        cur.value = element;
+
+        return oldValue;
+    }
+
+    @Override
+    public T first() {
+        checkIndex(0);
+        return first.value;
+    }
+
+    @Override
+    public T last() {
+        checkIndex(0);
+        Node<T> cur = first;
+        while (cur.next != null) {
+            cur = cur.next;
+        }
         return cur.value;
     }
 
+    @Override
     public void clear() {
         first = null;
         size = 0;
     }
 
-
+    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder(100);
         builder.append("SingleLinkedList ");
@@ -184,7 +203,7 @@ public class SingleLinkedList<T> {
     }
 
     public static void main(String[] args) {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        List<Integer> list = new SingleLinkedList<>();
 
         // isEmpty
         Asserts.testTrue(list.isEmpty());
@@ -231,20 +250,49 @@ public class SingleLinkedList<T> {
 
         System.out.println(list);
 
-        // remove
+        // removeAtIndex
         // size:3 [ 10->90->100->null ]
         int remove_insert_value = 66;
         list.insert(remove_insert_value, 1);
         int remove_old_size = list.size();
-        int remove_return = list.remove(1);
+        int remove_pre = list.get(0);
+        int remove_next = list.get(2);
+        int remove_return = list.removeAtIndex(1);
         Asserts.testEqual(list.size(), remove_old_size -1);
         Asserts.testEqual(remove_insert_value, remove_return);
+        Asserts.testEqual(list.get(0), remove_pre);
+        Asserts.testEqual(list.get(1), remove_next);
 
         // clear
         list.append(50);
         list.clear();
         Asserts.testTrue(list.isEmpty());
         Asserts.testEqual(list.size(), 0);
+
+        // remove
+        list.clear();
+        list.append(10);
+        list.append(20);
+        list.append(30);
+        list.append(20);
+        size = list.size();
+        // 删除非重复元素
+        list.remove(10);
+        Asserts.testFalse(list.contains(10));
+        Asserts.testEqual(list.size(), size-1);
+
+        // 删除重复元素
+        size = list.size();
+        list.remove(20);
+        Asserts.testTrue(list.contains(20));
+        Asserts.testEqual(list.size(), size-1);
+
+        // 删除不存在元素
+        size = list.size();
+        list.remove(100);
+        Asserts.testEqual(list.size(), size);
+
+
         System.out.println(list);
     }
 }
