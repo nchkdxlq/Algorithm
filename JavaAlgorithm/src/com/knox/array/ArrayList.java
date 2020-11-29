@@ -1,14 +1,14 @@
 package com.knox.array;
 
 import com.knox.Asserts;
+import com.knox.list.AbstractList;
+import com.knox.list.List;
 
-public class ArrayList<T> {
+public class ArrayList<T> extends AbstractList<T> {
 
-    private int size;
     private T[] elements;
 
     private static final int DEFAULT_CAPACITY = 10;
-    private static final int ELEMENT_NOT_FOUND = -1;
 
 
     public ArrayList(int capacity) {
@@ -20,22 +20,6 @@ public class ArrayList<T> {
     public ArrayList() {
         // 调用上面的构造方法
         this(DEFAULT_CAPACITY);
-    }
-
-    private void outOfBounds(int index) {
-        throw new IndexOutOfBoundsException("Index:" + index + ", Size: " + size);
-    }
-
-    private void checkIndex(int index) {
-        if (index < 0 || index >= size) {
-            outOfBounds(index);
-        }
-    }
-
-    private void checkIndexForInsert(int index) {
-        if (index < 0 || index > size) {
-            outOfBounds(index);
-        }
     }
 
     private void ensureCapacity(int capacity) {
@@ -54,30 +38,12 @@ public class ArrayList<T> {
         System.out.println("[ capacity from " + oldCapacity + " to " + newCapacity + " ]");
     }
 
-    public void clear() {
-        // 清空数组中的元素
-        for (int i = 0; i < size; i++) {
-            elements[i] = null;
-        }
-        size = 0;
-    }
-
-    public int size() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    public boolean contains(T element) {
-        return indexOf(element) != ELEMENT_NOT_FOUND;
-    }
-
+    @Override
     public void append(T element) {
         insert(element, size);
     }
 
+    @Override
     public void insert(T element, int index) {
         checkIndexForInsert(index);
         ensureCapacity(size + 1);
@@ -88,7 +54,8 @@ public class ArrayList<T> {
         size++;
     }
 
-    public T remove(int index) {
+    @Override
+    public T removeAtIndex(int index) {
         checkIndex(index);
         T target = elements[index];
         for (int i = index + 1; i < size; i++) {
@@ -100,15 +67,15 @@ public class ArrayList<T> {
         return target;
     }
 
-    public T set(T element, int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index:" + index + ", Size: " + size);
+    @Override
+    public void remove(T element) {
+        int targetIndex = indexOf(element);
+        if (targetIndex != ELEMENT_NOT_FOUND) {
+            removeAtIndex(targetIndex);
         }
-        T old = elements[index];
-        elements[index] = element;
-        return old;
     }
 
+    @Override
     public int indexOf(T element) {
         for (int i = 0; i < size; i++) {
             // java中 == 判断对象的内存地址是否相等
@@ -122,21 +89,49 @@ public class ArrayList<T> {
         return ELEMENT_NOT_FOUND;
     }
 
+    @Override
+    public boolean contains(T element) {
+        return indexOf(element) != ELEMENT_NOT_FOUND;
+    }
+
+    @Override
     public T get(int index) {
         checkIndex(index);
         return elements[index];
     }
 
+    @Override
+    public T set(T element, int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index:" + index + ", Size: " + size);
+        }
+        T old = elements[index];
+        elements[index] = element;
+        return old;
+    }
+
+    @Override
     public T first() {
         checkIndex(0);
         return elements[0];
     }
 
+    @Override
     public T last() {
         checkIndex(size-1);
         return elements[size-1];
     }
 
+    @Override
+    public void clear() {
+        // 清空数组中的元素
+        for (int i = 0; i < size; i++) {
+            elements[i] = null;
+        }
+        size = 0;
+    }
+
+    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("ArrayList: size=").append(size).append(", [");
@@ -152,7 +147,7 @@ public class ArrayList<T> {
 
 
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         Asserts.testTrue(list.isEmpty());
         Asserts.testEqual(list.size(), 0);
 
@@ -175,9 +170,9 @@ public class ArrayList<T> {
         list.insert(13, 1);
         Asserts.testEqual(list.get(1), 13);
 
-        // remove
+        // removeAtIndex
         int oldSize = list.size();
-        Integer ret = list.remove(1);
+        Integer ret = list.removeAtIndex(1);
         Asserts.testEqual(ret, 13);
         int newSize = list.size();
         Asserts.testEqual(newSize, oldSize - 1);
@@ -193,5 +188,17 @@ public class ArrayList<T> {
         list.clear();
         Asserts.testEqual(list.size(), 0);
         Asserts.testTrue(list.isEmpty());
+
+        // remove
+        list.clear();
+        list.append(10);
+        list.append(20);
+        list.append(30);
+        list.append(20);
+        int size = list.size();
+        // 删除非重复元素
+        list.remove(10);
+        Asserts.testFalse(list.contains(10));
+        Asserts.testEqual(list.size(), size-1);
     }
 }

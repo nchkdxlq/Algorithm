@@ -3,6 +3,8 @@ package com.knox.LinkedList;
 import com.knox.Asserts;
 import com.knox.list.AbstractList;
 import com.knox.list.List;
+import com.knox.util.Util;
+
 
 public class SingleLinkedList<T> extends AbstractList<T> {
 
@@ -110,29 +112,19 @@ public class SingleLinkedList<T> extends AbstractList<T> {
         int index = 0;
         Node<T> cur = first;
         while (cur != null) {
-            if (cur.value == element) {
+            if (Util.safeEqual(element, cur.value)) {
                 return index;
+            } else  {
+                cur = cur.next;
+                index++;
             }
-            cur = cur.next;
-            index++;
         }
         return ELEMENT_NOT_FOUND;
     }
 
     @Override
     public boolean contains(T element) {
-        Node<T> node = first;
-        while (node != null) {
-            if (element == null) {
-                if (node.value == null) return true;
-            } else {
-                if (node.value != null) {
-                    if (node.value.equals(element)) return true;
-                }
-            }
-            node = node.next;
-        }
-        return false;
+        return indexOf(element) != ELEMENT_NOT_FOUND;
     }
 
     @Override
