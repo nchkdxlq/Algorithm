@@ -39,6 +39,11 @@ public abstract class AbstractList<T> implements List<T> {
         insert(element, size);
     }
 
+    @Override
+    public boolean isValid() {
+        return true;
+    }
+
     public static void test_append(List<Integer> list) {
         list.clear();
 
@@ -46,6 +51,9 @@ public abstract class AbstractList<T> implements List<T> {
         list.append(4);
         list.append(3);
         list.append(7);
+
+        Asserts.testTrue(list.isValid());
+
         // 1 -> 4 -> 3 -> 7
         System.out.println("test_append: " + list);
     }
@@ -60,6 +68,8 @@ public abstract class AbstractList<T> implements List<T> {
         list.insert(11, 0);
         list.insert(12, 1);
         list.insert(30, list.size());
+
+        Asserts.testTrue(list.isValid());
 
         // 11 -> 12 -> 2 -> 10 -> 20 -> 30
         System.out.println("test_insertAtIndex: " + list);
@@ -77,6 +87,8 @@ public abstract class AbstractList<T> implements List<T> {
         list.removeAtIndex(1);
         list.removeAtIndex(0);
         list.removeAtIndex(list.size()-1);
+
+        Asserts.testTrue(list.isValid());
 
         // 3 -> 4
         System.out.println("test_removeAtIndex: " + list);
@@ -96,6 +108,7 @@ public abstract class AbstractList<T> implements List<T> {
         list.remove(5);
         list.remove(2);
 
+        Asserts.testTrue(list.isValid());
         // 2 -> 4 -> 7
         System.out.println("test_remove: " + list);
     }

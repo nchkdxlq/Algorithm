@@ -49,7 +49,40 @@ public class DoublyCircleLinkedList<T> extends AbstractList<T> {
     @Override
     public void insert(T element, int index) {
 //        insert_v1(element, index);
-        insert_v2(element, index);
+//        insert_v2(element, index);
+        insert_v3(element, index);
+    }
+
+    private void insert_v3(T element, int index) {
+        checkIndexForInsert(index);
+
+        if (size == 0) {
+            Node<T> newNode = new Node<>(element);
+            newNode.next = newNode;
+            newNode.prev = newNode;
+            first = newNode;
+            last = newNode;
+        } else {
+            Node<T> prev, next;
+            if (index == size) {
+                prev = last;
+                next = first;
+            } else {
+                prev = nodeForIndex(index);
+                next = prev.next;
+            }
+            Node<T> newNode = new Node<>(element, prev, next);
+            prev.next = newNode;
+            next.prev = newNode;
+
+            if (index == 0) {
+                first = newNode;
+            } else if (index == size) {
+                last = newNode;
+            }
+        }
+
+        size++;
     }
 
     private void insert_v2(T element, int index) {
@@ -279,6 +312,24 @@ public class DoublyCircleLinkedList<T> extends AbstractList<T> {
 
         builder.append(" ]");
         return builder.toString();
+    }
+
+    @Override
+    public boolean isValid() {
+        if (isEmpty()) {
+            return first == null && last == null;
+        }
+        int i = 0;
+        Node<T> node = first;
+        while (i < size) {
+            if (node.prev == null) {
+                return false;
+            }
+            i++;
+            node = node.next;
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {

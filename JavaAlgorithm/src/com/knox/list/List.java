@@ -30,4 +30,5 @@ public interface List<T> {
 
     String toString();
 
+    boolean isValid();
 }
