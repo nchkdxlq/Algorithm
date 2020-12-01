@@ -15,7 +15,7 @@ import com.knox.util.Util;
 *
 *
 * */
-public class SingleLinkedList<T> extends AbstractList<T> {
+public class SinglyLinkedList<T> extends AbstractList<T> {
 
     private static class Node<T> {
         public T value;
@@ -191,7 +191,7 @@ public class SingleLinkedList<T> extends AbstractList<T> {
     }
 
     public static void main(String[] args) {
-        List<Integer> list = new SingleLinkedList<>();
+        List<Integer> list = new SinglyLinkedList<>();
 
         // isEmpty
         Asserts.testTrue(list.isEmpty());
