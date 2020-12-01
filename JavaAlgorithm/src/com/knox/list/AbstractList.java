@@ -46,6 +46,7 @@ public abstract class AbstractList<T> implements List<T> {
         list.append(4);
         list.append(3);
         list.append(7);
+        // 1 -> 4 -> 3 -> 7
         System.out.println("test_append: " + list);
     }
 
@@ -60,6 +61,7 @@ public abstract class AbstractList<T> implements List<T> {
         list.insert(12, 1);
         list.insert(30, list.size());
 
+        // 11 -> 12 -> 2 -> 10 -> 20 -> 30
         System.out.println("test_insertAtIndex: " + list);
     }
 
@@ -76,6 +78,7 @@ public abstract class AbstractList<T> implements List<T> {
         list.removeAtIndex(0);
         list.removeAtIndex(list.size()-1);
 
+        // 3 -> 4
         System.out.println("test_removeAtIndex: " + list);
     }
 
@@ -93,6 +96,7 @@ public abstract class AbstractList<T> implements List<T> {
         list.remove(5);
         list.remove(2);
 
+        // 2 -> 4 -> 7
         System.out.println("test_remove: " + list);
     }
 
