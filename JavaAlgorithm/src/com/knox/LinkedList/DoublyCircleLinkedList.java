@@ -48,6 +48,49 @@ public class DoublyCircleLinkedList<T> extends AbstractList<T> {
 
     @Override
     public void insert(T element, int index) {
+//        insert_v1(element, index);
+        insert_v2(element, index);
+    }
+
+    private void insert_v2(T element, int index) {
+        checkIndexForInsert(index);
+
+        if (index == size) { // 往最后添加元素, 因为是size, 不能通过index获取对应结点, 单独处理.
+            Node<T> oldLast = last;
+            Node<T> newNode = new Node<>(element, oldLast, first);
+            last = newNode;
+            if (oldLast == null) { // 链表为空, newNode的next/prev都指向自己
+                newNode.prev = newNode;
+                newNode.next = newNode;
+                first = newNode;
+            } else {
+                oldLast.next = newNode;
+                first.prev = newNode;
+            }
+        } else { // 来到else, 说明链表不为空
+            // 根据index找到的node为newNode的next
+            Node<T> next = nodeForIndex(index);
+            Node<T> prev = next.prev;
+            /*
+            * next为中间结点, 没任何问题, 比较好理解;
+            *
+            * next为首节点时为什么也成立呢?
+            * 1. next是头结点(first), prev就是尾节点(last), newNode.next指向next(first), newNode.prev指向为prev(last)
+            * 2. newNode应该为首节点了, 所以next.prev指向newNode, prev.next指向newNode
+            * 3. 整体来看, 首结点也属于链表的中间位置, 更普通的中间位置结点一样逻辑处理。
+            * */
+            Node<T> newNode = new Node<>(element, prev, next);
+            prev.next = newNode;
+            next.prev = newNode;
+
+            if (index == 0 /* next == first */) {
+                first = newNode;
+            }
+        }
+        size++;
+    }
+
+    private void insert_v1(T element, int index) {
         checkIndexForInsert(index);
 
         Node<T> newNode = new Node<>(element);
@@ -110,6 +153,10 @@ public class DoublyCircleLinkedList<T> extends AbstractList<T> {
 
     // 双向链表删除结点模板
     private void removeNode(Node<T> node) {
+        removeNode_v2(node);
+    }
+
+    private void removeNode_v1(Node<T> node) {
         if (node == null) return;
 
         Node<T> prev = node.prev;
@@ -130,6 +177,29 @@ public class DoublyCircleLinkedList<T> extends AbstractList<T> {
 
         size--;
     }
+
+    private void removeNode_v2(Node<T> node) {
+        if (node == null) return;
+
+        if (size == 1) { // 删除元素后链表为空, 所以单独处理
+            first = null;
+            last = null;
+        } else {
+            Node<T> prev = node.prev;
+            Node<T> next = node.next;
+            prev.next = next;
+            next.prev = prev;
+
+            if (node == first) {
+                first = next;
+            }
+            if (node == last) {
+                last = prev;
+            }
+        }
+        size--;
+    }
+
 
     @Override
     public int indexOf(T element) {
