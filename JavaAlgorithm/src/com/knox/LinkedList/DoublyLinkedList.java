@@ -19,8 +19,8 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
 
         public Node(T value, Node<T> prev, Node<T> next) {
             this.value = value;
-            this.next = prev;
-            this.prev = next;
+            this.prev = prev;
+            this.next = next;
         }
     }
 
@@ -48,9 +48,49 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
 
     @Override
     public void insert(T element, int index) {
+        insert_v3(element, index);
+    }
+
+    private void insert_v3(T element, int index) {
         checkIndexForInsert(index);
 
+        if (size == 0) {
+            Node<T> newNode = new Node<>(element);
+            first = newNode;
+            last = newNode;
+        } else {
+            Node<T> prev, next;
+            if (index == 0) {
+                prev = null;
+                next = first;
+            } else if (index == size) {
+                prev = last;
+                next = null;
+            } else  {
+                next = nodeForIndex(index);
+                prev = next.prev;
+            }
+            Node<T> newNode = new Node<>(element, prev, next);
+            if (prev != null) {
+                prev.next = newNode;
+            } else {
+                first = newNode;
+            }
+
+            if (next != null) {
+                next.prev = newNode;
+            } else {
+                last = newNode;
+            }
+        }
+
+        size++;
+    }
+
+    private void insert_v2(T element, int index) {
+        checkIndexForInsert(index);
         Node<T> newNode = new Node<>(element);
+
         if (index == 0) {
             newNode.next = first;
             if (first == null) {
@@ -73,26 +113,33 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             }
         }
 
-//        if (first == null) {
-//            first = newNode;
-//        } else {
-//            if (index == 0) {
-//                newNode.next = first;
-//                first = newNode;
-//            } else {
-//                Node<T> prev = nodeForIndex(index - 1);
-//                Node<T> next = prev.next;
-//                newNode.next = next;
-//                newNode.prev = prev;
-//                prev.next = newNode;
-//                if (next != null) {
-//                    next.prev = newNode;
-//                }
-//            }
-//        }
-//        if (index == size) {
-//            last = newNode;
-//        }
+        size++;
+    }
+
+    private void insert_v1(T element, int index) {
+        checkIndexForInsert(index);
+
+        Node<T> newNode = new Node<>(element);
+        if (first == null) {
+            first = newNode;
+        } else {
+            if (index == 0) {
+                newNode.next = first;
+                first = newNode;
+            } else {
+                Node<T> prev = nodeForIndex(index - 1);
+                Node<T> next = prev.next;
+                newNode.next = next;
+                newNode.prev = prev;
+                prev.next = newNode;
+                if (next != null) {
+                    next.prev = newNode;
+                }
+            }
+        }
+        if (index == size) {
+            last = newNode;
+        }
 
         size++;
     }
@@ -218,7 +265,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder(100);
-        builder.append("SingleLinkedList ");
+        builder.append("DoublyLinkedList ");
         builder.append("size:").append(size);
         builder.append(" [ ");
 
