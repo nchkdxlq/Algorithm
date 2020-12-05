@@ -1,4 +1,4 @@
-package com.knox.leetcode.LinkedList;
+package com.knox.leetcode;
 
 import com.knox.Asserts;
 
