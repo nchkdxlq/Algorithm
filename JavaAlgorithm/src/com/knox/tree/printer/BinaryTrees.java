@@ -21,6 +21,8 @@ public final class BinaryTrees {
 	public static void print(BinaryTreeInfo tree, PrintStyle style) {
 		if (tree == null || tree.root() == null) return;
 		printer(tree, style).print();
+		System.out.println("\n");
+
 	}
 
 	public static void println(BinaryTreeInfo tree, PrintStyle style) {

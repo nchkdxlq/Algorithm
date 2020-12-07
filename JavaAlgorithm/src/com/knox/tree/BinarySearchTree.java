@@ -5,8 +5,16 @@ import com.knox.tree.printer.BinaryTreeInfo;
 import com.knox.tree.printer.BinaryTrees;
 
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinarySearchTree<T> implements BinaryTreeInfo {
+
+    public static abstract class Visitor<T> {
+        boolean stop;
+        // @return 如果返回true, 就停止遍历
+        abstract boolean visit(T element);
+    }
 
     private TreeNode<T> root;
     private int size;
@@ -88,6 +96,67 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         }
     }
 
+    // 前序遍历
+    public void preorder(Visitor<T> visitor) {
+        if (visitor == null) return;
+        preorder(root, visitor);
+    }
+    private void preorder(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null || visitor.stop) return;
+
+        visitor.stop = visitor.visit(root.value);
+        preorder(root.left, visitor);
+        preorder(root.right, visitor);
+    }
+
+    // 中序遍历
+    public void inorder(Visitor<T> visitor) {
+        if (visitor == null) return;
+        inorder(root, visitor);
+    }
+    private void inorder(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null || visitor.stop) return;
+
+        inorder(root.left, visitor);
+        if (visitor.stop) return;
+        visitor.stop = visitor.visit(root.value);
+        inorder(root.right, visitor);
+    }
+
+    // 后序遍历
+    public void postorder(Visitor<T> visitor) {
+        if (visitor == null) return;
+        postorder(root, visitor);
+    }
+    private void postorder(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null || visitor.stop) return;
+
+        postorder(root.left, visitor);
+        postorder(root.right, visitor);
+        if (visitor.stop) return;
+        visitor.stop = visitor.visit(root.value);
+    }
+
+    // 层序遍历
+    public void levelOrder(Visitor<T> visitor) {
+        if (root == null || visitor == null) return;
+        Queue<TreeNode<T>> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode<T> node = queue.poll();
+            if (visitor.visit(node.value)) return;
+
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+    }
+
+
     @Override
     public Object root() {
         return root;
@@ -105,11 +174,75 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 
     @Override
     public Object string(Object node) {
-        return ((TreeNode<T>)node).value.toString();
+        TreeNode<T> treeNode = ((TreeNode<T>)node);
+        String parentStr = treeNode.parent == null ? "null" : treeNode.parent.value.toString();
+        return treeNode.value.toString() + "(" + parentStr + ")";
     }
 
     public static void main(String[] args) {
+        BinarySearchTree<Integer> bst = createTree();
+        BinaryTrees.print(bst);
+        test_preoder(bst);
+        test_inoder(bst);
+        test_postoder(bst);
 
+//        test_levelOrder();
+    }
+
+    private static void test_preoder(BinarySearchTree<Integer> bst) {
+        LinkedList<Integer> ret = new LinkedList<>();
+        bst.preorder(new Visitor<Integer>() {
+            @Override
+            public boolean visit(Integer element) {
+                ret.add(element);
+//                return false;
+                return element == 4;
+            }
+        });
+        System.out.println("preorder : " + ret.toString());
+    }
+
+    private static void test_inoder(BinarySearchTree<Integer> bst) {
+        LinkedList<Integer> ret = new LinkedList<>();
+        bst.inorder(new Visitor<Integer>() {
+            @Override
+            public boolean visit(Integer element) {
+                ret.add(element);
+//                return false;
+                return element == 4;
+            }
+        });
+        System.out.println("inorder : " + ret.toString());
+    }
+
+    private static void test_postoder(BinarySearchTree<Integer> bst) {
+        LinkedList<Integer> ret = new LinkedList<>();
+        bst.postorder(new Visitor<Integer>() {
+            @Override
+            public boolean visit(Integer element) {
+                ret.add(element);
+//                return false;
+                return element == 4;
+            }
+        });
+        System.out.println("postorder : " + ret.toString());
+    }
+
+    private static void test_levelOrder() {
+        BinarySearchTree<Integer> bst = createTree();
+        BinaryTrees.print(bst);
+        LinkedList<Integer> ret = new LinkedList<>();
+        bst.levelOrder(new Visitor<Integer>() {
+            @Override
+            public boolean visit(Integer element) {
+                ret.add(element);
+                return element == 5;
+            }
+        });
+        System.out.println("levelOrder : " + ret.toString());
+    }
+
+    private static void test1() {
         BinarySearchTree<Integer> bst = new BinarySearchTree<>(new Comparator<Integer>() {
             // 匿名类, java很多内置的数据类型都实现Comparator接口, 自定义的类需要比较才实现该接口
             @Override
@@ -124,5 +257,16 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         }
 
         BinaryTrees.print(bst);
+    }
+
+    private static BinarySearchTree<Integer> createTree() {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        int[] arr = new int[] {
+                7, 4, 9, 2, 5, 8, 11, 1, 3, 10, 12
+        };
+        for (int i = 0; i < arr.length; i++) {
+            bst.add(arr[i]);
+        }
+        return bst;
     }
 }
