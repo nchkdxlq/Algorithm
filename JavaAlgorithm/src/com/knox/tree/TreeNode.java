@@ -10,4 +10,12 @@ public class TreeNode<T> {
         this.value = value;
         this.parent = parent;
     }
+
+    public boolean isLeaf() {
+        return left == null && right == null;
+    }
+
+    public boolean hasTwoChildren() {
+        return left != null && right != null;
+    }
 }

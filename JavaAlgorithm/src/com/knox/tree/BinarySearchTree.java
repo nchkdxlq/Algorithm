@@ -1,6 +1,7 @@
 package com.knox.tree;
 
 
+import com.knox.Asserts;
 import com.knox.tree.printer.BinaryTreeInfo;
 import com.knox.tree.printer.BinaryTrees;
 
@@ -80,6 +81,33 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 
     public void clear() {
 
+    }
+
+    public boolean isComplete() {
+        if (root == null) return true;
+
+        Queue<TreeNode<T>> queue = new LinkedList<>();
+        queue.offer(root);
+        boolean leaf = false;
+        while (!queue.isEmpty()) {
+            TreeNode<T> node = queue.poll();
+            if (leaf && !node.isLeaf()) return false;
+
+            if (node.left != null) {
+                queue.offer(node.left);
+            } else if (node.right != null) { // node.left == null && node.right != null
+                return false;
+            }
+
+            if (node.right != null) {
+                queue.offer(node.right);
+            } else {
+                // 当node.right == null 时, 后面的所有结点都需要是叶子结点才是完全二叉树
+                leaf = true;
+            }
+        }
+
+        return true;
     }
 
     private void elementNotNullCheck(T element) {
@@ -186,7 +214,36 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         test_inoder(bst);
         test_postoder(bst);
 
+        test_isComplete();
+
 //        test_levelOrder();
+    }
+
+
+    private static void test_isComplete() {
+        {
+            Integer[] arr = new Integer[] {
+                    7, 4, 9
+            };
+            BinarySearchTree<Integer> bst = createTree(arr);
+            Asserts.testTrue(bst.isComplete());
+        }
+
+        {
+            Integer[] arr = new Integer[] {
+                    7, 4, 9, 2
+            };
+            BinarySearchTree<Integer> bst = createTree(arr);
+            Asserts.testTrue(bst.isComplete());
+        }
+
+        {
+            Integer[] arr = new Integer[] {
+                    7, 4, 9, 8
+            };
+            BinarySearchTree<Integer> bst = createTree(arr);
+            Asserts.testFalse(bst.isComplete());
+        }
     }
 
     private static void test_preoder(BinarySearchTree<Integer> bst) {
@@ -195,7 +252,6 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             @Override
             public boolean visit(Integer element) {
                 ret.add(element);
-//                return false;
                 return element == 4;
             }
         });
@@ -208,8 +264,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             @Override
             public boolean visit(Integer element) {
                 ret.add(element);
-//                return false;
-                return element == 4;
+                return false;
             }
         });
         System.out.println("inorder : " + ret.toString());
@@ -221,7 +276,6 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             @Override
             public boolean visit(Integer element) {
                 ret.add(element);
-//                return false;
                 return element == 4;
             }
         });
@@ -264,6 +318,14 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         int[] arr = new int[] {
                 7, 4, 9, 2, 5, 8, 11, 1, 3, 10, 12
         };
+        for (int i = 0; i < arr.length; i++) {
+            bst.add(arr[i]);
+        }
+        return bst;
+    }
+
+    private static BinarySearchTree<Integer> createTree(Integer[] arr) {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         for (int i = 0; i < arr.length; i++) {
             bst.add(arr[i]);
         }
