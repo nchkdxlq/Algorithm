@@ -83,6 +83,67 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 
     }
 
+    // 树的高度
+    public int height() {
+//        return height_v1(root);
+        return height_v2();
+    }
+
+    /*
+    * 迭代解法
+    *
+    * 思路:
+    * 使用层序遍历, 遍历完一层height就加1
+    * 1. 如何知道遍历完一层呢？需要知道一层的结点个数levelSize
+    * 2. 如何知道一层的结点个数呢？ 第一层是已知的, 把根结点加入队列, 结点数量为1
+    * 3. 从队列中取出元素, levelSize减1, 并且把结点的左右结点加入队列
+    * 4. 当levelSize == 0时, 一层已经遍历完, 此时queue.size()为下一层的结点数量, height也需要加1
+    *
+    * */
+    private int height_v2() {
+       if (root == null) return 0;
+
+       Queue<TreeNode<T>> queue = new LinkedList<>();
+       queue.offer(root);
+       // 存储每一层的元素数量
+       int levelSize = 1;
+       int height = 0;
+       while (!queue.isEmpty()) {
+           TreeNode<T> node = queue.poll();
+           levelSize--;
+
+           if (node.left != null) {
+               queue.offer(node.left);
+           }
+
+           if (node.right != null) {
+               queue.offer(node.right);
+           }
+
+           if (levelSize == 0) { // 遍历完一层, 即将访问下一层
+               levelSize = queue.size();
+               height++;
+           }
+       }
+       return height;
+    }
+
+    /* 递归
+     *
+     * 思路：
+     * 1. 先递归求出左子树的高度
+     * 2. 再递归求出右子树的高度
+     * 3. 子树高度较大值+1就是树的高度
+     * */
+    private int height_v1(TreeNode<T> node) {
+        if (node == null) return 0;
+
+        int leftHeight = height_v1(node.left);
+        int rightHeight = height_v1(node.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    // 判断是否为完全二叉树
     public boolean isComplete() {
         if (root == null) return true;
 
@@ -102,7 +163,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             if (node.right != null) {
                 queue.offer(node.right);
             } else {
-                // 当node.right == null 时, 后面的所有结点都需要是叶子结点才是完全二叉树
+                // 当node.right == null 时, 后面的所有结点都是叶子结点才是完全二叉树
                 leaf = true;
             }
         }
@@ -208,17 +269,25 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     }
 
     public static void main(String[] args) {
-        BinarySearchTree<Integer> bst = createTree();
-        BinaryTrees.print(bst);
-        test_preoder(bst);
-        test_inoder(bst);
-        test_postoder(bst);
+//        BinarySearchTree<Integer> bst = createTree();
+//        BinaryTrees.print(bst);
+//        test_preoder(bst);
+//        test_inoder(bst);
+//        test_postoder(bst);
+//
+//        test_isComplete();
 
-        test_isComplete();
+        test_height();;
 
 //        test_levelOrder();
     }
 
+
+    private static void test_height() {
+        BinarySearchTree<Integer> bst = randomCreateTree(10);
+        BinaryTrees.print(bst);
+        System.out.println("height = " + bst.height());
+    }
 
     private static void test_isComplete() {
         {
@@ -330,5 +399,13 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             bst.add(arr[i]);
         }
         return bst;
+    }
+
+    private static BinarySearchTree<Integer> randomCreateTree(int size) {
+        Integer[] arr = new Integer[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = (int)(Math.random() * 100);
+        }
+        return createTree(arr);
     }
 }
