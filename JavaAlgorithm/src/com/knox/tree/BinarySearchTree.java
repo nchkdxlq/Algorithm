@@ -83,6 +83,52 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 
     }
 
+    // 前驱结点 (中序遍历时的前一个结点)
+    private TreeNode<T> predecessor(TreeNode<T> node) {
+        if (node == null) return null;
+
+        // 前驱节点在左子树当中（left.right.right.right....）
+        if (node.left != null) {
+            TreeNode<T> p = node.left;
+            while (p.right != null) {
+                p = p.right;
+            }
+            return p;
+        }
+
+        /*
+        * 在父节点、祖父结点中寻找前驱结点
+        *
+        * 存在parent, 并且node == node.parent.left, 还需要往父节点找
+        * 1. 当node == node.parent.right时, node.parent为前驱结点
+        * 2. 当一直找到根节点, 即node.parent == null时, 没有前驱结点
+        * */
+        while (node.parent != null && node == node.parent.left) {
+            node = node.parent;
+        }
+        return node.parent;
+    }
+
+    // 后继结点 (中序遍历时的后一个结点)
+    private TreeNode<T> successor(TreeNode<T> node) {
+        if (node == null) return null;
+
+        if (node.right != null) {
+            TreeNode<T> p = node.right;
+            while (p.left != null) {
+                p = p.left;
+            }
+            return p;
+        }
+
+        // 一直往父节点找, 一直找到node结点是父结点的左结点, 此时父节点就是后驱结点
+        while (node.parent != null && node == node.parent.right) {
+            node = node.parent;
+        }
+
+        return node.parent;
+    }
+
     // 树的高度
     public int height() {
 //        return height_v1(root);
@@ -277,9 +323,53 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 //
 //        test_isComplete();
 
-        test_height();;
+//        test_height();
+
+        test_predecessor();
 
 //        test_levelOrder();
+    }
+
+    private static void test_predecessor() {
+        Integer[] arr = new Integer[] {
+                8, 4, 13, 2, 6, 10, 1, 3, 5, 7, 9, 12, 11
+        };
+        BinarySearchTree<Integer> bst = createTree(arr);
+        BinaryTrees.print(bst);
+
+        {
+            // node.left != null
+            TreeNode<Integer> node = bst.root.left; //4
+            TreeNode<Integer> target = node.left.right; // 3
+            TreeNode<Integer> ret = bst.predecessor(node);
+            Asserts.testEqual(ret, target);
+        }
+
+        {
+            // node.left == null && node,parent != null
+            TreeNode<Integer> node = bst.root.right.left.left; // 9
+            TreeNode<Integer> target = bst.root; // 8
+            TreeNode<Integer> ret = bst.predecessor(node);
+            Asserts.testEqual(ret, target);
+
+            node = bst.root.left.left.left; // 1
+            target = null; // 1
+            ret = bst.predecessor(node);
+            Asserts.testEqual(ret, target);
+        }
+
+        {
+            arr = new Integer[] {
+                    8, 13, 10, 9, 12, 11
+            };
+            bst = createTree(arr);
+            BinaryTrees.print(bst);
+            // node.left == null && node,parent == null, 没有左子树的根结点
+            TreeNode<Integer> node = bst.root;
+            TreeNode<Integer> ret = bst.predecessor(node);
+            TreeNode<Integer> target = null;
+            Asserts.testEqual(ret, target);
+        }
     }
 
 
