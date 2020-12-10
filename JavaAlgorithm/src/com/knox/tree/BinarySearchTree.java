@@ -72,16 +72,96 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     }
 
     public void remove(T element) {
+        TreeNode<T> node = node(element);
+        remove(node);
+    }
 
+    private void remove_v1(TreeNode<T> node) {
+        if (node == null) return;
+
+        size--;
+
+        // 按结点的度使用【MECE法则】对删除结点分类处理
+
+        if (node.hasTwoChildren()) { // 度为2的结点
+            TreeNode<T> s = successor(node); // 后继结点
+            node.value = s.value; // 使用前驱(后继)结点的值覆盖要删除结点的值, 然后再删除前驱(后继)结点。
+            node = s;
+        }
+
+        if (node.isLeaf()) { // 度为0的结点
+            if (node.parent == null) { // 根节点
+                root = null;
+            } else if (node == node.parent.left) {
+                node.parent.left = null;
+            } else  { // node == node.parent.right
+                node.parent.right = null;
+            }
+        } else  { // 度为1个结点
+            TreeNode<T> repacement = node.left != null ? node.left : node.right;
+
+            repacement.parent = node.parent;
+            if (node.parent == null) { // node为根结点
+                root = repacement;
+            } else if (node == node.parent.left) {
+                node.parent.left = repacement;
+            } else {
+                node.parent.right = repacement;
+            }
+        }
+    }
+
+    private void remove(TreeNode<T> node) {
+        if (node == null) return;
+        size--;
+
+        if (node.hasTwoChildren()) {
+            TreeNode<T> s = successor(node);
+            node.value = s.value;
+            node = s;
+        }
+
+        // 统一度为0、1删除逻辑, 度为0时, replacement == null, 下面逻辑也成立
+        TreeNode<T> replacement = node.left != null ? node.left : node.right;
+        if (replacement != null) { // 度为1的结点
+            replacement.parent = node.parent;
+        }
+
+        if (node.parent == null) { // 根节点
+            root = replacement;
+        } else  {
+            if (node == node.parent.left) {
+                node.parent.left = replacement;
+            } else { // node == node.parent.right
+                node.parent.right = replacement;
+            }
+        }
     }
 
     public boolean contains(T element) {
-        return false;
+        return node(element) != null;
     }
 
     public void clear() {
-
+        root = null;
+        size = 0;
     }
+
+    private TreeNode<T> node(T element) {
+        TreeNode<T> node = root;
+        while (node != null) {
+            int cmp = compare(element, node.value);
+            if (cmp == 0) {
+                return node;
+            } else if (cmp < 0) {
+                node = node.left;
+            } else  {
+                node = node.right;
+            }
+        }
+        return null;
+    }
+
 
     // 前驱结点 (中序遍历时的前一个结点)
     private TreeNode<T> predecessor(TreeNode<T> node) {
@@ -311,7 +391,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     public Object string(Object node) {
         TreeNode<T> treeNode = ((TreeNode<T>)node);
         String parentStr = treeNode.parent == null ? "null" : treeNode.parent.value.toString();
-        return treeNode.value.toString() + "(" + parentStr + ")";
+        return treeNode.value.toString() + "_p(" + parentStr + ")";
     }
 
     public static void main(String[] args) {
@@ -325,9 +405,24 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 
 //        test_height();
 
-        test_predecessor();
-
+//        test_predecessor();
 //        test_levelOrder();
+
+        test_remove();
+    }
+
+    private static void test_remove() {
+        Integer[] arr = new Integer[] {
+                8, 4, 13, 2, 6, 10, 1, 3, 5, 7, 9, 12, 11
+        };
+        BinarySearchTree<Integer> bst = createTree(arr);
+        BinaryTrees.print(bst);
+
+        // bst.remove(11); // 度为1
+        // bst.remove(10); // 度为2
+        bst.remove(8); // 根结点
+
+        BinaryTrees.print(bst);
     }
 
     private static void test_predecessor() {
