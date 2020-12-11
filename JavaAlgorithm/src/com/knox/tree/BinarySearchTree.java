@@ -5,9 +5,7 @@ import com.knox.Asserts;
 import com.knox.tree.printer.BinaryTreeInfo;
 import com.knox.tree.printer.BinaryTrees;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class BinarySearchTree<T> implements BinaryTreeInfo {
 
@@ -314,7 +312,8 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     // 前序遍历
     public void preorder(Visitor<T> visitor) {
         if (visitor == null) return;
-        preorder(root, visitor);
+        // preorder(root, visitor);
+        preorder_iterator(root, visitor);
     }
     private void preorder(TreeNode<T> root, Visitor<T> visitor) {
         if (root == null || visitor.stop) return;
@@ -323,6 +322,25 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         preorder(root.left, visitor);
         preorder(root.right, visitor);
     }
+
+    private void preorder_iterator(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null) return;
+
+        Stack<TreeNode<T>> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode<T> node = stack.pop();
+            visitor.visit(node.value);
+
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+    }
+
 
     // 中序遍历
     public void inorder(Visitor<T> visitor) {
@@ -337,11 +355,30 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         visitor.stop = visitor.visit(root.value);
         inorder(root.right, visitor);
     }
+    private void inorder_iterator(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null) return;
+
+        Stack<TreeNode<T>> stack = new Stack<>();
+        TreeNode<T> node = root;
+        while (!stack.isEmpty() || node!= null) {
+            // 把node和node.left.left...都放进stack中
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else  {
+                node = stack.pop();
+                visitor.visit(node.value);
+                node = node.right;
+            }
+        }
+    }
+
 
     // 后序遍历
     public void postorder(Visitor<T> visitor) {
         if (visitor == null) return;
-        postorder(root, visitor);
+        // postorder(root, visitor);
+        postoder_iterator_v1(root, visitor);
     }
     private void postorder(TreeNode<T> root, Visitor<T> visitor) {
         if (root == null || visitor.stop) return;
@@ -351,6 +388,64 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         if (visitor.stop) return;
         visitor.stop = visitor.visit(root.value);
     }
+
+    private void postoder_iterator(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null) return;
+
+        Stack<TreeNode<T>> stack = new Stack<>();
+        TreeNode<T> node = root;
+        TreeNode<T> prevVisited = null; // 上一个访问的结点
+
+        while (!stack.isEmpty() || node != null) {
+            // 把node和node.left.left...都放进stack中
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else {
+                // 因为把左节点都放入栈了, 来到这,说明peek没有左节点或者其左节点已经访问过.
+                TreeNode<T> peek = stack.peek();
+                if (peek.right == null || peek.right == prevVisited) {
+                    stack.pop();
+                    visitor.visit(peek.value);
+                    prevVisited = peek;
+                } else {
+                    node = peek.right;
+                }
+            }
+        }
+    }
+
+    private void postoder_iterator_v1(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null) return;
+
+        Stack<TreeNode<T>> stack = new Stack<>();
+        HashSet<TreeNode<T>> set = new HashSet<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode<T> peek = stack.peek();
+            boolean leftVisited = false;
+            boolean rightVisited = false;
+
+            if (peek.right == null || set.contains(peek.right)) {
+                rightVisited = true;
+            } else  {
+                stack.push(peek.right);
+            }
+
+            if (peek.left == null || set.contains(peek.left)) {
+                leftVisited = true;
+            } else {
+                stack.push(peek.left);
+            }
+
+            if (leftVisited && rightVisited) {
+                visitor.visit(peek.value);
+                set.add(peek);
+                stack.pop();
+            }
+        }
+    }
+
 
     // 层序遍历
     public void levelOrder(Visitor<T> visitor) {
@@ -395,11 +490,11 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     }
 
     public static void main(String[] args) {
-//        BinarySearchTree<Integer> bst = createTree();
-//        BinaryTrees.print(bst);
+        BinarySearchTree<Integer> bst = createTree();
+        BinaryTrees.print(bst);
 //        test_preoder(bst);
 //        test_inoder(bst);
-//        test_postoder(bst);
+        test_postoder(bst);
 //
 //        test_isComplete();
 
@@ -408,7 +503,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 //        test_predecessor();
 //        test_levelOrder();
 
-        test_remove();
+//        test_remove();
     }
 
     private static void test_remove() {
@@ -506,7 +601,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             @Override
             public boolean visit(Integer element) {
                 ret.add(element);
-                return element == 4;
+                return false;
             }
         });
         System.out.println("preorder : " + ret.toString());
@@ -530,7 +625,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             @Override
             public boolean visit(Integer element) {
                 ret.add(element);
-                return element == 4;
+                return false;
             }
         });
         System.out.println("postorder : " + ret.toString());
@@ -544,7 +639,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             @Override
             public boolean visit(Integer element) {
                 ret.add(element);
-                return element == 5;
+                return false;
             }
         });
         System.out.println("levelOrder : " + ret.toString());
