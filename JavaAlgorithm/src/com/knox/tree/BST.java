@@ -19,12 +19,17 @@ public class BST<T> extends BinaryTree<T> {
         this.comparator= comparator;
     }
 
+    protected TreeNode<T> createNode(T element, TreeNode<T> parent) {
+        return new TreeNode<>(element, parent);
+    }
+
     public void add(T element) {
         elementNotNullCheck(element);
 
         if (root == null) {
-            root = new TreeNode<T>(element, null);
+            root = createNode(element, null);
             size++;
+            afterAdd(root);
             return;
         }
 
@@ -44,14 +49,17 @@ public class BST<T> extends BinaryTree<T> {
             }
         }
 
-        TreeNode<T> newNode = new TreeNode(element, parent);
+        TreeNode<T> newNode = createNode(element, parent);
         if (cmp < 0) {
             parent.left = newNode;
         } else {
             parent.right = newNode;
         }
         size++;
+        afterAdd(newNode);
     }
+
+    protected void afterAdd(TreeNode<T> node) {}
 
     public void remove(T element) {
         TreeNode<T> node = node(element);
@@ -83,7 +91,12 @@ public class BST<T> extends BinaryTree<T> {
                 node.parent.right = replacement;
             }
         }
+
+        afterRemove(node);
     }
+
+    // 删除之后处理
+    protected void afterRemove(TreeNode<T> node) {}
 
     public boolean contains(T element) {
         return node(element) != null;
