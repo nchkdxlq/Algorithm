@@ -26,4 +26,14 @@ public class TreeNode<T> {
     public boolean isRightChild() {
         return parent != null && parent.right == this;
     }
+
+    public TreeNode<T> sibling() {
+        if (isLeftChild()) {
+            return parent.right;
+        } else if (isRightChild()) {
+            return parent.left;
+        } else {
+            return null;
+        }
+    }
 }
