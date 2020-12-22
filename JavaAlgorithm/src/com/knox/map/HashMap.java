@@ -1,8 +1,9 @@
 package com.knox.map;
 
-import com.knox.tree.RBTree;
-import com.knox.tree.TreeNode;
-import org.omg.CORBA.Object;
+import com.knox.Asserts;
+import com.knox.model.Key;
+import com.knox.tree.printer.BinaryTreeInfo;
+import com.knox.tree.printer.BinaryTrees;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -55,6 +56,11 @@ public class HashMap<K, V> implements Map<K, V> {
             }
 
             return null;
+        }
+
+        @Override
+        public String toString() {
+            return "{" + key + ":" + value + "}";
         }
     }
 
@@ -236,7 +242,6 @@ public class HashMap<K, V> implements Map<K, V> {
         sb.append("<HashMap> size=");
         sb.append(size);
         sb.append(", {");
-
         traversal(new Visitor<K, V>() {
             @Override
             public boolean visit(K key, V value) {
@@ -245,10 +250,40 @@ public class HashMap<K, V> implements Map<K, V> {
                 return false;
             }
         });
-
         sb.append("\n}");
-
         return sb.toString();
+    }
+
+
+    public void print() {
+        System.out.println(">>>>>>>> <HashMap> table.length = " + table.length + ", size = " + size + " <<<<<<<<<");
+        for (int i = 0; i < table.length; i++) {
+            Node<K, V> root = table[i];
+            if (root == null) continue;
+
+            System.out.println("\n--------------------【index = " + i + "】-------------------------");
+            BinaryTrees.print(new BinaryTreeInfo() {
+                @Override
+                public Object root() {
+                    return root;
+                }
+
+                @Override
+                public Object left(Object node) {
+                    return ((Node<K, V>)node).left;
+                }
+
+                @Override
+                public Object right(Object node) {
+                    return ((Node<K, V>)node).right;
+                }
+
+                @Override
+                public Object string(Object node) {
+                    return node;
+                }
+            });
+        }
     }
 
     private void afterPut(Node<K, V> node) {
@@ -556,7 +591,11 @@ public class HashMap<K, V> implements Map<K, V> {
 
 
     public static void main(String[] args) {
-        testPut_remove();
+//        testPut_remove();
+//        test_containsKey();
+//        test_containsValue();
+//        test_get();
+        test_discoverProblem();
     }
 
 
@@ -574,5 +613,52 @@ public class HashMap<K, V> implements Map<K, V> {
         hashMap.remove("kangkang");
 
         System.out.println(hashMap);
+    }
+
+    private static void test_containsKey() {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("rose", 10);
+        hashMap.put("jack", 20);
+        hashMap.put("kangkang", 40);
+        hashMap.put("rose", 50);
+
+        Asserts.testTrue(hashMap.containsKey("rose"));
+        Asserts.testTrue(hashMap.containsKey("kangkang"));
+        Asserts.testFalse(hashMap.containsKey("lilei"));
+    }
+
+    private static void test_containsValue() {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("rose", 10);
+        hashMap.put("jack", 20);
+        hashMap.put("kangkang", 40);
+        hashMap.put("rose", 50);
+
+        Asserts.testTrue(hashMap.containsValue(50));
+        Asserts.testTrue(hashMap.containsValue(40));
+        Asserts.testFalse(hashMap.containsValue(10));
+    }
+
+    private static void test_get() {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("rose", 10);
+        hashMap.put("jack", 20);
+        hashMap.put("kangkang", 40);
+        hashMap.put("rose", 50);
+
+        Asserts.testEqual(hashMap.get("rose"), 50);
+        Asserts.testEqual(hashMap.get("jack"), 20);
+        Asserts.testEqual(hashMap.get("lilei"), null);
+    }
+
+    private static void test_discoverProblem() {
+        HashMap<Key, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            hashMap.put(new Key(i), i);
+        }
+
+        System.out.println(hashMap.get(new Key(1)));
+
+        hashMap.print();
     }
 }
