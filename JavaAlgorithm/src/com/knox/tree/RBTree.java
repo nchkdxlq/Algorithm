@@ -28,7 +28,7 @@ public class RBTree<T> extends BBST<T> {
 
     @Override
     protected void afterAdd(TreeNode<T> node) {
-        TreeNode parent = node.parent;
+        TreeNode<T> parent = node.parent;
 
         // 添加的是根节点 或者 上溢到达了根节点
         if (parent == null) {
@@ -39,8 +39,8 @@ public class RBTree<T> extends BBST<T> {
         // 如果父节点是黑色，直接返回
         if (isBlack(parent)) return;
 
-        TreeNode uncle = parent.sibling(); // uncle可能为red, black, null
-        TreeNode grand = parent.parent;
+        TreeNode<T> uncle = parent.sibling(); // uncle可能为red, black, null
+        TreeNode<T> grand = parent.parent;
 
         if (isRed(uncle)) {
             // 添加到parent度为2的红色节点上
