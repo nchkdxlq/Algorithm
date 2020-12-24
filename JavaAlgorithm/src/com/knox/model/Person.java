@@ -4,7 +4,7 @@ import com.knox.hash.HashCode;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable {
     int age;
     float height;
     String name;
@@ -27,7 +27,18 @@ public class Person {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(age, height, name);
+    public int compareTo(Object o) {
+        return age - ((Person)o).age;
     }
+
+    @Override
+    public int hashCode() {
+        // return Objects.hash(age, height, name); 官方写法
+        int hashCode = Integer.hashCode(age);
+        hashCode = hashCode * 31 + Float.hashCode(height);
+        hashCode = hashCode * 31 + (name != null ? name.hashCode() : 0);
+        return hashCode;
+    }
+
+
 }

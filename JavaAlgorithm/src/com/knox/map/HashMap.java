@@ -2,6 +2,9 @@ package com.knox.map;
 
 import com.knox.Asserts;
 import com.knox.model.Key;
+import com.knox.model.Person;
+import com.knox.model.SubKey1;
+import com.knox.model.SubKey2;
 import com.knox.tree.printer.BinaryTreeInfo;
 import com.knox.tree.printer.BinaryTrees;
 
@@ -111,10 +114,45 @@ public class HashMap<K, V> implements Map<K, V> {
         Node<K, V> cur = root;
         Node<K, V> parent = root;
         int cmp = 0;
-        int hash = key == null ? 0 : key.hashCode();
+        K k1 = key;
+        int h1 = key == null ? 0 : key.hashCode();
+        Node<K, V> result = null;
+        boolean searched = false; // 是否已经搜索个这个key
         do {
             parent = cur;
-            cmp = compare(key, cur.key, hash, cur.hash);
+            K k2 = cur.key;
+            int h2 = cur.hash;
+            if (h1 < h2) {
+                cmp = -1;
+            } else if (h1 > h2) {
+                cmp = 1;
+            } else if (Objects.equals(k1, k2)) {
+                cmp = 0;
+            } else if (k1 != null && k2 != null
+                    && k1.getClass() == k2.getClass()
+                    && k1 instanceof Comparable
+                    && (cmp = ((Comparable)k1).compareTo(k2)) != 0) {
+                // ⚠️do nothing, cmp == 0, 只代表大小相等, 但不一定equals, equals为true才表示对象相等⚠️
+                // 这里需要执行下面扫描代码
+            } else if (searched) { // 已经扫描过
+                cmp = System.identityHashCode(k1) - System.identityHashCode(k2);
+            } else { // 没有扫描过, 需要扫描左右子树
+                /*
+                 来到这里, 哈希值相等, 不equals, 也不具备可比较性. 如果发现不能比较的时候, 就直接使用内存地址决定往左往右,会出现相同key的情况。
+                 所以，需要先扫描, 再根据内存地址大小决定往左/往右.
+                */
+                if ( (cur.left != null && (result = node(cur.left, k1)) != null)
+                        || (cur.right != null && (result = node(cur.right, k1)) != null) ) {
+                    // 已经存在这个key
+                    cur = result;
+                    cmp = 0;
+                } else { // 不存在这个key
+                    cmp = System.identityHashCode(k1) - System.identityHashCode(k2);
+                    searched = true;
+                }
+            }
+
+
             if (cmp < 0) {
                 cur = cur.left;
             } else if (cmp > 0) {
@@ -207,6 +245,14 @@ public class HashMap<K, V> implements Map<K, V> {
     }
 
     private Node<K, V> node(K key) {
+        return node_v2(key);
+    }
+
+    private Node<K, V> node(Node<K, V> node, K key) {
+        return node_v2(node, key);
+    }
+
+    private Node<K, V> node_v1(K key) {
         Node<K, V> node = table[index(key)];
         int h1 = key == null ? 0 : key.hashCode();
         while (node != null) {
@@ -219,13 +265,54 @@ public class HashMap<K, V> implements Map<K, V> {
                 return node;
             }
         }
+        return null;
+    }
 
+    private Node<K, V> node_v2(K key) {
+        Node<K, V> root = table[index(key)];
+        return root == null ? null : node_v2(root, key);
+    }
+
+    // 递归查找
+    private Node<K, V> node_v2(Node<K, V> node, K k1) {
+        int h1 = k1 == null ? 0 : k1.hashCode();
+        Node<K, V> result = null;
+        int cmp = 0;
+        while (node != null) {
+            K k2 = node.key;
+            int h2 = node.hash;
+            if (h1 < h2) {
+                node = node.left;
+            } else if (h1 > h2) {
+                node = node.right;
+            } else if (Objects.equals(k1, k2)) { // 哈希值相等先判断是否equals
+                return node;
+            } else if (k1 != null && k2 != null
+                    && k1.getClass() == k2.getClass()
+                    && k1 instanceof Comparable
+                    && ((cmp = ((Comparable)k1).compareTo(k2)) != 0)) {
+                node = cmp < 0 ? node.left : node.right;
+                // 对下面else if的注释，哈希值相等、不equals, 也不具备可比较性
+            } else if (node.left != null && (result = node_v2(node.left, k1)) != null) { // 在左子树中扫描, 扫描的结果保存在result中
+                return result;
+            } else {
+                // 左节点没找到,只能往右子树找, 所以可以使用node = node.right, 进入新的循环。
+                // 相等于右子树递归查找
+                node = node.right;
+            }
+//            } else if (node.right != null && (result = node_v2(node.right, k1)) != null) {
+//                return result;
+//            } else {
+//                // 在左、右子树中都没扫描到, 说明没有相等的节点
+//                return null;
+//            }
+        }
         return null;
     }
 
     private int index(K key) {
         if (key == null) return 0;
-        int hashcode = key.hashCode();
+        int hashcode = Math.abs(key.hashCode());
         return (hashcode ^ (hashcode >>> 16)) % (table.length - 1);
     }
 
@@ -595,7 +682,8 @@ public class HashMap<K, V> implements Map<K, V> {
 //        test_containsKey();
 //        test_containsValue();
 //        test_get();
-        test_discoverProblem();
+//        test_discoverProblem();
+        test_map();
     }
 
 
@@ -653,12 +741,112 @@ public class HashMap<K, V> implements Map<K, V> {
 
     private static void test_discoverProblem() {
         HashMap<Key, Integer> hashMap = new HashMap<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 20; i++) {
             hashMap.put(new Key(i), i);
         }
 
-        System.out.println(hashMap.get(new Key(1)));
+        hashMap.put(new Key(4), 100);
+        Asserts.testEqual(hashMap.size(), 19);
+        Asserts.testEqual(hashMap.get(new Key(4)), 100);
+        Asserts.testEqual(hashMap.get(new Key(18)), 18);
 
         hashMap.print();
     }
+
+    private static void test_person() {
+        Person p1 = new Person(10, 170, "Jack");
+        Person p2 = new Person(10, 178, "Rose");
+
+        // cmp == 0, 只代表大小相等, 但不一定equals, equals为true才表示对象相等
+        int cmp = p1.compareTo(p2);
+    }
+
+    private static void test_map() {
+        test2();
+        test3();
+        test4();
+        test5();
+    }
+
+    static void test2() {
+        HashMap<Key, Integer> map = new HashMap<>();
+        for (int i = 1; i <= 20; i++) {
+            map.put(new Key(i), i);
+        }
+        for (int i = 5; i <= 7; i++) {
+            map.put(new Key(i), i + 5);
+        }
+        Asserts.testEqual(map.size(), 20);
+        Asserts.testEqual(map.get(new Key(4)), 4);
+        Asserts.testEqual(map.get(new Key(5)), 10);
+        Asserts.testEqual(map.get(new Key(6)), 11);
+        Asserts.testEqual(map.get(new Key(7)), 12);
+        Asserts.testEqual(map.get(new Key(8)), 8);
+    }
+
+    static void test3() {
+        HashMap<Object, Integer> map = new HashMap<>();
+        map.put(null, 1); // 1
+        map.put(new Object(), 2); // 2
+        map.put("jack", 3); // 3
+        map.put(10, 4); // 4
+        map.put(new Object(), 5); // 5
+        map.put("jack", 6);
+        map.put(10, 7);
+        map.put(null, 8);
+        map.put(10, null);
+        Asserts.testEqual(map.size(),5);
+        Asserts.testEqual(map.get(null), 8);
+        Asserts.testEqual(map.get("jack"), 6);
+        Asserts.testNull(map.get(10));
+        Asserts.testNull(map.get(new Object()));
+        Asserts.testTrue(map.containsKey(10));
+        Asserts.testTrue(map.containsKey(null));
+        Asserts.testTrue(map.containsValue(null));
+        Asserts.testFalse(map.containsValue(1));
+    }
+
+    static void test4() {
+        HashMap<Object, Integer> map = new HashMap<>();
+
+        map.put("jack", 1);
+        map.put("rose", 2);
+        map.put("jim", 3);
+        map.put("jake", 4);
+        map.remove("jack");
+        map.remove("jim");
+        for (int i = 1; i <= 10; i++) {
+            map.put("test" + i, i);
+            map.put(new Key(i), i);
+        }
+        for (int i = 5; i <= 7; i++) {
+            Asserts.testEqual(map.remove(new Key(i)), i);
+        }
+        for (int i = 1; i <= 3; i++) {
+            map.put(new Key(i), i + 5);
+        }
+        Asserts.testEqual(map.size(), 19);
+        Asserts.testEqual(map.get(new Key(1)), 6);
+        Asserts.testEqual(map.get(new Key(2)), 7);
+        Asserts.testEqual(map.get(new Key(3)), 8);
+        Asserts.testEqual(map.get(new Key(4)), 4);
+        Asserts.testNull(map.get(new Key(5)));
+        Asserts.testNull(map.get(new Key(6)));
+        Asserts.testNull(map.get(new Key(7)));
+        Asserts.testEqual(map.get(new Key(8)), 8);
+        map.print();
+    }
+
+    static void test5() {
+        HashMap<Key, Integer> map = new HashMap<>();
+        for (int i = 1; i <= 20; i++) {
+            map.put(new SubKey1(i), i);
+        }
+        map.put(new SubKey2(1), 5);
+        Asserts.testEqual(map.get(new SubKey1(1)), 5);
+        Asserts.testEqual(map.get(new SubKey2(1)), 5);
+        Asserts.testEqual(map.size(), 20);
+    }
+
+
 }
