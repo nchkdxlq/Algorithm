@@ -107,8 +107,8 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
     public T remove() {
         emptyCheck();
         int lastIndex = size - 1;
-        T element = elements[lastIndex];
-        elements[0] = element;
+        T element = elements[0];
+        elements[0] = elements[lastIndex];
         elements[lastIndex] = null;
         size--;
         siftDown(0);
@@ -292,9 +292,24 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
 
         test_replace();
 
+        test_remove();
+
         test_heapify();
 
         test_topK();
+    }
+
+    static void test_remove() {
+        BinaryHeap<Integer> heap = new BinaryHeap<>(new Integer[] {
+                92, 98, 32, 91, 50, 17, 12, 6, 84, 80, 45, 47, 54, 44, 16, 27, 78
+        });
+        Integer[] order = new Integer[] {
+                98, 92, 91, 84, 80, 78, 54, 50, 47, 45, 44, 32, 27, 17, 16, 12, 6
+        };
+
+        for (int i = 0; i < order.length; i++) {
+            Asserts.testEqual(heap.remove(), order[i]);
+        }
     }
 
     static void test_replace() {
@@ -327,7 +342,7 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
         Integer[] elements = new Integer[] {
                 92, 98, 32, 91, 50, 17, 12, 6, 84, 80, 45, 47, 54, 44, 16, 27, 78
         };
-        int topK = 5;
+        int topK = 100;
 
         // 使用小顶堆, 堆顶元素，为k个元素中最小的一个
         BinaryHeap<Integer> heap = new BinaryHeap<>(new Comparator<Integer>() {
