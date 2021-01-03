@@ -293,6 +293,8 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
         test_replace();
 
         test_heapify();
+
+        test_topK();
     }
 
     static void test_replace() {
@@ -312,6 +314,37 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
         BinaryHeap<Integer> heap = new BinaryHeap<>(new Integer[] {
                 92, 98, 32, 91, 50, 17, 12, 6, 84, 80, 45, 47, 54, 44, 16, 27, 78
         });
+        BinaryTrees.print(heap);
+    }
+
+
+    /*
+    * 从n个整数中, 找出最大的前K个数(n远大于k)
+    * 使用小顶堆, 堆顶元素，为k个元素中最小的一个
+    * topK问题时间复杂度为O(nlogk)
+    * */
+    static void test_topK() {
+        Integer[] elements = new Integer[] {
+                92, 98, 32, 91, 50, 17, 12, 6, 84, 80, 45, 47, 54, 44, 16, 27, 78
+        };
+        int topK = 5;
+
+        // 使用小顶堆, 堆顶元素，为k个元素中最小的一个
+        BinaryHeap<Integer> heap = new BinaryHeap<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+
+        for (int i = 0; i < elements.length; i++) {
+            if (heap.size < topK) {
+                heap.add(elements[i]);
+            } else if (elements[i] > heap.get()) {
+                heap.replace(elements[i]);
+            }
+        }
+        System.out.println("-------------- TopK ---------------");
         BinaryTrees.print(heap);
     }
 }
