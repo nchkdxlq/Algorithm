@@ -123,8 +123,38 @@ public class BinaryTree<T> implements BinaryTreeInfo {
         return true;
     }
 
-    public void preorder(TreeNode<T> root, BinarySearchTree.Visitor<T> visitor) {
-        if (root == null) return;
+    public void preorder(Visitor<T> visitor) {
+        iterator_preorder_v1(visitor);
+        // iterator_preorder_v2(visitor);
+    }
+
+    private void iterator_preorder_v1(Visitor<T> visitor) {
+        if (root == null || visitor == null) return;
+
+        Stack<TreeNode<T>> stack = new Stack<>();
+        TreeNode<T> node = root;
+        while (true) {
+            if (node != null) {
+                // 访问结点
+                if (visitor.visit(node.value)) return;
+                // 将右节点入栈
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                // 向左走
+                node = node.left;
+            } else if (stack.isEmpty()) {
+                // node为空且stack为空, 结束.
+                return;
+            } else {
+                // node为空且stack不为空, 出栈
+                node = stack.pop();
+            }
+        }
+    }
+
+    private void iterator_preorder_v2(Visitor<T> visitor) {
+        if (root == null || visitor == null) return;
 
         Stack<TreeNode<T>> stack = new Stack<>();
         stack.push(root);
@@ -141,27 +171,96 @@ public class BinaryTree<T> implements BinaryTreeInfo {
         }
     }
 
-    // 中序遍历
-    public void inorder(TreeNode<T> root, Visitor<T> visitor) {
-        if (root == null) return;
+    private void recursive_preorder(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null || visitor.stop) return;
 
-        Stack<TreeNode<T>> stack = new Stack<>();
+        visitor.stop = visitor.visit(root.value);
+        recursive_preorder(root.left, visitor);
+        recursive_preorder(root.right, visitor);
+    }
+
+    // 中序遍历
+    public void inorder(Visitor<T> visitor) {
+        // iterator_inorder_v1(visitor);
+        iterator_inorder_v2(visitor);
+    }
+
+    private void iterator_inorder_v1(Visitor<T> visitor) {
+        if (root == null || visitor == null) return;
+
         TreeNode<T> node = root;
-        while (!stack.isEmpty() || node!= null) {
-            // 把node和node.left.left...都放进stack中
+        Stack<TreeNode<T>> stack = new Stack<>();
+        while (true) {
             if (node != null) {
                 stack.push(node);
                 node = node.left;
-            } else  {
+            } else if (stack.isEmpty()) {
+                return;
+            } else {
                 node = stack.pop();
-                visitor.visit(node.value);
+                if (visitor.visit(node.value)) return;
                 node = node.right;
             }
         }
     }
 
+    private void iterator_inorder_v2(Visitor<T> visitor) {
+        if (root == null || visitor == null) return;
+
+        TreeNode<T> node = root;
+        Stack<TreeNode<T>> stack = new Stack<>();
+        while (node != null || !stack.isEmpty()) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else {
+                node = stack.pop();
+                if (visitor.visit(node.value)) return;
+                node = node.right;
+            }
+        }
+    }
+
+    private void recursive_inorder(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null || visitor.stop) return;
+
+        recursive_inorder(root.left, visitor);
+        if (visitor.stop) return;
+        visitor.stop = visitor.visit(root.value);
+        recursive_inorder(root.right, visitor);
+    }
+
     // 后序遍历
-    public void postoder(TreeNode<T> root, Visitor<T> visitor) {
+    public void postorder(TreeNode<T> root, Visitor<T> visitor) {
+        iterator_postorder_v1(visitor);
+    }
+
+    private void iterator_postorder_v1(Visitor<T> visitor) {
+        if (root == null) return;
+
+        Stack<TreeNode<T>> stack = new Stack<>();
+        stack.push(root);
+        TreeNode<T> prev = null;
+        while (!stack.isEmpty()) {
+            TreeNode<T> top = stack.peek();
+            // 1. 当top是叶子节点
+            // 2. top的左右结点都访问过, 也就是, top为prev的父节点 prev.parent == top
+            if ((top.left == null && top.right == null)
+                    || (prev != null && (top.left == prev || top.right == prev))) {
+                prev = stack.pop();
+                if (visitor.visit(prev.value)) return;
+            } else {
+                if (top.right != null) {
+                    stack.push(top.right);
+                }
+                if (top.left != null) {
+                    stack.push(top.left);
+                }
+            }
+        }
+    }
+
+    private void iterator_postorder_v2(Visitor<T> visitor) {
         if (root == null) return;
 
         Stack<TreeNode<T>> stack = new Stack<>();
@@ -187,8 +286,18 @@ public class BinaryTree<T> implements BinaryTreeInfo {
         }
     }
 
+    private void recursive_postorder(TreeNode<T> root, Visitor<T> visitor) {
+        if (root == null || visitor.stop) return;
+
+        recursive_postorder(root.left, visitor);
+        recursive_postorder(root.right, visitor);
+        if (visitor.stop) return;
+        visitor.stop = visitor.visit(root.value);
+    }
+
+
     // 层序遍历
-    public void levelOrder(BinarySearchTree.Visitor<T> visitor) {
+    public void levelOrder(Visitor<T> visitor) {
         if (root == null || visitor == null) return;
         Queue<TreeNode<T>> queue = new LinkedList<>();
         queue.offer(root);
@@ -226,6 +335,26 @@ public class BinaryTree<T> implements BinaryTreeInfo {
         TreeNode<T> treeNode = ((TreeNode<T>)node);
         String parentStr = treeNode.parent == null ? "null" : treeNode.parent.value.toString();
         return treeNode.value.toString() + "_p(" + parentStr + ")";
+    }
+
+
+    public static void main(String[] args) {
+        test_preorder();
+        test_inorder();
+        test_postorder();
+    }
+
+
+    private static void test_preorder() {
+
+    }
+
+    private static void test_inorder() {
+
+    }
+
+    private static void test_postorder() {
+
     }
 
 }
