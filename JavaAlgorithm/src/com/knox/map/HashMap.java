@@ -1,6 +1,6 @@
 package com.knox.map;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 import com.knox.model.Key;
 import com.knox.model.Person;
 import com.knox.model.SubKey1;
@@ -8,7 +8,6 @@ import com.knox.model.SubKey2;
 import com.knox.tree.printer.BinaryTreeInfo;
 import com.knox.tree.printer.BinaryTrees;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;

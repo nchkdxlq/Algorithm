@@ -1,6 +1,6 @@
 package com.knox.queue;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 
 import java.util.Arrays;
 

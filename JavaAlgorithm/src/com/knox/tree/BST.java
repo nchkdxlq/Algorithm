@@ -1,7 +1,7 @@
 package com.knox.tree;
 
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 import com.knox.tree.printer.BinaryTrees;
 
 import java.util.Comparator;

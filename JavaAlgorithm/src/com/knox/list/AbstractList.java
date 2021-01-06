@@ -1,6 +1,6 @@
 package com.knox.list;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 
 public abstract class AbstractList<T> implements List<T> {
 

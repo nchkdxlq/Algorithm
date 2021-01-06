@@ -1,6 +1,6 @@
 package com.knox.leetcode;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 import com.knox.leetcode.LinkedList.ListNode;
 
 import java.util.HashSet;

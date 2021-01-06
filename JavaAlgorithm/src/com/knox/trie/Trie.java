@@ -1,8 +1,7 @@
 package com.knox.trie;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Trie<T> {

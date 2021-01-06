@@ -1,4 +1,4 @@
-package com.knox;
+package com.knox.tools;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

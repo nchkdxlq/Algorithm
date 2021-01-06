@@ -1,6 +1,6 @@
 package com.knox.array;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 import com.knox.list.AbstractList;
 import com.knox.list.List;
 

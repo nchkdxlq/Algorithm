@@ -1,6 +1,6 @@
 package com.knox.queue;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 import com.knox.LinkedList.DoublyLinkedList;
 
 import java.util.LinkedList;

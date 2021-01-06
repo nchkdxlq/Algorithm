@@ -1,6 +1,6 @@
 package com.knox.heap;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 import com.knox.tree.printer.BinaryTreeInfo;
 import com.knox.tree.printer.BinaryTrees;
 

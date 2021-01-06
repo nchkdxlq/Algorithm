@@ -1,7 +1,6 @@
 package com.knox.heap;
 
-import com.knox.Asserts;
-import com.knox.tree.printer.BinaryTrees;
+import com.knox.tools.Asserts;
 
 import java.util.Comparator;
 

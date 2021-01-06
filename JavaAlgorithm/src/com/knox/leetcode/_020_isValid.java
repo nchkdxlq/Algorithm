@@ -1,6 +1,6 @@
 package com.knox.leetcode;
 
-import com.knox.Asserts;
+import com.knox.tools.Asserts;
 
 import java.util.HashMap;
 import java.util.Stack;
