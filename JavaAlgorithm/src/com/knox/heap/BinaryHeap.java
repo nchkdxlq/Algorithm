@@ -64,6 +64,7 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
     * 3) 最后一个非叶子结点的索引index = (size >> 1) - 1
     * */
     private void heapify_v2() {
+        // index为最后一个非叶子节点的索引
         int index = (size >> 1) - 1;
         for (int i = index; i >= 0 ; i--) {
             siftDown(i);
@@ -172,9 +173,10 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
 
     private void siftDown(int index) {
         T element = elements[index];
-        int half = size >> 1;
         // 第一个叶子节点的索引 == 非叶子节点的数量, 完全二叉树非叶子节点的数量等于 floor(size / 2)
-        // index < 第一个叶子节点的索引
+        // half为第一个叶子节点的索引
+        int half = size >> 1;
+        // index < 第一个叶子节点的索引, 只有非叶子节点才需要下滤, 所以 index < half.
         while (index < half) {
             // 位运算符优先级最低的, 需要用括号
             int maxIndex = (index << 1) + 1;
@@ -184,6 +186,7 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
                 maxIndex = rightIndex;
                 maxChild = elements[rightIndex];
             }
+            // 父节点>=子节点的更大值, 已经满足堆的性质, 退出循环.
             if (compare(element, maxChild) >= 0) break;
 
             elements[index] = maxChild;
@@ -342,7 +345,7 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
         Integer[] elements = new Integer[] {
                 92, 98, 32, 91, 50, 17, 12, 6, 84, 80, 45, 47, 54, 44, 16, 27, 78
         };
-        int topK = 100;
+        int topK = 5;
 
         // 使用小顶堆, 堆顶元素，为k个元素中最小的一个
         BinaryHeap<Integer> heap = new BinaryHeap<>(new Comparator<Integer>() {
