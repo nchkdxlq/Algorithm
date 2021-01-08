@@ -18,36 +18,36 @@ import com.knox.tools.Times;
 *
 * */
 
-public class BubbleSort extends Sort {
+public class BubbleSort<T extends Comparable<T>> extends Sort<T> {
 
     @Override
     protected void sort() {
-        bubbleSort_v2(arrary);
+        bubbleSort_v2(array);
     }
 
-    void bubbleSort(Integer[] array) {
+    void bubbleSort(T[] array) {
         if (array == null || array.length <= 1) return;
-        this.arrary = array;
+        this.array = array;
 
         // begin: 每次扫描的起始下标, end: 每次扫描的结束下标
         for (int end = array.length - 1; end > 0 ; end--) {
             for (int begin = 1; begin <= end; begin++) {
-                if (cmp(array[begin - 1], array[begin]) > 0) {
+                if (cmp(begin - 1, begin) > 0) {
                     swap(begin - 1, begin);
                 }
             }
         }
     }
 
-    void bubbleSort_v1(Integer[] array) {
+    void bubbleSort_v1(T[] array) {
         if (array == null || array.length <= 1) return;
-        this.arrary = array;
+        this.array = array;
 
         for (int end = array.length - 1; end > 0 ; end--) {
             // 当扫描一次结束后没有交换元素, 说明已经有序了, 不需要再扫描了
             boolean sorted = true;
             for (int begin = 1; begin <= end; begin++) {
-                if (cmp(array[begin - 1], array[begin]) > 0) {
+                if (cmp(begin - 1, begin) > 0) {
                     swap(begin - 1, begin);
                     sorted = false;
                 }
@@ -58,15 +58,15 @@ public class BubbleSort extends Sort {
         }
     }
 
-    void bubbleSort_v2(Integer[] array) {
+    void bubbleSort_v2(T[] array) {
         if (array == null || array.length <= 1) return;
-        this.arrary = array;
+        this.array = array;
 
         for (int end = array.length - 1; end > 0 ; end--) {
             // 记录最后一个交换的下标, sortedIndex后面的元素已经有序, sortedIndex后面元素不需要再扫描, 达到优化目的.
             int sortedIndex = 1;
             for (int begin = 1; begin <= end; begin++) {
-                if (cmp(array[begin - 1], array[begin]) > 0) {
+                if (cmp(begin - 1, begin) > 0) {
                     swap(begin - 1, begin);
                     sortedIndex = begin;
                 }
@@ -76,7 +76,7 @@ public class BubbleSort extends Sort {
     }
 
     public static void main(String[] args) {
-        BubbleSort sort = new BubbleSort();
+        BubbleSort<Integer> sort = new BubbleSort();
         test_random(sort);
         test_ascOrder(sort);
         test_tailAscOrder(sort);

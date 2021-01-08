@@ -13,24 +13,23 @@ import com.knox.tools.Integers;
 *   平均: O(n^2)
 *
 * */
-public class SelectionSort extends Sort {
+public class SelectionSort<T extends Comparable<T>> extends Sort<T> {
 
     @Override
     protected void sort() {
-        for (int end = arrary.length - 1; end > 0; end--) {
+        for (int end = array.length - 1; end > 0; end--) {
             int maxIndex = 0;
-            for (int begin = 1; begin <= end; begin++) {
-                if (cmp(arrary[begin], arrary[maxIndex]) > 0) {
-                    maxIndex = begin;
+            for (int index = 1; index <= end; index++) {
+                if (cmp(index, maxIndex) > 0) {
+                    maxIndex = index;
                 }
             }
             swap(maxIndex, end);
         }
     }
 
-
     public static void main(String[] args) {
-        Sort sort = new SelectionSort();
+        Sort<Integer> sort = new SelectionSort();
         Integer[] array = Integers.random(10000, 20, 20000);
         sort.sort(array);
         Asserts.testTrue(Integers.isAscOrder(array));
