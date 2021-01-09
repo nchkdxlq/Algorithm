@@ -16,13 +16,11 @@ public class Main {
         Integer[] array = Integers.random(10000, 20, 20000);
 
         testSorts(array,
+                new InsertionSort(),
                 new BubbleSort(),
                 new SelectionSort(),
                 new HeapSort());
     }
-
-
-
 
     static void testSorts(Integer[] array, Sort... sorts) {
         for (Sort sort : sorts) {

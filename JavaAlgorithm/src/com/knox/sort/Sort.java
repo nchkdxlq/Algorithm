@@ -93,6 +93,7 @@ public abstract class Sort<T extends Comparable<T>> implements Comparable<Sort<T
     }
 
     private boolean isStable() {
+        T[] array = this.array;
         Student[] students = new Student[20];
         for (int i = 0; i < students.length; i++) {
             students[i] = new Student(i * 10, 10);
@@ -103,6 +104,7 @@ public abstract class Sort<T extends Comparable<T>> implements Comparable<Sort<T
             int prevScore = students[i - 1].score;
             if (score != prevScore + 10) return false;
         }
+        this.array = array;
         return true;
     }
 
