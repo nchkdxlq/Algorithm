@@ -13,14 +13,16 @@ public class Main {
 
 
     static void test_random() {
-        Integer[] array = Integers.random(10000, 20, 20000);
+        Integer[] array = Integers.random(50000, 20, 200000);
 
         testSorts(array,
                 new InsertionSort(),
-                new BubbleSort(),
-                new SelectionSort(),
+                // new BubbleSort(),
+                // new SelectionSort(),
                 new MergeSort(),
-                new HeapSort());
+                new HeapSort(),
+                new QuickSort()
+                );
     }
 
     static void testSorts(Integer[] array, Sort... sorts) {
