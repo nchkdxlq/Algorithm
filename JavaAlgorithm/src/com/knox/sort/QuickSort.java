@@ -51,7 +51,7 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T> {
      */
     private int pivotIndex(int begin, int end) {
         // 在[begin, end)区间随机选着一个轴点元素
-        int randomIndex = (int)(Math.random() * (end - begin));
+        int randomIndex = begin + (int)(Math.random() * (end - begin));
         swap(begin, randomIndex);
         T pivot = array[begin];
         end--; // end指向最后一个元素

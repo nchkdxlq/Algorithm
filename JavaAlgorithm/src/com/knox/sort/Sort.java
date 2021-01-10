@@ -93,6 +93,8 @@ public abstract class Sort<T extends Comparable<T>> implements Comparable<Sort<T
     }
 
     private boolean isStable() {
+        if (this instanceof ShellSort) return false;
+
         T[] array = this.array;
         Student[] students = new Student[20];
         for (int i = 0; i < students.length; i++) {

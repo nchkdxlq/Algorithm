@@ -12,10 +12,10 @@ public class InsertionSort<T extends Comparable<T>> extends Sort<T> {
 
     private void sort_v1() {
         for (int begin = 1; begin < array.length; begin++) {
-            int cur = begin;
-            while (cur > 0 && cmp(cur - 1, cur) > 0) {
-                swap(cur - 1, cur);
-                cur--;
+            int index = begin;
+            while (index > 0 && cmp(index - 1, index) > 0) {
+                swap(index - 1, index);
+                index--;
             }
         }
     }
