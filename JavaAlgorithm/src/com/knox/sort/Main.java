@@ -19,6 +19,7 @@ public class Main {
                 new InsertionSort(),
                 new BubbleSort(),
                 new SelectionSort(),
+                new MergeSort(),
                 new HeapSort());
     }
 

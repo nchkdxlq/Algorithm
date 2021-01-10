@@ -9,8 +9,8 @@ public abstract class Sort<T extends Comparable<T>> implements Comparable<Sort<T
 
     protected T[] array;
     private Comparator<T> comparator;
-    private int cmpCount;
-    private int swapCount;
+    private long cmpCount;
+    private long swapCount;
     private long time;
     private DecimalFormat fmt = new DecimalFormat("#.00");
 
@@ -32,10 +32,10 @@ public abstract class Sort<T extends Comparable<T>> implements Comparable<Sort<T
         int result = (int)(time - o.time);
         if (result != 0) return result;
 
-        result = cmpCount - o.cmpCount;
+        result = (int)(cmpCount - o.cmpCount);
         if (result != 0) return result;
 
-        return swapCount - o.swapCount;
+        return (int)(swapCount - o.swapCount);
     }
 
     protected abstract void sort();
@@ -85,7 +85,7 @@ public abstract class Sort<T extends Comparable<T>> implements Comparable<Sort<T
 
     }
 
-    private String numberString(int number) {
+    private String numberString(long number) {
         if (number < 10000) return "" + number;
 
         if (number < 100000000) return fmt.format(number / 10000.0) + "万";
