@@ -4,7 +4,9 @@ package com.knox.sort;
 import com.knox.tools.Asserts;
 import com.knox.tools.Integers;
 
-
+/**
+ * 思路: 统计每个整数在序列中出现的次数, 进而推导出每个整数在有序序列中的索引.
+ */
 public class MergeSort<T extends Comparable<T>> extends Sort<T> {
 
     // 用于在合并时存储左边的元素
