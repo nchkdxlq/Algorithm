@@ -153,11 +153,28 @@ public class ListGraph<V, W> implements Graph<V, W> {
 
     public static void main(String[] args) {
         test1();
-
-
     }
 
-    public static void test1() {
+    private static void undirectGraph() {
+        ListGraph<String, Integer> graph = new ListGraph<>();
+        // 用有向图表示无向图, 两个方向都添加一条边就是无向图
+        graph.addEdge("V1", "V0");
+        graph.addEdge("V0", "V1");
+
+        graph.addEdge("V0", "V3");
+        graph.addEdge("V3", "V0");
+
+        graph.addEdge("V2", "V3");
+        graph.addEdge("V3", "V2");
+
+        graph.addEdge("V1", "V2");
+        graph.addEdge("V2", "V1");
+
+        graph.addEdge("V0", "V2");
+        graph.addEdge("V2", "V0");
+    }
+
+    private static void test1() {
         ListGraph<String, Integer> graph = new ListGraph<>();
 
         graph.addEdge("V1", "V0", 9);
