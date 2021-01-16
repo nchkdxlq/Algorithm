@@ -7,7 +7,7 @@ import java.util.*;
 public class ListGraph<V, W> implements Graph<V, W> {
 
     private Map<V, Vertex<V, W>> vertices = new HashMap();
-    private Set<Edge<V, W>> edges = new HashSet();
+    private Set<Edge<V, W>> edges = new HashSet<>();
 
     @Override
     public int edgesSize() {
@@ -95,6 +95,81 @@ public class ListGraph<V, W> implements Graph<V, W> {
         }
     }
 
+    @Override
+    public void bfs(V begin, VertexVisitor<V> visitor) {
+        if (visitor == null) return;
+        Vertex<V, W> beginVertex = vertices.get(begin);
+        if (beginVertex == null) return;
+
+        HashSet<Vertex<V, W>> visitedSet = new HashSet<>();
+        Queue<Vertex<V, W>> queue = new LinkedList<>();
+        queue.offer(beginVertex);
+        visitedSet.add(beginVertex);
+        while (!queue.isEmpty()) {
+            Vertex<V, W> vertex = queue.poll();
+            // 访问
+            if (visitor.visit(vertex.value)) return;
+            // 把outEdges对应to顶点都加入队列中
+            for (Edge<V, W> edge : vertex.outEdges) {
+                // 访问过不再访问
+                if (visitedSet.contains(edge.to)) continue;
+                queue.offer(edge.to);
+                visitedSet.add(edge.to);
+            }
+        }
+    }
+
+    @Override
+    public void dfs(V begin, VertexVisitor<V> visitor) {
+        if (visitor == null) return;
+        Vertex<V, W> beginVertex = vertices.get(begin);
+        if (beginVertex == null) return;
+        // dfs_recursive(beginVertex, visitor, new HashSet<>());
+        dfs_iterator(begin, visitor);
+    }
+
+    /**
+     *  弹出一个顶点vertex
+     *  1. 从顶点的outEdges中取出一条边
+     *  2. 将选择边的from、to按顺序入栈
+     *  3. 访问选择边的to
+     *  4. 将to添加到已访问Set中
+     *  5. break, 深度优先遍历, 要沿着一条路径往下走
+     *
+     */
+    private void dfs_iterator(V begin, VertexVisitor<V> visitor) {
+        Vertex<V, W> beginVertex = vertices.get(begin);
+        if (beginVertex == null) return;
+        HashSet<Vertex<V, W>> visitedSet = new HashSet<>();
+        Stack<Vertex<V, W>> stack = new Stack<>();
+        // 先访问起点
+        if (visitor.visit(begin)) return;
+        visitedSet.add(beginVertex);
+        stack.push(beginVertex);
+
+        while (!stack.isEmpty()) {
+            Vertex<V, W> vertex = stack.pop();
+            for (Edge<V, W> edge : vertex.outEdges) {
+                if (visitedSet.contains(edge.to)) continue;
+                stack.push(edge.from);
+                stack.push(edge.to);
+                if (visitor.visit(edge.to.value)) return;
+                visitedSet.add(edge.to);
+                break;
+            }
+        }
+    }
+
+    private void dfs_recursive(Vertex<V, W> vertex, VertexVisitor<V> visitor, HashSet<Vertex<V, W>> visitedSet) {
+        if (visitedSet.contains(vertex)) return;
+
+        visitor.visit(vertex.value);
+        visitedSet.add(vertex);
+        for (Edge<V, W> edge : vertex.outEdges) {
+            dfs_recursive(edge.to, visitor, visitedSet);
+        }
+    }
+
     private Vertex<V, W> createVertexIfNotExists(V value) {
         Vertex<V, W> vertex = vertices.get(value);
         if (vertex == null) {
@@ -152,10 +227,32 @@ public class ListGraph<V, W> implements Graph<V, W> {
     }
 
     public static void main(String[] args) {
-        test1();
+        // test1();
+        // test_undirectGraph();
+        test_bfs();
     }
 
-    private static void undirectGraph() {
+    private static void test_bfs() {
+        ListGraph<String, Integer> graph = new ListGraph<>();
+
+        graph.addEdge("V1", "V0", 9);
+        graph.addEdge("V1", "V2", 3);
+        graph.addEdge("V2", "V0", 2);
+        graph.addEdge("V2", "V3", 5);
+        graph.addEdge("V3", "V4", 1);
+        graph.addEdge("V0", "V4", 6);
+
+        System.out.println("====== V0 begin =======");
+        graph.bfs("V0", (String value) -> {
+            System.out.println(value);
+            return false;
+        });
+
+        System.out.println("====== V1 begin =======");
+        graph.bfs("V1", null);
+    }
+
+    private static void test_undirectGraph() {
         ListGraph<String, Integer> graph = new ListGraph<>();
         // 用有向图表示无向图, 两个方向都添加一条边就是无向图
         graph.addEdge("V1", "V0");
