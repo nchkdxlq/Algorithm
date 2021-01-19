@@ -170,6 +170,38 @@ public class ListGraph<V, W> implements Graph<V, W> {
         }
     }
 
+    @Override
+    public List<V> topologicSort() {
+        List<V> list = new ArrayList<>();
+        Map<Vertex<V, W>, Integer> vertexInDegreeMap = new HashMap<>();
+        Queue<Vertex<V, W>> queue = new LinkedList<>();
+
+        vertices.forEach((V value, Vertex<V, W> vertex) -> {
+            if (vertex.inEdges.isEmpty()) {
+                queue.offer(vertex);
+            } else {
+                vertexInDegreeMap.put(vertex, vertex.inEdges.size());
+            }
+        });
+
+        while (!queue.isEmpty()) {
+            Vertex<V, W> vertex = queue.poll();
+            list.add(vertex.value);
+
+            for (Edge<V, W> edge : vertex.outEdges) {
+                Integer size = vertexInDegreeMap.get(edge.to);
+                size--;
+                if (size == 0) { // 入度为0, 放入队列
+                    queue.offer(edge.to);
+                } else {
+                    vertexInDegreeMap.put(edge.to, size);
+                }
+            }
+        }
+
+        return list;
+    }
+
     private Vertex<V, W> createVertexIfNotExists(V value) {
         Vertex<V, W> vertex = vertices.get(value);
         if (vertex == null) {

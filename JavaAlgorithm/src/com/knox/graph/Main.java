@@ -1,12 +1,21 @@
 package com.knox.graph;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
         // test_bfs();
-        test_dfs();
+        // test_dfs();
+        test_topo();
     }
 
+    private static void test_topo() {
+        Graph<Object, Double> graph = directedGraph(Data.TOPO);
+        List<Object> list = graph.topologicSort();
+        System.out.println(list);
+        // [3, 1, 0, 2, 5, 7, 6, 4]
+    }
 
     private static void test_bfs() {
         Graph<Object, Double> graph = undirectedGraph(Data.BFS_02);

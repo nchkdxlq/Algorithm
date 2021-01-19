@@ -1,5 +1,7 @@
 package com.knox.graph;
 
+import java.util.List;
+
 public interface Graph<V, W> {
 
     int edgesSize();
@@ -21,6 +23,8 @@ public interface Graph<V, W> {
 
     // 深度优先搜索
     void dfs(V begin, VertexVisitor<V> visitor);
+
+    List<V> topologicSort();
 
     static interface VertexVisitor<V> {
         boolean visit(V value);
