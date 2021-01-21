@@ -73,12 +73,10 @@ public class Fib {
 
         int first = 1;
         int second = 1;
-        int tmp;
         int i = 3;
         while (i <= n) {
-            tmp = second;
             second = first + second;
-            first = tmp;
+            first = second - first;
             i++;
         }
         return second;
