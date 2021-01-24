@@ -11,6 +11,12 @@ public class _0674_findLengthOfLCIS {
             return findLengthOfLCIS_v2(nums);
         }
 
+         /**
+          * 思路: 使用动态规划思想, 算出以nums[i]为结尾的联系递增子序列的长度dp[i],
+          * 然后取dp[i]的最大值。
+          * 时间复杂度: O(n)
+          * 空间复杂度: O(n)
+          */
         private int findLengthOfLCIS_v1(int[] nums) {
             if (nums.length <= 1) return nums.length;
 
@@ -28,6 +34,13 @@ public class _0674_findLengthOfLCIS {
             return max;
         }
 
+         /**
+          * 思路:
+          *   对v1版本解法的优化, 在状态转移方程中dp[i] = dp[i - 1] + 1, 求dp[i]只需要用到前一项的值,
+          *   使用两个变量记录dp[i]和dp[i-1]就可以, 不需要分配一个数组, 达到空间的优化。
+          * 时间复杂度: O(n)
+          * 空间复杂度: O(n)
+          */
          private int findLengthOfLCIS_v2(int[] nums) {
              if (nums.length <= 1) return nums.length;
 
