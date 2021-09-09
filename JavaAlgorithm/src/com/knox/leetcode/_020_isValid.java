@@ -2,7 +2,9 @@ package com.knox.leetcode;
 
 import com.knox.tools.Asserts;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Stack;
 
 
@@ -124,6 +126,13 @@ public class _020_isValid {
 
     public static void main(String[] args) {
         Solution ins = new Solution();
+
+        HashMap<Character, Integer> map = new HashMap();
+        Collection<Integer> idxs = map.values();
+        for (int i = 0; i < idxs.size(); i++) {
+            
+        }
+        map.keySet().toArray();
 
         {
             String str = "";

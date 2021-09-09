@@ -301,6 +301,7 @@ public class BinaryTree<T> implements BinaryTreeInfo {
         if (root == null || visitor == null) return;
         Queue<TreeNode<T>> queue = new LinkedList<>();
         queue.offer(root);
+        Deque<Integer> list = new LinkedList();
 
         while (!queue.isEmpty()) {
             TreeNode<T> node = queue.poll();

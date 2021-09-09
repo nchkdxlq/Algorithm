@@ -160,7 +160,7 @@ public class BinaryHeap<T> implements Heap<T>, BinaryTreeInfo {
     private void siftUp_v2(int index) {
         T element = elements[index];
         while (index > 0) {
-            int parentIndex = index >> 1;
+            int parentIndex = (index - 1) >> 1;
             T parent = elements[parentIndex];
             // <= 0, 则满足二叉堆性质, 退出循环
             if (compare(element, parent) < 0) break;
