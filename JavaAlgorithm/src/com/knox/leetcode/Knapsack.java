@@ -11,7 +11,8 @@ public class Knapsack {
     static class Solution {
 
         int knapsack(int[] weight, int[] value, int c) {
-            return knapsack_v5(weight, value, c);
+            return knapsack_v3(weight, value, c);
+//            return knapsack_v5(weight, value, c);
         }
 
         int knapsack_v5(int[] weight, int[] value, int c) {
@@ -32,18 +33,15 @@ public class Knapsack {
             if  (count == 0 || c == 0) return 0;
 
             int[][] dp = new int[2][c+1];
-            for (int i = 0; i <= c; i++) {
-                dp[0][i] = weight[0] <= i ? value[0] : 0;
-            }
 
-            for (int i = 1; i < count; i++) {
+            for (int i = 1; i <= count; i++) {
                 for (int j = 1; j <= c; j++) {
                     int curIndex = i % 2;
                     int prevIndex = (i - 1) % 2;
                     int ans1 = dp[prevIndex][j];
                     int ans2 = 0;
-                    if (j >= weight[i]) {
-                        ans2 = dp[prevIndex][j - weight[i]] + value[i];
+                    if (j >= weight[i-1]) {
+                        ans2 = dp[prevIndex][j - weight[i-1]] + value[i-1];
                     }
                     dp[curIndex][j] = Math.max(ans1, ans2);
                 }
@@ -57,29 +55,25 @@ public class Knapsack {
             int count = weight.length;
             if  (count == 0 || c == 0) return 0;
 
-            int[][] dp = new int[count][c+1];
+            // dp[i][j]表示从前i个物品中任意取，放进容量为j的背包中，物品的价值总和最大
+            int[][] dp = new int[count+1][c+1];
 
-            // 第0个物品分别放在[0, c]容量的背包中最大价值
-            for (int i = 0; i <= c; i++) {
-                dp[0][i] = weight[0] <= i ? value[0] : 0;
-            }
-
-            for (int i = 1; i < count; i++) {
-                for (int j = 0; j <= c; j++) {
-                    // 1. 不放第i个物品
+            for (int i = 1; i <= count; i++) {
+                for (int j = 1; j <= c; j++) {
+                    // 1. 不放第i-1个物品
                     int ans1 = dp[i-1][j];
-                    // 2. 放第i个物品,
-                    // 2.1 如果weight[i] > j, 超过容量,无法放下, 最大价值为0
-                    // 2.2 如果weight[i] <= j, 需要加上前i-1个物品, j-weight[i]的容量下的最大价值, 即dp[i-1][j - weight[i]]
+                    // 2. 放第i-1个物品,
+                    // 2.1 如果weight[i-1] > j, 超过容量,无法放下, 最大价值为0
+                    // 2.2 如果weight[i-1] <= j, 需要加上前i-1个物品, j-weight[i-1]的容量下的最大价值, 即dp[i-1][j - weight[i-1]]
                     int ans2 = 0;
-                    if (j >= weight[i]) {
-                        ans2 = dp[i-1][j - weight[i]] + value[i];
+                    if (j >= weight[i-1]) {
+                        ans2 = dp[i-1][j - weight[i-1]] + value[i-1];
                     }
                     dp[i][j] = Math.max(ans1, ans2);
                 }
             }
 
-            return dp[count-1][c];
+            return dp[count][c];
         }
 
         // 在knapsack_v1上增加记忆化搜索, 缓存子问题的解

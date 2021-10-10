@@ -1,8 +1,5 @@
 package com.knox.leetcode;
 
-
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.util.*;
 
 class Solution {
@@ -48,5 +45,11 @@ class Solution {
     public static void main(String[] args) {
         Deque<Integer> queue = new LinkedList<>();
         queue.peekLast();
+        String str = "";
+
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((x, y) -> x - y);
+        minHeap.offer(10);
+        minHeap.poll();
     }
 }
