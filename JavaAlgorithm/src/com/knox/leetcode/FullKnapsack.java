@@ -1,5 +1,7 @@
 package com.knox.leetcode;
 
+import java.util.Arrays;
+
 /*
 *
 * 有N件物品和一个最多能背重量为W的背包。第i件物品的重量是weight[i]，得到的价值是value[i] 。
@@ -13,6 +15,48 @@ public class FullKnapsack {
             return knapsack_v2(weight, value, c);
         }
 
+        // 记忆化递归 - 自顶向下的解决问题
+        private int[][] memo;
+        int knapsack_v3(int[] weight, int[] value, int c) {
+            int n = weight.length;
+            memo = new int[n][c+1];
+            for (int i = 0; i < n; i++) {
+                Arrays.fill(memo[i], -1);
+            }
+
+            v3_dfs(weight, value, n-1, c);
+            return memo[n-1][c];
+        }
+
+        /**
+         *  递归解决 - 自顶向下的解决问题
+         *  在物品的[0...index]区间中, 任意选择物品装入背包中, 使得物品总价值最大
+         * @param weight 物品的重量
+         * @param value 物品的价值
+         * @param index 物品的最大下标
+         * @param c 背包的容量
+         * @return 背包所装物品的最大价值
+         */
+        int v3_dfs(int[] weight, int[] value, int index, int c) {
+            if (index < 0 || c <= 0) return 0;
+
+            if (memo[index][c] != -1) return memo[index][c];
+
+            int max = 0;
+            if (c >= weight[index]) {
+                // 不使用下标为index的物品
+                int ans1 = v3_dfs(weight, value, index - 1, c);
+                // 使用下标为index的物品
+                int ans2 = v3_dfs(weight, value, index, c - weight[index]) + value[index];
+                max = Math.max(ans1, ans2);
+            } else { // c比weight[index]小, 无法使用下标为index的物品
+                max = v3_dfs(weight, value, index - 1, c);
+            }
+            memo[index][c] = max;
+            return max;
+        }
+
+        // 动态规划 - 自底向上的解决问题 - 状态压缩
         int knapsack_v2(int[] weight, int[] value, int c) {
             int n = weight.length;
             // dp[i]表示任意取物品放入容量为i的背包中，最大总价值
@@ -30,6 +74,7 @@ public class FullKnapsack {
             return dp[c];
         }
 
+        // 动态规划 - 自底向上的解决问题
         int knapsack_v1(int[] weight, int[] value, int c) {
             int n = weight.length;
 
@@ -71,6 +116,9 @@ public class FullKnapsack {
         System.out.println("v1 = " + ans);
 
         ans = ins.knapsack_v2(w, v, c);
-        System.out.println("v1 = " + ans);
+        System.out.println("v2 = " + ans);
+
+        ans = ins.knapsack_v3(w, v, c);
+        System.out.println("v3 = " + ans);
     }
 }
